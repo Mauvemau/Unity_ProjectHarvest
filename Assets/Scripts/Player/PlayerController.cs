@@ -1,12 +1,18 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour {
 
-    // Player Character Reference here
+    [FormerlySerializedAs("_playerCharacterReference")]
+    [Header("References")] 
+    [SerializeField] private PlayerCharacter playerCharacterReference;
     // Player Weapon Reference here
+    
+    [Header("Movement Settings")]
+    [SerializeField] private float moveSpeed = 1f;
 
     private void MoveCharacter(Vector2 direction) {
-
+        playerCharacterReference?.RequestMovement(direction, moveSpeed);
     }
 
     private void AimWeapon(Vector2 direction) {
@@ -17,6 +23,12 @@ public class PlayerController : MonoBehaviour {
         Debug.Log("Interacted!");
     }
 
+    private void Awake() {
+        if (!playerCharacterReference) {
+            Debug.LogWarning($"{name}: missing reference \"{nameof(playerCharacterReference)}\"");
+        }
+    }
+    
     private void OnEnable() {
         InputManager.OnPlayerMoveInputPerformed += MoveCharacter;
         InputManager.OnPlayerAimInputPerformed += AimWeapon;

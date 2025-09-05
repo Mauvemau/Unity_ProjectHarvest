@@ -12,29 +12,29 @@ public class InputManager : MonoBehaviour {
     public static event Action<Vector2> OnPlayerAimInputPerformed = delegate {};
     public static event Action OnPlayerInteractInputPerformed = delegate {};
 
-    bool shouldReadPlayerInput = false;
+    private bool _shouldReadPlayerInput = false;
 
     // Input Handler Functions
 
     private void HandlePlayerMoveInput(InputAction.CallbackContext ctx) {
-        if (!shouldReadPlayerInput) return;
+        if (!_shouldReadPlayerInput) return;
         OnPlayerMoveInputPerformed?.Invoke(ctx.ReadValue<Vector2>());
     }
 
     private void HandlePlayerAimInput(InputAction.CallbackContext ctx) {
-        if (!shouldReadPlayerInput) return;
+        if (!_shouldReadPlayerInput) return;
         OnPlayerAimInputPerformed?.Invoke(ctx.ReadValue<Vector2>());
     }
 
     private void HandlePlayerInteractInput(InputAction.CallbackContext ctx) {
-        if (!shouldReadPlayerInput) return;
+        if (!_shouldReadPlayerInput) return;
         OnPlayerInteractInputPerformed?.Invoke();
     }
 
     // Init
 
     private void Init() {
-        shouldReadPlayerInput = true;
+        _shouldReadPlayerInput = true;
     }
 
     private void Reset() {
@@ -50,6 +50,8 @@ public class InputManager : MonoBehaviour {
     private void OnEnable() {
         if (playerMoveAction) {
             playerMoveAction.action.started += HandlePlayerMoveInput;
+            playerMoveAction.action.performed += HandlePlayerMoveInput;
+            playerMoveAction.action.canceled += HandlePlayerMoveInput;
         }
         if (playerAimAction) {
             playerAimAction.action.started += HandlePlayerAimInput;
@@ -62,6 +64,8 @@ public class InputManager : MonoBehaviour {
     private void OnDisable() {
         if (playerMoveAction) {
             playerMoveAction.action.started -= HandlePlayerMoveInput;
+            playerMoveAction.action.performed -= HandlePlayerMoveInput;
+            playerMoveAction.action.canceled -= HandlePlayerMoveInput;
         }
         if (playerAimAction) {
             playerAimAction.action.started -= HandlePlayerAimInput;
