@@ -17,7 +17,7 @@ public class PlayerCharacter : MonoBehaviour, IMovable {
     }
 
     public void RequestMovement(Vector2 direction, float speed) {
-        _inputDir = direction;
+        _inputDir = direction.normalized;
         _currentSpeed = speed;
     }
 

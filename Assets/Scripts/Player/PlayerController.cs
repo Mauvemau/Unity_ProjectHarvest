@@ -40,5 +40,4 @@ public class PlayerController : MonoBehaviour {
         InputManager.OnPlayerAimInputPerformed -= AimWeapon;
         InputManager.OnPlayerInteractInputPerformed -= PerformCharacterInteraction;
     }
-
 }
