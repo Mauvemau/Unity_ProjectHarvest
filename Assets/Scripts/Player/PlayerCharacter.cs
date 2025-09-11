@@ -41,6 +41,8 @@ public class PlayerCharacter : MonoBehaviour, IMovable {
     }
     
     private void Awake() {
-        if (!TryGetComponent(out _rb)) return;
+        if (!TryGetComponent(out _rb)) {
+            Debug.LogError($"{name}: missing reference \"{nameof(_rb)}\"");
+        }
     }
 }
