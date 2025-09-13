@@ -12,10 +12,6 @@ public class PlayerCharacter : MonoBehaviour, IMovable {
     private float _slipTimer;
     private float _currentSpeed;
 
-    public void RequestPush(Vector2 direction, float force) {
-        
-    }
-
     public void RequestMovement(Vector2 direction, float speed) {
         _inputDir = direction.normalized;
         _currentSpeed = speed;
