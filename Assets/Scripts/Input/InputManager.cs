@@ -3,10 +3,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour {
-    [Header("Player Action")]
+    [Header("Player Actions")]
     [SerializeField] private InputActionReference playerMoveAction;
     [SerializeField] private InputActionReference playerAimAction;
     [SerializeField] private InputActionReference playerInteractAction;
+
+    [Header("UI Actions")] 
+    [SerializeField] private InputActionReference uiQuitProgramAction;
 
     public static event Action<Vector2> OnPlayerMoveInputPerformed = delegate {};
     public static event Action<Vector2> OnPlayerAimInputPerformed = delegate {};
@@ -16,6 +19,8 @@ public class InputManager : MonoBehaviour {
 
     // Input Handler Functions
 
+    // Player
+    
     private void HandlePlayerMoveInput(InputAction.CallbackContext ctx) {
         if (!_shouldReadPlayerInput) return;
         OnPlayerMoveInputPerformed?.Invoke(ctx.ReadValue<Vector2>());
@@ -31,6 +36,12 @@ public class InputManager : MonoBehaviour {
         OnPlayerInteractInputPerformed?.Invoke();
     }
 
+    // UI
+
+    private void HandleQuitProgramInput(InputAction.CallbackContext ctx) {
+        Application.Quit();
+    }
+    
     // Init
 
     private void Init() {
@@ -48,6 +59,8 @@ public class InputManager : MonoBehaviour {
     // Input Events
 
     private void OnEnable() {
+        // Player Actions
+        
         if (playerMoveAction) {
             playerMoveAction.action.started += HandlePlayerMoveInput;
             playerMoveAction.action.performed += HandlePlayerMoveInput;
@@ -59,9 +72,17 @@ public class InputManager : MonoBehaviour {
         if (playerInteractAction) {
             playerInteractAction.action.started += HandlePlayerInteractInput;
         }
+        
+        // UI Actions
+        
+        if (uiQuitProgramAction) {
+            uiQuitProgramAction.action.started += HandleQuitProgramInput;
+        }
     }
 
     private void OnDisable() {
+        // Player Actions
+        
         if (playerMoveAction) {
             playerMoveAction.action.started -= HandlePlayerMoveInput;
             playerMoveAction.action.performed -= HandlePlayerMoveInput;
@@ -72,6 +93,12 @@ public class InputManager : MonoBehaviour {
         }
         if (playerInteractAction) {
             playerInteractAction.action.started -= HandlePlayerInteractInput;
+        }
+        
+        // UI Actions
+        
+        if (uiQuitProgramAction) {
+            uiQuitProgramAction.action.started -= HandleQuitProgramInput;
         }
     }
 }

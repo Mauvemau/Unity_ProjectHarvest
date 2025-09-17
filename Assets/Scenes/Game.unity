@@ -492,6 +492,7 @@ MonoBehaviour:
   playerMoveAction: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   playerAimAction: {fileID: 482634814814404691, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   playerInteractAction: {fileID: 1781555164194001046, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  uiQuitProgramAction: {fileID: -6245001166417737689, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!4 &1125368742
 Transform:
   m_ObjectHideFlags: 0
