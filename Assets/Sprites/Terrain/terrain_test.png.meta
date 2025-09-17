@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 86637a327effac441b41fb589806dd71
+guid: 56d5c22cedfd46f4590a267313766b1d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6161070754210539384
-    second: witch_0
+      213: 8020143640844766479
+    second: spritesheet_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,12 +100,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: witch_0
+      name: terrain_test_0
       rect:
         serializedVersion: 2
-        x: 4
+        x: 0
         y: 0
-        width: 60
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -113,10 +113,32 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8889b33baca7f7aa0800000000000000
-      internalID: -6161070754210539384
+      spriteID: bc9051f6ada89df42872abe541bbb06a
+      internalID: -666521501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: terrain_test_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 321e19f698fcf1e4fbc75be5eba342a0
+      internalID: 36988939
       vertices: []
       indices: 
       edges: []
@@ -125,7 +147,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 5ed0f07a444a7ec4d89be491eb05e739
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +157,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      witch_0: -6161070754210539384
+      terrain_test_0: -666521501
+      terrain_test_1: 36988939
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

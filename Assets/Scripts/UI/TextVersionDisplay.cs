@@ -3,8 +3,8 @@ using TMPro;
 
 [RequireComponent(typeof(TMP_Text))]
 public class TextVersionDisplay : MonoBehaviour {
-
     [SerializeField] private string versionPrefix = "v";
+    [SerializeField] private string specialVersionText = "";
 
     private TMP_Text _text;
 
@@ -14,6 +14,6 @@ public class TextVersionDisplay : MonoBehaviour {
             return;
         }
 
-        _text.text = $"{versionPrefix}{Application.version}";
+        _text.text = $"{specialVersionText} {versionPrefix}{Application.version}";
     }
 }

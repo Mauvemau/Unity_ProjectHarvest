@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: d8f37702cd437be458ad7c8fd4444c6a
+guid: 7fd9f5b4c2a517e4cabbdcb92b9d4768
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7150230853980667685
-    second: mandrake_0
+      213: 7250238595965136130
+    second: UnCuarto_0
   - first:
-      213: 4480834927746970099
-    second: mandrake_1
+      213: 341489039773982531
+    second: UnCuarto_1
   - first:
-      213: 385686671763389344
-    second: mandrake_2
+      213: -5963331193374682733
+    second: UnCuarto_2
   - first:
-      213: -2351246406450329956
-    second: mandrake_3
+      213: -1172674399913214194
+    second: UnCuarto_3
+  - first:
+      213: 3583927688714236319
+    second: UnCuarto_4
+  - first:
+      213: -6427230674133694961
+    second: UnCuarto_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -60,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,89 +115,155 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mandrake_0
+      name: vfx_scythe_90_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 52f3e810419ba3360800000000000000
-      internalID: 7150230853980667685
+      spriteID: a3299d958c4295a419588fe02363d736
+      internalID: 2038677685
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mandrake_1
+      name: vfx_scythe_90_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 200
         y: 0
-        width: 64
-        height: 64
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3f1758550af1f2e30800000000000000
-      internalID: 4480834927746970099
+      spriteID: 30b2b4c1518a7324a8ca708769bf21bd
+      internalID: 87417366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mandrake_2
+      name: vfx_scythe_90_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 400
         y: 0
-        width: 64
-        height: 64
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0ab3f090cfb3a5500800000000000000
-      internalID: 385686671763389344
+      spriteID: b53ccbfcffe53cc418af9074ef37f4e0
+      internalID: -198228973
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mandrake_3
+      name: vfx_scythe_90_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 600
         y: 0
-        width: 64
-        height: 64
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c964d1cc9d1be5fd0800000000000000
-      internalID: -2351246406450329956
+      spriteID: b2afdd7df0965004f8c115ca1e19f900
+      internalID: 1234012546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vfx_scythe_90_4
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 509a478f2555d6a46aa679e2409740e8
+      internalID: 122109593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vfx_scythe_90_5
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3b2270a18e8a624dbf494dae2446e8a
+      internalID: -1265167567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vfx_scythe_90_6
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d394bb67eb47aaa4e8fd8e693f38c90f
+      internalID: -674594814
       vertices: []
       indices: 
       edges: []
@@ -200,7 +272,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 16b1fb5aeed87704ca080e68c81718c5
+    spriteID: 502a77a277b3bd84482001413f01fff9
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +282,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      mandrake_0: 7150230853980667685
-      mandrake_1: 4480834927746970099
-      mandrake_2: 385686671763389344
-      mandrake_3: -2351246406450329956
+      vfx_scythe_90_0: 2038677685
+      vfx_scythe_90_1: 87417366
+      vfx_scythe_90_2: -198228973
+      vfx_scythe_90_3: 1234012546
+      vfx_scythe_90_4: 122109593
+      vfx_scythe_90_5: -1265167567
+      vfx_scythe_90_6: -674594814
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

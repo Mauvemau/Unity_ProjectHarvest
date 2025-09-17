@@ -1,22 +1,40 @@
 fileFormatVersion: 2
-guid: fc4736a3f9a1ee349846a002abc347c4
+guid: 4a0039aaf70dd6349b0a4e64060e524e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9115938624207856695
-    second: sprite_sheet_0
+      213: 1579347438514900721
+    second: MITAD SPRITE_0
   - first:
-      213: -8198574232401945530
-    second: sprite_sheet_1
+      213: 300243260412080789
+    second: MITAD SPRITE_1
   - first:
-      213: 7710496705314228017
-    second: sprite_sheet_2
+      213: 7205069140455913482
+    second: MITAD SPRITE_2
   - first:
-      213: -5321099399631716182
-    second: sprite_sheet_3
+      213: 6232258094051789455
+    second: MITAD SPRITE_3
   - first:
-      213: -1793167431768321461
-    second: sprite_sheet_4
+      213: -8438599414885027123
+    second: MITAD SPRITE_4
+  - first:
+      213: 3202673153790371215
+    second: MITAD SPRITE_5
+  - first:
+      213: 7337409071745542222
+    second: MITAD SPRITE_6
+  - first:
+      213: -1126315743791853962
+    second: MITAD SPRITE_7
+  - first:
+      213: 1297883514723538601
+    second: MITAD SPRITE_8
+  - first:
+      213: 4784234406187544812
+    second: MITAD SPRITE_9
+  - first:
+      213: -5403211957182820745
+    second: MITAD SPRITE_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -112,7 +130,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: vfx_attack_90_0
+      name: vfx_scythe_180_0
       rect:
         serializedVersion: 2
         x: 0
@@ -127,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 281912c3617591849a854930179a490b
-      internalID: -10147904
+      spriteID: 4645e15f22f21c34895546eec8978170
+      internalID: -911384222
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vfx_attack_90_1
+      name: vfx_scythe_180_1
       rect:
         serializedVersion: 2
         x: 200
@@ -149,14 +167,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b566dfa01a0f7d84fb8f9e9b003a43f1
-      internalID: -1483576123
+      spriteID: 7953eba8db9ba39499db8447271db90d
+      internalID: -616674135
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vfx_attack_90_2
+      name: vfx_scythe_180_2
       rect:
         serializedVersion: 2
         x: 400
@@ -171,14 +189,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cf6e33117eaaca4ea7f11bbe0e4540f
-      internalID: 1193493758
+      spriteID: db277210192bfcc45a3d8fa552b025f3
+      internalID: 1165845580
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vfx_attack_90_3
+      name: vfx_scythe_180_3
       rect:
         serializedVersion: 2
         x: 600
@@ -193,14 +211,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 840d79a530dbb714eb4a8cfbd6e9f229
-      internalID: -944642640
+      spriteID: 9ecfd352c3412c145abe11c392f716ea
+      internalID: -1064894823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vfx_attack_90_4
+      name: vfx_scythe_180_4
       rect:
         serializedVersion: 2
         x: 800
@@ -215,14 +233,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f48cc52d51e38c949a710a65082adab6
-      internalID: 134160075
+      spriteID: c6f2651dba61c0f45b76baae32b94117
+      internalID: 186418533
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vfx_attack_90_5
+      name: vfx_scythe_180_5
       rect:
         serializedVersion: 2
         x: 1000
@@ -237,14 +255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8c342189023182469bbae520b91a767
-      internalID: 22750965
+      spriteID: 600233ab18e1bee40bb683dc883fbb4f
+      internalID: -1971903713
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vfx_attack_90_6
+      name: vfx_scythe_180_6
       rect:
         serializedVersion: 2
         x: 1200
@@ -259,8 +277,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0f9c2c5c2441264d90765dbc87f9c8c
-      internalID: -738937661
+      spriteID: 9d7253dcdec875e4c8bf5771422d00e8
+      internalID: -908224304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vfx_scythe_180_7
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22194bd18cf8c7348be3729426e3c9a8
+      internalID: 40937128
       vertices: []
       indices: 
       edges: []
@@ -269,7 +309,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: cf4fc59e412726c4086adc28918c6fc3
+    spriteID: 40bf617add622c6459636ce11a461a96
     internalID: 0
     vertices: []
     indices: 
@@ -279,13 +319,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      vfx_attack_90_0: -10147904
-      vfx_attack_90_1: -1483576123
-      vfx_attack_90_2: 1193493758
-      vfx_attack_90_3: -944642640
-      vfx_attack_90_4: 134160075
-      vfx_attack_90_5: 22750965
-      vfx_attack_90_6: -738937661
+      vfx_scythe_180_0: -911384222
+      vfx_scythe_180_1: -616674135
+      vfx_scythe_180_2: 1165845580
+      vfx_scythe_180_3: -1064894823
+      vfx_scythe_180_4: 186418533
+      vfx_scythe_180_5: -1971903713
+      vfx_scythe_180_6: -908224304
+      vfx_scythe_180_7: 40937128
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
