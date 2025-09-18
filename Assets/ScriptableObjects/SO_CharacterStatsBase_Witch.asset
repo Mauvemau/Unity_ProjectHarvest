@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1bc3c2a09d1cdb4e8e16f3c2dfd742d, type: 3}
   m_Name: SO_CharacterStatsBase_Witch
   m_EditorClassIdentifier: 
-  playerStats:
+  <Stats>k__BackingField:
     maxHealth: 10
     attackDamage: 1
     attackRateInSeconds: 1
     attackSizeMultiplier: 1
-    movementSpeed: 5
+    movementSpeed: 6
     luckBonusPercentage: 1
     experienceGainMultiplier: 1
     moneyGainMultiplier: 1
