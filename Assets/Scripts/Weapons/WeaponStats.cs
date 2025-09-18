@@ -4,5 +4,5 @@ using UnityEngine;
 public class WeaponStats {
     [Min(0)] public float attackDamage;
     [Min(0)] public float attackRateInSeconds;
-    [Min(0)] public float attackSizeMultiplier;
+    [Min(0)] public float attackSize;
 }
