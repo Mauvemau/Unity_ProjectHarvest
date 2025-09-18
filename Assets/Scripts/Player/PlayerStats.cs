@@ -3,12 +3,11 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerStats {
     public float maxHealth;
-    public float defense;
     public float attackDamage;
-    public float attackRate;
-    public float attackSize;
+    public float attackRateInSeconds;
+    public float attackSizeMultiplier;
     public float movementSpeed;
-    public float luck;
-    public float experienceGainRate;
-    public float moneyGainRate;
+    public float luckBonusPercentage;
+    public float experienceGainMultiplier;
+    public float moneyGainMultiplier;
 }
