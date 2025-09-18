@@ -2,7 +2,7 @@ using UnityEngine;
 
 [System.Serializable]
 public class WeaponStats {
-    public float attackDamage;
-    public float attackRateInSeconds;
-    public float attackSizeMultiplier;
+    [Min(0)] public float attackDamage;
+    [Min(0)] public float attackRateInSeconds;
+    [Min(0)] public float attackSizeMultiplier;
 }
