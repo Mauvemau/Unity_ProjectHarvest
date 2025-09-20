@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -84,7 +85,7 @@ public class Enemy : MonoBehaviour, IDamageable, IPushable {
     
     //
 
-    private void HandleTrigger(Collider2D col) {
+    private void HandleCollision(Collision2D col) {
         if (!_alive || !threatTargetReference) return;
         if(col.gameObject.TryGetComponent<PlayerCharacter>(out var player)) {
             Debug.Log($"{name}: Triggered enter player");
@@ -110,11 +111,11 @@ public class Enemy : MonoBehaviour, IDamageable, IPushable {
         }
         Revive();
     }
-    
-    private void OnTriggerEnter2D(Collider2D collision) {
-        HandleTrigger(collision);
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        HandleCollision(other);
     }
-    
+
     private void FixedUpdate() {
         HandleMovementBehaviour();
     }

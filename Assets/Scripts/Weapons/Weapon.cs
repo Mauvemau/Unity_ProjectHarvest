@@ -3,19 +3,22 @@ using UnityEngine;
 public abstract class Weapon : MonoBehaviour, IWeapon {
     [Header("Base Stats")]
     [field: SerializeField] public WeaponStats BaseStats { get; protected set; }
-    /*[HideInInspector]*/ protected WeaponStats currentStats;
+    protected WeaponStats currentStats;
+    
     [Header("Base Settings")]
     [SerializeField] protected LayerMask targetLayer;
 
-    protected Vector2 _aimDirection;
-    protected float _nextAttack;
+    protected Vector2 aimDirection;
+    protected float nextAttack;
 
     private void InitWeaponStats() {
         currentStats = BaseStats;
+        aimDirection = Vector2.right;
+        nextAttack = 0;
     }
 
     public void AimWeapon(Vector2 direction) {
-        _aimDirection = direction;
+        aimDirection = direction;
     }
 
     protected virtual void OnAwake() { }
