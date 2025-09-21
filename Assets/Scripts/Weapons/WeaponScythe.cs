@@ -92,11 +92,8 @@ public class WeaponScythe : Weapon {
         bool fullCircle = Mathf.Approximately(attackAngle, 360f);
 
         foreach (var col in hits) {
-            Debug.Log("Object in range");
-            if (!col.TryGetComponent<Enemy>(out var enemy))
+            if (!col.TryGetComponent<IDamageable>(out var damageable))
                 continue;
-
-            Debug.Log("Object is enemy");
             
             Vector2 toEnemy = ((Vector2)col.transform.position - (Vector2)transform.position);
             Vector2 pushDir = toEnemy.normalized;
@@ -107,8 +104,10 @@ public class WeaponScythe : Weapon {
                     continue;
             }
             
-            enemy.TakeDamage(1);
-            enemy.RequestPush(pushDir, pushForce);
+            damageable.TakeDamage(1);
+            if (col.TryGetComponent<IPushable>(out var pushable)) {
+                pushable.RequestPush(pushDir, pushForce);
+            }
         }
         
         if (_colorCrossFadeRoutine != null)
