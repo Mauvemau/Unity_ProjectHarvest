@@ -15,10 +15,6 @@ public class PlayerController : MonoBehaviour {
         playerCharacterReference?.RequestMovement(direction, moveSpeed);
     }
 
-    private void AimWeapon(Vector2 direction) {
-
-    }
-
     private void PerformCharacterInteraction() {
         Debug.Log("Interacted!");
     }
@@ -31,13 +27,11 @@ public class PlayerController : MonoBehaviour {
     
     private void OnEnable() {
         InputManager.OnPlayerMoveInputPerformed += MoveCharacter;
-        InputManager.OnPlayerAimInputPerformed += AimWeapon;
         InputManager.OnPlayerInteractInputPerformed += PerformCharacterInteraction;
     }
 
     private void OnDisable() {
         InputManager.OnPlayerMoveInputPerformed -= MoveCharacter;
-        InputManager.OnPlayerAimInputPerformed -= AimWeapon;
         InputManager.OnPlayerInteractInputPerformed -= PerformCharacterInteraction;
     }
 }

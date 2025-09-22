@@ -1,8 +1,7 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
-public class CameraController : MonoBehaviour {
+public class CameraController : MonoBehaviour, IControllableCamera {
     [Header("Movement Settings")] 
     [SerializeField] private GameObject targetReference;
 
@@ -12,6 +11,10 @@ public class CameraController : MonoBehaviour {
     private Bounds _mapBounds;
     private Camera _cam;
 
+    public Vector3 GetScreenToWorldPoint(Vector2 mousePosition) {
+        return _cam.ScreenToWorldPoint(mousePosition);
+    }
+    
     private void LateUpdate() {
         if (!targetReference || !_cam) return;
 
@@ -36,8 +39,10 @@ public class CameraController : MonoBehaviour {
     
     private void Awake() {
         if (!TryGetComponent(out _cam)) return;
-        
         if (!mapBoundsReference) return;
+        
+        ServiceLocator.SetService<IControllableCamera>(this);
+        
         Renderer r = mapBoundsReference.GetComponent<Renderer>();
         if (r != null) {
             _mapBounds = r.bounds;

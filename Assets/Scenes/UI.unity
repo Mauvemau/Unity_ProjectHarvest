@@ -585,7 +585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   versionPrefix: v
-  specialVersionText: AssetTest
+  specialVersionText: Pre-Release
 --- !u!1 &2018067449
 GameObject:
   m_ObjectHideFlags: 0

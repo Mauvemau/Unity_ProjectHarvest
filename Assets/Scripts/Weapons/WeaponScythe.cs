@@ -1,7 +1,9 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// A weapon that attacks in a circular angle area of effect around the player.
+/// </summary>
 [RequireComponent(typeof(Collider2D))]
 public class WeaponScythe : Weapon {
     [Header("Weapon Specific Stats")]
@@ -60,17 +62,17 @@ public class WeaponScythe : Weapon {
         _lineRenderer.startWidth = lineWidth;
         _lineRenderer.endWidth = lineWidth;
 
-        float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+        float aimAngle = Mathf.Atan2(AimDirection.y, AimDirection.x) * Mathf.Rad2Deg;
         float startAngle = aimAngle - attackAngle / 2f;
 
         Vector3[] positions = new Vector3[arcSegments + 2];
 
         positions[0] = Vector3.zero;
-        positions[1] = DirFromAngle(startAngle) * currentStats.attackSize;
+        positions[1] = DirFromAngle(startAngle) * CurrentStats.attackSize;
 
         for (int i = 0; i <= arcSegments; i++) {
             float currentAngle = startAngle + (attackAngle / arcSegments) * i;
-            positions[i + 1] = DirFromAngle(currentAngle) * currentStats.attackSize;
+            positions[i + 1] = DirFromAngle(currentAngle) * CurrentStats.attackSize;
         }
 
         positions[arcSegments + 1] = Vector3.zero;
@@ -80,12 +82,12 @@ public class WeaponScythe : Weapon {
     }
 
     private void HandleAttack() {
-        if (Time.time < nextAttack) return;
-        nextAttack = Time.time + currentStats.attackRateInSeconds;
+        if (Time.time < NextAttack) return;
+        NextAttack = Time.time + CurrentStats.attackRateInSeconds;
         
         Collider2D[] hits = Physics2D.OverlapCircleAll(
             transform.position, 
-            currentStats.attackSize * transform.lossyScale.x,
+            CurrentStats.attackSize * transform.lossyScale.x,
             targetLayer
         );
 
@@ -99,7 +101,7 @@ public class WeaponScythe : Weapon {
             Vector2 pushDir = toEnemy.normalized;
 
             if (!fullCircle) {
-                float angleToEnemy = Vector2.Angle(aimDirection, pushDir);
+                float angleToEnemy = Vector2.Angle(AimDirection, pushDir);
                 if (angleToEnemy > attackAngle / 2f)
                     continue;
             }
@@ -134,6 +136,6 @@ public class WeaponScythe : Weapon {
             return;
         }
         _collider.isTrigger = true;
-        _collider.radius = currentStats.attackSize;
+        _collider.radius = CurrentStats.attackSize;
     }
 }

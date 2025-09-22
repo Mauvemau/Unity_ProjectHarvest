@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 376755023}
   - component: {fileID: 376755022}
   - component: {fileID: 376755020}
+  - component: {fileID: 376755024}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -346,6 +347,18 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.0001
+--- !u!114 &376755024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376755019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 412c551587dc418df8f8dbf81893ca86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &633214493
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,8 +653,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMoveAction: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   playerAimAction: {fileID: 482634814814404691, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  playerAimContinuousAction: {fileID: -7393430844454170723, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   playerInteractAction: {fileID: 1781555164194001046, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   uiQuitProgramAction: {fileID: -6245001166417737689, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  stickDeadZone: 0.3
 --- !u!4 &1125368742
 Transform:
   m_ObjectHideFlags: 0
