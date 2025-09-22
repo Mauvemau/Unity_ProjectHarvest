@@ -106,7 +106,7 @@ public class WeaponScythe : Weapon {
                     continue;
             }
             
-            damageable.TakeDamage(1);
+            damageable.TakeDamage(CurrentStats.attackDamage);
             if (col.TryGetComponent<IPushable>(out var pushable)) {
                 pushable.RequestPush(pushDir, pushForce);
             }

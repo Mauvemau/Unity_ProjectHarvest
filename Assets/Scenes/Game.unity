@@ -177,6 +177,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3529738234245799113, guid: 637b9d4b9c5081247a9c11aff171998e, type: 3}
+      propertyPath: threatTargetReference
+      value: 
+      objectReference: {fileID: 3431711331352404106}
     - target: {fileID: 4210210132979722889, guid: 637b9d4b9c5081247a9c11aff171998e, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
@@ -416,7 +420,7 @@ MonoBehaviour:
   playerAimContinuousAction: {fileID: -7393430844454170723, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   playerInteractAction: {fileID: 1781555164194001046, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   uiQuitProgramAction: {fileID: -6245001166417737689, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  stickDeadZone: 0.3
+  stickDeadZone: 0.2
 --- !u!4 &1125368742
 Transform:
   m_ObjectHideFlags: 0
@@ -440,6 +444,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3529738234245799113, guid: 637b9d4b9c5081247a9c11aff171998e, type: 3}
+      propertyPath: threatTargetReference
+      value: 
+      objectReference: {fileID: 3431711331352404106}
     - target: {fileID: 4210210132979722889, guid: 637b9d4b9c5081247a9c11aff171998e, type: 3}
       propertyPath: m_Name
       value: Enemy (2)
@@ -5172,11 +5180,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 8764846164163107489, guid: dbcfed1e5bc403b49997de8a71b6dc3e, type: 3}
+      propertyPath: <BaseStats>k__BackingField.attackDamage
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbcfed1e5bc403b49997de8a71b6dc3e, type: 3}
+--- !u!1 &3431711331352404106 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6185150928903746312, guid: dbcfed1e5bc403b49997de8a71b6dc3e, type: 3}
+  m_PrefabInstance: {fileID: 3431711331352404105}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3754552571016367226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5185,6 +5202,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3529738234245799113, guid: 637b9d4b9c5081247a9c11aff171998e, type: 3}
+      propertyPath: threatTargetReference
+      value: 
+      objectReference: {fileID: 3431711331352404106}
     - target: {fileID: 4210210132979722889, guid: 637b9d4b9c5081247a9c11aff171998e, type: 3}
       propertyPath: m_Name
       value: Enemy
