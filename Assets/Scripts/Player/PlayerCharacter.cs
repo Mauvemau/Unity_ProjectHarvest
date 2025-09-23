@@ -17,6 +17,10 @@ public class PlayerCharacter : MonoBehaviour, IMovable {
         _currentSpeed = speed;
     }
 
+    public Vector2 GetMovementDirection() {
+        return _inputDir.normalized;
+    }
+
     private void HandlePhysics() {
         if (_inputDir.sqrMagnitude > 0f) {
             _slipTimer = 0f;

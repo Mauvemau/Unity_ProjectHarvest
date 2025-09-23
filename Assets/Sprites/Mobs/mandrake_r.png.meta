@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: d8f37702cd437be458ad7c8fd4444c6a
+guid: 369eba9f4675cb747b1e650715061f3e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7150230853980667685
-    second: mandrake_0
+      213: 2764721324192335866
+    second: spritesheetMan_0
   - first:
-      213: 4480834927746970099
-    second: mandrake_1
+      213: 4962947461422396259
+    second: spritesheetMan_1
   - first:
-      213: 385686671763389344
-    second: mandrake_2
+      213: -4355300760942661242
+    second: spritesheetMan_2
   - first:
-      213: -2351246406450329956
-    second: mandrake_3
+      213: 3981472042745291351
+    second: spritesheetMan_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,7 +109,51 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mandrake_0
+      name: mandrake_r_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da27bc39b152bbe4a9fa50ed18a5b4b6
+      internalID: -325619855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mandrake_r_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09cbec6735ed909469c8eb7c06778b2d
+      internalID: 258852765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mandrake_r_2
       rect:
         serializedVersion: 2
         x: 0
@@ -122,16 +166,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 52f3e810419ba3360800000000000000
-      internalID: 7150230853980667685
+      spriteID: fb31f486493ebf146b48d8343ad79af1
+      internalID: -1764309814
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mandrake_1
+      name: mandrake_r_3
       rect:
         serializedVersion: 2
         x: 64
@@ -144,54 +188,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3f1758550af1f2e30800000000000000
-      internalID: 4480834927746970099
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mandrake_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0ab3f090cfb3a5500800000000000000
-      internalID: 385686671763389344
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mandrake_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c964d1cc9d1be5fd0800000000000000
-      internalID: -2351246406450329956
+      spriteID: 7d3c4678de66057488358a6d90080e1c
+      internalID: -651030905
       vertices: []
       indices: 
       edges: []
@@ -200,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 16b1fb5aeed87704ca080e68c81718c5
+    spriteID: e62fa459981f3d0479fb5ed7098ff068
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      mandrake_0: 7150230853980667685
-      mandrake_1: 4480834927746970099
-      mandrake_2: 385686671763389344
-      mandrake_3: -2351246406450329956
+      mandrake_r_0: -325619855
+      mandrake_r_1: 258852765
+      mandrake_r_2: -1764309814
+      mandrake_r_3: -651030905
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

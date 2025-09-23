@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Enemy : MonoBehaviour, IDamageable, IPushable {
+public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
     [Header("References")] 
     [SerializeField] private GameObject threatTargetReference;
     
@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour, IDamageable, IPushable {
 
     private Rigidbody2D _rb;
     private bool _alive;
+    private Vector2 _movementDirection;
     private Vector2 _pushVelocity;
 
     [ContextMenu("Debug - Revive")]
@@ -78,6 +79,14 @@ public class Enemy : MonoBehaviour, IDamageable, IPushable {
         _pushVelocity = direction * force;
     }
 
+    public void RequestMovement(Vector2 direction, float speed) {
+        Debug.LogWarning($"{name}: trying to request movement on an entity that can't be externally moved!");
+    }
+
+    public Vector2 GetMovementDirection() {
+        return _movementDirection.normalized;
+    }
+
     public void SetThreatTarget(GameObject target) {
         threatTargetReference = target;
     }
@@ -94,9 +103,9 @@ public class Enemy : MonoBehaviour, IDamageable, IPushable {
     private void HandleMovementBehaviour() {
         if (!_rb || !_alive || !threatTargetReference) return;
 
-        Vector2 direction = (threatTargetReference.transform.position - transform.position).normalized;
-        Vector2 move = direction * (movementSpeed * Time.fixedDeltaTime);
+        _movementDirection = (threatTargetReference.transform.position - transform.position).normalized;
         
+        Vector2 move = _movementDirection * (movementSpeed * Time.fixedDeltaTime);
         Vector2 newPosition = _rb.position + move + _pushVelocity * Time.fixedDeltaTime;
 
         _rb.MovePosition(newPosition);
