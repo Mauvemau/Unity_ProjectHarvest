@@ -1,10 +1,14 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
     [Header("References")] 
+    [Tooltip("The entity to target for behaviour")]
     [SerializeField] private GameObject threatTargetReference;
+    [Tooltip("A health bar will be updated based on the entity's health values if set")]
+    [SerializeField] private HealthBar healthBarReference;
     
     [Header("Health Settings")] 
     [SerializeField] private float maxHealth = 10f;
@@ -14,8 +18,11 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
     [SerializeField] private float movementSpeed = 1f;
 
     [Header("General Settings")] 
+    [Tooltip("Finds a PlayerCharacter and assigns it as threat target reference automatically")]
     [SerializeField] private bool findPlayer = false;
-
+    [Tooltip("The GameObject is disabled if currentHealth reaches 0")]
+    [SerializeField] private bool disableOnDeath = false;
+    
     private Rigidbody2D _rb;
     private bool _alive;
     private Vector2 _movementDirection;
@@ -26,6 +33,7 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
         if (_alive) return;
         currentHealth = maxHealth;
         _alive = true;
+        UpdateHealthBar();
     }
     
     [ContextMenu("Debug - Kill")]
@@ -33,6 +41,10 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
         if (!_alive) return;
         currentHealth = 0;
         _alive = false;
+        
+        if (disableOnDeath) {
+            gameObject.SetActive(false);
+        }
     }
     
     public void SetMaxHealth(float value) {
@@ -49,6 +61,8 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
         maxHealth = value;
         currentHealth = healthPercent * maxHealth;
         
+        UpdateHealthBar();
+        
         if (currentHealth > maxHealth) {
             currentHealth = maxHealth;
         }
@@ -60,6 +74,9 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
     public void SetCurrentHealth(float value) {
         if (!_alive) return;
         currentHealth = value;
+
+        UpdateHealthBar();
+        
         if (currentHealth > maxHealth) {
             currentHealth = maxHealth;            
         }
@@ -107,9 +124,16 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
     
     //
 
-    private void HandleCollision(Collision2D col) {
+    private void UpdateHealthBar() {
+        if (!healthBarReference) return;
+        healthBarReference.SetMaxValue(maxHealth);
+        healthBarReference.SetCurrentValue(currentHealth);
+        healthBarReference.gameObject.SetActive(currentHealth < maxHealth);
+    }
+
+    private void HandleTrigger(Collider other) {
         if (!_alive || !threatTargetReference) return;
-        if(col.gameObject.TryGetComponent(out PlayerCharacter player)) {
+        if(other.gameObject.TryGetComponent(out PlayerCharacter player)) {
             Debug.Log($"{name}: Triggered enter player");
         }
     }
@@ -134,8 +158,8 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
         Revive();
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        HandleCollision(other);
+    private void OnTriggerEnter(Collider other) {
+        HandleTrigger(other);
     }
 
     private void FixedUpdate() {
