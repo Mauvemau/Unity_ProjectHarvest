@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -11,6 +12,9 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
 
     [Header("Movement Settings")] 
     [SerializeField] private float movementSpeed = 1f;
+
+    [Header("General Settings")] 
+    [SerializeField] private bool findPlayer = false;
 
     private Rigidbody2D _rb;
     private bool _alive;
@@ -72,7 +76,6 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
         SetCurrentHealth(currentHealth - damage);
     }
     
-    
     public void RequestPush(Vector2 direction, float force) {
         if(!_alive) return;
         if (!_rb) return;
@@ -87,6 +90,17 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
         return _movementDirection.normalized;
     }
 
+    [ContextMenu("Debug - Find Player")]
+    private void TryFindThreatTarget() {
+        if (!findPlayer || !ServiceLocator.TryGetService(out PlayerCharacter player)) return;
+        if (player == null) {
+            Debug.LogWarning($"{name}: Unable to find threat target!");
+        }
+        else {
+            threatTargetReference = player.gameObject;
+        }
+    }
+    
     public void SetThreatTarget(GameObject target) {
         threatTargetReference = target;
     }
@@ -95,7 +109,7 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
 
     private void HandleCollision(Collision2D col) {
         if (!_alive || !threatTargetReference) return;
-        if(col.gameObject.TryGetComponent<PlayerCharacter>(out var player)) {
+        if(col.gameObject.TryGetComponent(out PlayerCharacter player)) {
             Debug.Log($"{name}: Triggered enter player");
         }
     }
@@ -131,5 +145,9 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
     private void Awake() {
         BaseInit();
     }
-    
+
+    private void OnEnable() {
+        Revive();
+        TryFindThreatTarget();
+    }
 }
