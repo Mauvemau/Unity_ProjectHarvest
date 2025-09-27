@@ -1,9 +1,8 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class SpawnerPh : MonoBehaviour {
     [Header("Pool Settings")]
-    [SerializeField] private MyObjectPool spawnPool;
+    [SerializeField] private ObjectPoolController poolController;
     
     [Header("Spawning Settings")]
     [SerializeField] private bool spawn = true;
@@ -11,10 +10,6 @@ public class SpawnerPh : MonoBehaviour {
     [SerializeField, Min(0)] private float spawnInterval = 1f;
     
     private float _nextSpawn = 0f;
-    
-    private void Awake() {
-        spawnPool.Initialize(gameObject);
-    }
 
     private void Update() {
         if (!spawn) return;
@@ -26,6 +21,6 @@ public class SpawnerPh : MonoBehaviour {
         Vector3 randomOffset = new Vector3(x, y, 0f);
         Vector3 spawnPos = transform.position + randomOffset;
         
-        spawnPool.PoolRequest(spawnPos, Quaternion.identity, Vector3.one);
+        poolController.PerformPoolRequest(spawnPos);
     }
 }
