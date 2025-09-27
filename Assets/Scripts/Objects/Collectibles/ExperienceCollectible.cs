@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ExperienceCollectable : Collectable {
+public class ExperienceCollectible : Collectible {
     [Header("Collectable Specific Settings")]
     [SerializeField] private float experienceAmount = 1f;
 

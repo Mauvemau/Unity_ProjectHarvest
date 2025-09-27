@@ -39,10 +39,9 @@ public class CameraController : MonoBehaviour, IControllableCamera {
     
     private void Awake() {
         if (!TryGetComponent(out _cam)) return;
-        if (!mapBoundsReference) return;
-        
         ServiceLocator.SetService<IControllableCamera>(this);
         
+        if (!mapBoundsReference) return;
         Renderer r = mapBoundsReference.GetComponent<Renderer>();
         if (r != null) {
             _mapBounds = r.bounds;

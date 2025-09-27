@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]
-public abstract class Collectable : MonoBehaviour, ICollectable {
+public abstract class Collectible : MonoBehaviour, ICollectable {
     [Header("Collect Animation Settings")]
     [SerializeField] private float collectAnimationDuration = .2f;
     [SerializeField] private AnimationCurve animationCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
@@ -21,6 +21,7 @@ public abstract class Collectable : MonoBehaviour, ICollectable {
         }
 
         transform.position = endPoint;
+        OnCollect();
         gameObject.SetActive(false);
     }
 
@@ -29,8 +30,7 @@ public abstract class Collectable : MonoBehaviour, ICollectable {
     public void Collect(GameObject collector) {
         if (_collected) return;
         _collected = true;
-
-        OnCollect();
+        
         if (!collector) return;
         StartCoroutine(PerformCollectAnimation(transform.position, collector.transform.position));
     }
