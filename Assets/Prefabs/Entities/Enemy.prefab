@@ -117,6 +117,10 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   movementSpeed: 1.5
+  dropManager:
+    drops:
+    - onRequestDropChannel: {fileID: 11400000, guid: eef0f3b314f29a04f87e63a38c1834cc, type: 2}
+      <DropChance>k__BackingField: 1
   findPlayer: 1
   disableOnDeath: 1
 --- !u!114 &2988119223851631035
@@ -310,7 +314,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: -325619855, guid: 369eba9f4675cb747b1e650715061f3e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

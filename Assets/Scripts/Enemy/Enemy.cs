@@ -17,6 +17,9 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
     [Header("Movement Settings")] 
     [SerializeField] private float movementSpeed = 1f;
 
+    [Header("Drops Settings")] 
+    [SerializeField] private DropManager dropManager;
+    
     [Header("General Settings")] 
     [Tooltip("Finds a PlayerCharacter and assigns it as threat target reference automatically")]
     [SerializeField] private bool findPlayer = false;
@@ -41,6 +44,8 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
         if (!_alive) return;
         currentHealth = 0;
         _alive = false;
+        
+        dropManager.HandleRequestDrops(transform.position);
         
         if (disableOnDeath) {
             gameObject.SetActive(false);
