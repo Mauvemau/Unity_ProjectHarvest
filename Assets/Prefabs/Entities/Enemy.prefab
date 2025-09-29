@@ -120,7 +120,7 @@ MonoBehaviour:
   dropManager:
     drops:
     - onRequestDropChannel: {fileID: 11400000, guid: eef0f3b314f29a04f87e63a38c1834cc, type: 2}
-      <DropChance>k__BackingField: 1
+      <DropChance>k__BackingField: 0.9
   findPlayer: 1
   disableOnDeath: 1
 --- !u!114 &2988119223851631035

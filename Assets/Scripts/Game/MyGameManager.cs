@@ -1,5 +1,5 @@
-using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour {
     [Header("Global Variables")]
@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private int coinsHeld;
     
     private void Awake() {
+        Random.InitState(System.DateTime.Now.Millisecond);
         globalVariableManager.Init();
     }
     
