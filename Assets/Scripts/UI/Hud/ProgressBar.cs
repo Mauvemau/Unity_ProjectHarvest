@@ -1,10 +1,15 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ProgressBar : MonoBehaviour {
     [Header("Optional References")]
     [SerializeField] protected Image fillImage;
+    [SerializeField] protected TMP_Text percentageText;
+    
+    [Header("Event Listeners")]
+    [SerializeField] private FloatEventChannelSO setMaxValueListener;
+    [SerializeField] private FloatEventChannelSO setCurrentValueListener;
 
     protected float maxValue;
     protected float currentValue;
@@ -12,6 +17,10 @@ public class ProgressBar : MonoBehaviour {
     protected virtual void OnValueUpdated() {
         if (!fillImage) return;
         fillImage.fillAmount = Mathf.Clamp01(currentValue / maxValue);
+        
+        if (percentageText) {
+            percentageText.text = $"{Mathf.Round((currentValue / maxValue) * 100f)}%";
+        }
     }
     
     // ReSharper disable Unity.PerformanceAnalysis
@@ -31,12 +40,12 @@ public class ProgressBar : MonoBehaviour {
             return;
         }
 
-        if (currentValue < 0) {
-            currentValue = 0;
+        if (amount < 0) {
+            amount = 0;
         }
 
-        if (currentValue > maxValue) {
-            currentValue = maxValue;
+        if (amount > maxValue) {
+            amount = maxValue;
         }
         
         currentValue = amount;
@@ -49,5 +58,23 @@ public class ProgressBar : MonoBehaviour {
         if(fillImage)
             fillImage.type = Image.Type.Filled;
         OnValidated();
+    }
+    
+    private void OnEnable() {
+        if (setMaxValueListener) {
+            setMaxValueListener.OnEventRaised += SetMaxValue;
+        }
+        if (setCurrentValueListener) {
+            setCurrentValueListener.OnEventRaised += SetCurrentValue;
+        }
+    }
+
+    private void OnDisable() {
+        if (setMaxValueListener) {
+            setMaxValueListener.OnEventRaised -= SetMaxValue;
+        }
+        if (setCurrentValueListener) {
+            setCurrentValueListener.OnEventRaised -= SetCurrentValue;
+        }
     }
 }

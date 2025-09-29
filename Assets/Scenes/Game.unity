@@ -248,13 +248,13 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
-  m_Mode: 0
+  m_Mode: 1
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
 --- !u!1839735485 &1053785893
@@ -659,7 +659,7 @@ GameObject:
   - component: {fileID: 1069011100}
   - component: {fileID: 1069011101}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: "\U0001F4FD\uFE0F Main Camera"
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -808,7 +808,7 @@ GameObject:
   - component: {fileID: 1125368742}
   - component: {fileID: 1125368741}
   m_Layer: 0
-  m_Name: InputManager
+  m_Name: "\U0001F579\uFE0F InputManager"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1018,7 +1018,7 @@ TilemapRenderer:
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
-  m_Mode: 0
+  m_Mode: 1
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
 --- !u!1839735485 &1557325231
@@ -1611,6 +1611,86 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1632652938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1632652939}
+  - component: {fileID: 1632652940}
+  m_Layer: 0
+  m_Name: "\u2699\uFE0F GameManager"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1632652939
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632652938}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1632652940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632652938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da040a27a762b094b9a9477c432b949a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalVariableManager:
+    gameBaseVariables:
+      <CurrentLevel>k__BackingField: 1
+      <ExperienceNeeded>k__BackingField: 15
+      <CurrentExperience>k__BackingField: 0
+    gameCurrentVariables:
+      <CurrentLevel>k__BackingField: 0
+      <ExperienceNeeded>k__BackingField: 0
+      <CurrentExperience>k__BackingField: 0
+    experienceNeededIncrease: 1.5
+    playerBaseVariables:
+      <MaxHealth>k__BackingField: 10
+      <DamageMultiplier>k__BackingField: 1
+      <AttackRateMultiplier>k__BackingField: 1
+      <AttackSizeMultiplier>k__BackingField: 1
+      <MovementSpeed>k__BackingField: 6
+      <CollectRange>k__BackingField: 2.5
+    playerVariableMultiplier:
+      <MaxHealth>k__BackingField: 1
+      <DamageMultiplier>k__BackingField: 0
+      <AttackRateMultiplier>k__BackingField: 0
+      <AttackSizeMultiplier>k__BackingField: 0
+      <MovementSpeed>k__BackingField: 1
+      <CollectRange>k__BackingField: 1
+    playerCurrentVariables:
+      <MaxHealth>k__BackingField: 10
+      <DamageMultiplier>k__BackingField: 1
+      <AttackRateMultiplier>k__BackingField: 1
+      <AttackSizeMultiplier>k__BackingField: 1
+      <MovementSpeed>k__BackingField: 6
+      <CollectRange>k__BackingField: 2.5
+    xpBarController:
+      onMaxValueUpdated: {fileID: 11400000, guid: 40ddeb8e2dbdd0743bc9384284179e46, type: 2}
+      onCurrentValueUpdated: {fileID: 11400000, guid: c28db6d21fd4cc548a72f8815dcee919, type: 2}
+    onUpdateLevelValue: {fileID: 11400000, guid: 990f16423c416864db0028b0e405fd15, type: 2}
+  coinsHeld: 0
 --- !u!1 &2018416712
 GameObject:
   m_ObjectHideFlags: 0
@@ -6376,7 +6456,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 1069011099}
   - {fileID: 3431711331352404105}
-  - {fileID: 1125368742}
   - {fileID: 633214495}
   - {fileID: 1414712855}
+  - {fileID: 1125368742}
   - {fileID: 2054613207}
+  - {fileID: 1632652939}

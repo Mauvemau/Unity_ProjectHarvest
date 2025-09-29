@@ -1,37 +1,24 @@
 using UnityEngine;
 
-[RequireComponent(typeof(ProgressBar))]
-public class ProgressBarController : MonoBehaviour {
-    [Header("Event Listeners")]
-    [SerializeField] private FloatEventChannelSO setMaxValueListener;
-    [SerializeField] private FloatEventChannelSO setCurrentValueListener;
-
-    private ProgressBar _progressBar;
-    private void OnEnable() {
-        if (!TryGetComponent(out _progressBar)) {
-            Debug.LogError($"{name}: missing reference \"{nameof(_progressBar)}\"");
-            return;
-        }
-        
-        if (setMaxValueListener) {
-            setMaxValueListener.OnEventRaised += _progressBar.SetMaxValue;
-        }
-        if (setCurrentValueListener) {
-            setCurrentValueListener.OnEventRaised += _progressBar.SetCurrentValue;
+[System.Serializable]
+public class ProgressBarController {
+    [SerializeField] private FloatEventChannelSO onMaxValueUpdated;
+    [SerializeField] private FloatEventChannelSO onCurrentValueUpdated;
+    
+    public void UpdateMaxValue(float maxValue) {
+        if (onMaxValueUpdated) {
+            onMaxValueUpdated.RaiseEvent(maxValue);
         }
     }
-
-    private void OnDisable() {
-        if (!TryGetComponent(out _progressBar)) {
-            Debug.LogError($"{name}: missing reference \"{nameof(_progressBar)}\"");
-            return;
+    
+    public void UpdateCurrentValue(float currentValue) {
+        if (onCurrentValueUpdated) {
+            onCurrentValueUpdated.RaiseEvent(currentValue);
         }
-        
-        if (setMaxValueListener) {
-            setMaxValueListener.OnEventRaised -= _progressBar.SetMaxValue;
-        }
-        if (setCurrentValueListener) {
-            setCurrentValueListener.OnEventRaised -= _progressBar.SetCurrentValue;
-        }
+    }
+    
+    public void UpdateValues(float currentValue, float maxValue) {
+        UpdateMaxValue(maxValue);
+        UpdateCurrentValue(currentValue);
     }
 }
