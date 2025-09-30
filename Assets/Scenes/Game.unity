@@ -913,6 +913,8 @@ MonoBehaviour:
     onRequestPoolChannel: {fileID: 11400000, guid: 951ece4bffcfbcb4fb1c3c16ed20c8ba, type: 2}
     onReturnPoolChannel: {fileID: 0}
   spawn: 1
+  mainCameraReference: {fileID: 1069011098}
+  spawnOffset: 1
   maxSpawnDistance: 20
   spawnInterval: 2
 --- !u!4 &1414712855
