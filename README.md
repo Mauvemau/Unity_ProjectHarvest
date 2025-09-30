@@ -12,5 +12,5 @@
 - VFX & UI Artist - *
 - Sound Designer - *
 - Composer - *
-- Developer - [Mauvemau](https://github.com/Mauvemau).
+- Developer - [Mauvemau](https://github.com/Mauvemau)
 - QA - *
