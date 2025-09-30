@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3062759014986775852}
   - component: {fileID: 1777398882794038304}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: PlayerVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 8254657500418373157}
   - component: {fileID: 972498894370392675}
   - component: {fileID: 476767706254859547}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Collector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,6 +285,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31b8a3cbbc4052d438552eaf79d4fae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 10
+  currentHealth: 0
+  moveSpeed: 6
   gripCurve:
     serializedVersion: 2
     m_Curve:
@@ -310,6 +313,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   slipDuration: 0.5
+  healthBarController:
+    onMaxValueUpdated: {fileID: 11400000, guid: dbb5ab292a8dcac4491b4493c52a926d, type: 2}
+    onCurrentValueUpdated: {fileID: 11400000, guid: 9731a1e098353e0498f52730d2b05479, type: 2}
 --- !u!114 &511090880436390149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,7 +329,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCharacterReference: {fileID: 518799155312524631}
-  moveSpeed: 6
 --- !u!114 &6604889904921649566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,7 +355,7 @@ GameObject:
   - component: {fileID: 2692466317895959348}
   - component: {fileID: 8764846164163107489}
   - component: {fileID: 2596716077922629909}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -153,17 +153,6 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
         _alive = false;
         Revive();
     }
-    
-    private void HandleTrigger(Collider2D other) {
-        if (!_alive || !threatTargetReference) return;
-        if(other.gameObject.TryGetComponent(out PlayerCharacter player)) {
-            Debug.Log($"{name}: Triggered enter player");
-        }
-    }
-    
-    private void OnTriggerEnter2D(Collider2D other) {
-        HandleTrigger(other);
-    }
 
     private void FixedUpdate() {
         HandleMovementBehaviour();

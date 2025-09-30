@@ -1889,8 +1889,9 @@ MonoBehaviour:
   percentageText: {fileID: 1854282508}
   setMaxValueListener: {fileID: 11400000, guid: dbb5ab292a8dcac4491b4493c52a926d, type: 2}
   setCurrentValueListener: {fileID: 11400000, guid: 9731a1e098353e0498f52730d2b05479, type: 2}
-  fullHealthColor: {r: 0.1544589, g: 0.8396226, b: 0.24529123, a: 1}
-  emptyHealthColor: {r: 0.8773585, g: 0.15904722, b: 0.1448469, a: 1}
+  fullHealthColor: {r: 0.13803846, g: 0.8867924, b: 0.24080865, a: 1}
+  midHealthColor: {r: 0.9339623, g: 0.9302531, b: 0.066082224, a: 1}
+  emptyHealthColor: {r: 0.8867924, g: 0.11991217, b: 0.10457456, a: 1}
 --- !u!1 &1751091425
 GameObject:
   m_ObjectHideFlags: 0

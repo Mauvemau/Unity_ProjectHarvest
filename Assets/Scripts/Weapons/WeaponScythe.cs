@@ -62,17 +62,17 @@ public class WeaponScythe : Weapon {
         _lineRenderer.startWidth = lineWidth;
         _lineRenderer.endWidth = lineWidth;
 
-        float aimAngle = Mathf.Atan2(AimDirection.y, AimDirection.x) * Mathf.Rad2Deg;
+        float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
         float startAngle = aimAngle - attackAngle / 2f;
 
         Vector3[] positions = new Vector3[arcSegments + 2];
 
         positions[0] = Vector3.zero;
-        positions[1] = DirFromAngle(startAngle) * CurrentStats.attackSize;
+        positions[1] = DirFromAngle(startAngle) * currentStats.attackSize;
 
         for (int i = 0; i <= arcSegments; i++) {
             float currentAngle = startAngle + (attackAngle / arcSegments) * i;
-            positions[i + 1] = DirFromAngle(currentAngle) * CurrentStats.attackSize;
+            positions[i + 1] = DirFromAngle(currentAngle) * currentStats.attackSize;
         }
 
         positions[arcSegments + 1] = Vector3.zero;
@@ -82,12 +82,12 @@ public class WeaponScythe : Weapon {
     }
 
     private void HandleAttack() {
-        if (Time.time < NextAttack) return;
-        NextAttack = Time.time + CurrentStats.attackRateInSeconds;
+        if (Time.time < nextAttack) return;
+        nextAttack = Time.time + currentStats.attackRateInSeconds;
         
         Collider2D[] hits = Physics2D.OverlapCircleAll(
             transform.position, 
-            CurrentStats.attackSize * transform.lossyScale.x,
+            currentStats.attackSize * transform.lossyScale.x,
             targetLayer
         );
 
@@ -101,12 +101,12 @@ public class WeaponScythe : Weapon {
             Vector2 pushDir = toEnemy.normalized;
 
             if (!fullCircle) {
-                float angleToEnemy = Vector2.Angle(AimDirection, pushDir);
+                float angleToEnemy = Vector2.Angle(aimDirection, pushDir);
                 if (angleToEnemy > attackAngle / 2f)
                     continue;
             }
             
-            damageable.TakeDamage(CurrentStats.attackDamage);
+            damageable.TakeDamage(currentStats.attackDamage);
             if (col.TryGetComponent<IPushable>(out var pushable)) {
                 pushable.RequestPush(pushDir, pushForce);
             }
@@ -136,6 +136,6 @@ public class WeaponScythe : Weapon {
             return;
         }
         _collider.isTrigger = true;
-        _collider.radius = CurrentStats.attackSize;
+        _collider.radius = currentStats.attackSize;
     }
 }
