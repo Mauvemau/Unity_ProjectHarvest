@@ -4,7 +4,6 @@ using UnityEngine;
 public class Collector : MonoBehaviour {
     [Header("Settings")]
     [SerializeField, Min(0)] private float collectRadius = 3f;
-    [SerializeField] private LayerMask collectableLayer;
 
     [Header("Visual Settings")]
     [SerializeField] private bool drawRadiusGizmo = true;
@@ -26,11 +25,11 @@ public class Collector : MonoBehaviour {
     }
 
     private void OnValidate() {
-        if (!TryGetComponent(out CircleCollider2D collider)) {
-            Debug.LogError($"{name}: missing reference \"{nameof(collider)}\"");
+        if (!TryGetComponent(out CircleCollider2D col)) {
+            Debug.LogError($"{name}: missing reference \"{nameof(col)}\"");
             return;
         }
-        collider.isTrigger = true;
-        collider.radius = collectRadius;
+        col.isTrigger = true;
+        col.radius = collectRadius;
     }
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3062759014986775852}
   - component: {fileID: 1777398882794038304}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 8254657500418373157}
   - component: {fileID: 972498894370392675}
   - component: {fileID: 476767706254859547}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 247
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -155,7 +155,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 3
+  m_Radius: 2.5
 --- !u!114 &476767706254859547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,10 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3299f3e75b97d324b86ae79c2ec73cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectRadius: 3
-  collectableLayer:
-    serializedVersion: 2
-    m_Bits: 256
+  collectRadius: 2.5
   drawRadiusGizmo: 1
   gizmoColor: {r: 1, g: 0, b: 1, a: 1}
 --- !u!1 &6185150928903746312
@@ -188,7 +185,7 @@ GameObject:
   - component: {fileID: 518799155312524631}
   - component: {fileID: 511090880436390149}
   - component: {fileID: 6604889904921649566}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -353,7 +350,7 @@ GameObject:
   - component: {fileID: 2692466317895959348}
   - component: {fileID: 8764846164163107489}
   - component: {fileID: 2596716077922629909}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -104,7 +104,7 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
         _pushVelocity = direction * force;
     }
 
-    public void RequestMovement(Vector2 direction, float speed) {
+    public void RequestMovement(Vector2 direction) {
         Debug.LogWarning($"{name}: trying to request movement on an entity that can't be externally moved!");
     }
 
@@ -135,13 +135,6 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
         healthBarReference.SetCurrentValue(currentHealth);
         healthBarReference.gameObject.SetActive(currentHealth < maxHealth);
     }
-
-    private void HandleTrigger(Collider other) {
-        if (!_alive || !threatTargetReference) return;
-        if(other.gameObject.TryGetComponent(out PlayerCharacter player)) {
-            Debug.Log($"{name}: Triggered enter player");
-        }
-    }
     
     private void HandleMovementBehaviour() {
         if (!_rb || !_alive || !threatTargetReference) return;
@@ -157,13 +150,18 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
     }
     
     private void BaseInit() {
-        if (!TryGetComponent(out _rb)) {
-            Debug.LogError($"{name}: missing reference \"{nameof(_rb)}\"");
-        }
+        _alive = false;
         Revive();
     }
-
-    private void OnTriggerEnter(Collider other) {
+    
+    private void HandleTrigger(Collider2D other) {
+        if (!_alive || !threatTargetReference) return;
+        if(other.gameObject.TryGetComponent(out PlayerCharacter player)) {
+            Debug.Log($"{name}: Triggered enter player");
+        }
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other) {
         HandleTrigger(other);
     }
 
@@ -172,6 +170,9 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
     }
     
     private void Awake() {
+        if (!TryGetComponent(out _rb)) {
+            Debug.LogError($"{name}: missing reference \"{nameof(_rb)}\"");
+        }
         BaseInit();
     }
 

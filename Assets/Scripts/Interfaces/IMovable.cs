@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public interface IMovable {
-    public void RequestMovement(Vector2 direction, float speed);
+    public void RequestMovement(Vector2 direction);
     /// <summary>
     /// Returns the normalized direction in which an object is moving
     /// </summary>

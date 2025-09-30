@@ -6,13 +6,9 @@ public class PlayerController : MonoBehaviour {
     [FormerlySerializedAs("_playerCharacterReference")]
     [Header("References")] 
     [SerializeField] private PlayerCharacter playerCharacterReference;
-    // Player Weapon Reference here
-    
-    [Header("Movement Settings")]
-    [SerializeField] private float moveSpeed = 1f;
 
     private void MoveCharacter(Vector2 direction) {
-        playerCharacterReference?.RequestMovement(direction, moveSpeed);
+        playerCharacterReference?.RequestMovement(direction);
     }
 
     private void PerformCharacterInteraction() {
