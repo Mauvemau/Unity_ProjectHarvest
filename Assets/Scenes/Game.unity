@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 633214495}
   - component: {fileID: 633214494}
   m_Layer: 0
-  m_Name: Map
+  m_Name: "\U0001F5FA\uFE0F Map"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -891,7 +891,7 @@ GameObject:
   - component: {fileID: 1414712855}
   - component: {fileID: 1414712854}
   m_Layer: 0
-  m_Name: Enemy Spawner
+  m_Name: "\U0001F47E Enemy Spawner"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
