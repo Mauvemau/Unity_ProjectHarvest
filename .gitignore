@@ -96,7 +96,8 @@ logRunSetup.txt
 # Documentación: NO VERSIONARLA.
 /[Aa]ssets/Wwise/Documentation.meta
 /[Aa]ssets/Wwise/Documentation/*
+
 # Carpeta plugins: AL SER MUY PESADA, QUE CADA UNO QUE NECESITE EL
-PROYECTO DE UNITY HAGA LA INTEGRACIÓN DE WWISE DE FORMA PROPIA
-/[Aa]ssets/Wwise/API/Runtime/Plugins.meta
-/[Aa]ssets/Wwise/API/Runtime/Plugins/*
+# PROYECTO DE UNITY HAGA LA INTEGRACIÓN DE WWISE DE FORMA PROPIA
+#/[Aa]ssets/Wwise/API/Runtime/Plugins.meta
+#/[Aa]ssets/Wwise/API/Runtime/Plugins/*
