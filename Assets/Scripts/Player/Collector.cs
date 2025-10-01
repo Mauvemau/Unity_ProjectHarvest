@@ -4,10 +4,12 @@ using UnityEngine;
 public class Collector : MonoBehaviour {
     [Header("Settings")]
     [SerializeField, Min(0)] private float collectRadius = 3f;
-
+    
+#if UNITY_EDITOR
     [Header("Visual Settings")]
     [SerializeField] private bool drawRadiusGizmo = true;
     [SerializeField] private Color gizmoColor = Color.magenta;
+#endif
 
     private void HandleTrigger(Collider2D collision) {
         if (!collision.TryGetComponent(out ICollectable collectable)) return;
@@ -19,9 +21,11 @@ public class Collector : MonoBehaviour {
     }
 
     private void OnDrawGizmos() {
+#if UNITY_EDITOR
         if (!drawRadiusGizmo) return;
         UnityEditor.Handles.color = gizmoColor;
         UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.back, collectRadius);
+#endif
     }
 
     private void OnValidate() {

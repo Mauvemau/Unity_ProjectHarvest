@@ -1,11 +1,12 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]
 public class WeaponCollider : Weapon {
+#if UNITY_EDITOR
     [Header("Visual Settings")] 
     [SerializeField] private bool drawRadiusGizmo = false;
     [SerializeField] private Color gizmoColor = Color.red;
+#endif
     
     private CircleCollider2D _collider;
 
@@ -36,8 +37,10 @@ public class WeaponCollider : Weapon {
     }
     
     private void OnDrawGizmos() {
+#if UNITY_EDITOR
         if (!drawRadiusGizmo) return;
         UnityEditor.Handles.color = gizmoColor;
         UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.back, BaseStats.attackSize);
+#endif
     }
 }
