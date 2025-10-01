@@ -1,5 +1,3 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -30,10 +28,11 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
     private bool _alive;
     private Vector2 _movementDirection;
     private Vector2 _pushVelocity;
-
+    
+    //
+    
     [ContextMenu("Debug - Revive")]
     public void Revive() {
-        if (_alive) return;
         currentHealth = maxHealth;
         _alive = true;
         UpdateHealthBar();
@@ -99,8 +98,7 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
     }
     
     public void RequestPush(Vector2 direction, float force) {
-        if(!_alive) return;
-        if (!_rb) return;
+        if (!_rb || !_alive) return;
         _pushVelocity = direction * force;
     }
 
@@ -164,7 +162,7 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
         }
         BaseInit();
     }
-
+    
     private void OnEnable() {
         Revive();
         TryFindThreatTarget();

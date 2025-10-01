@@ -5,10 +5,10 @@ using UnityEngine.Events;
 /// GameObject event channel that can broadcast events to listeners
 /// </summary>
 [CreateAssetMenu(menuName = "Events/GameObject Channel")]
-public class GameObjectEventChannelSO : ScriptableObject {
-    public UnityAction<GameObject> OnEventRaised;
+public class GameObjectEventChannelSo : ScriptableObject {
+    public UnityAction<GameObject> onEventRaised;
 
     public void RaiseEvent(GameObject value) {
-        OnEventRaised?.Invoke(value);
+        onEventRaised?.Invoke(value);
     }
 }

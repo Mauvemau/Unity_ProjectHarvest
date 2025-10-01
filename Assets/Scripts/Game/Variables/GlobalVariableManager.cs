@@ -16,9 +16,12 @@ public class GlobalVariableManager {
     [SerializeField] private PlayerVariables playerVariableMultiplier;
     [SerializeField, ReadOnly] private PlayerVariables playerCurrentVariables;
 
-    [Header("Event Invokers")]
+    [Header("Controllers")]
     [SerializeField] private ProgressBarController xpBarController;
-    [SerializeField] private StringEventChannelSO onUpdateLevelValue;
+    
+    [Header("Event Invokers")]
+    [SerializeField] private VoidEventChannelSO onLevelUp;
+    [SerializeField] private StringEventChannelSo onUpdateLevelValue;
 
     private void CheckIfLevelUp() {
         while (gameCurrentVariables.CurrentExperience >= gameCurrentVariables.ExperienceNeeded) {
@@ -28,6 +31,9 @@ public class GlobalVariableManager {
 
             if (onUpdateLevelValue) {
                 onUpdateLevelValue.RaiseEvent($"{gameCurrentVariables.CurrentLevel}");
+            }
+            if (onLevelUp) {
+                onLevelUp.RaiseEvent();
             }
         }
     }

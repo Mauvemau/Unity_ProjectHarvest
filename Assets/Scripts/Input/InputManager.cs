@@ -31,25 +31,35 @@ public class InputManager : MonoBehaviour {
 
         return input.normalized * ((input.magnitude - stickDeadZone) / (1 - stickDeadZone));
     }
+
+    private bool IsGamePaused() {
+        return Time.timeScale <= 0f;
+    }
+    
+    private bool ShouldReadPlayerInput() {
+        return _shouldReadPlayerInput;
+    }
     
     // Input Handler Functions
 
     // Player
     
     private void HandlePlayerMoveInput(InputAction.CallbackContext ctx) {
-        if (!_shouldReadPlayerInput) return;
+        if (!ShouldReadPlayerInput()) return;
         OnPlayerMoveInputPerformed?.Invoke(ctx.ReadValue<Vector2>());
     }
 
     private void HandlePlayerAimInputMouse(InputAction.CallbackContext ctx) {
         if (!_shouldReadMouseInput) return;
-        if (!_shouldReadPlayerInput) return;
+        if (IsGamePaused()) return;
+        if (!ShouldReadPlayerInput()) return;
         
         OnPlayerAimInputPerformed?.Invoke(ctx.ReadValue<Vector2>());
     }
     
     private void HandlePlayerAimInput(InputAction.CallbackContext ctx) {
-        if (!_shouldReadPlayerInput) return;
+        if (IsGamePaused()) return;
+        if (!ShouldReadPlayerInput()) return;
         _shouldReadMouseInput = !ctx.action.inProgress;
         
         Vector2 direction = ApplyDeadZone(ctx.ReadValue<Vector2>());
@@ -58,7 +68,7 @@ public class InputManager : MonoBehaviour {
     }
 
     private void HandlePlayerInteractInput(InputAction.CallbackContext ctx) {
-        if (!_shouldReadPlayerInput) return;
+        if (!ShouldReadPlayerInput()) return;
         OnPlayerInteractInputPerformed?.Invoke();
     }
 

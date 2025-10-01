@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -15,6 +16,8 @@ public class PlayerCharacter : MonoBehaviour, IMovable, IDamageable {
 
     [Header("Event Invokers")] 
     [SerializeField] private ProgressBarController healthBarController;
+    
+    public static event Action OnPlayerDeath = delegate {};
     
     private Rigidbody2D _rb;
     private Vector2 _inputDir;
@@ -80,6 +83,7 @@ public class PlayerCharacter : MonoBehaviour, IMovable, IDamageable {
         currentHealth = 0;
         _alive = false;
         UpdateHealthBar();
+        OnPlayerDeath.Invoke();
     }
 
     [ContextMenu("Debug - Revive")]

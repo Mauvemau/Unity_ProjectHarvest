@@ -3,7 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class ObjectPoolController {
     [Header("Event Invokers")]
-    [SerializeField] private Vector2EventChannelSO onRequestPoolChannel;
+    [SerializeField] private Vector2EventChannelSo onRequestPoolChannel;
     [SerializeField] private VoidEventChannelSO onReturnPoolChannel;
 
     public void PerformPoolRequest(Vector2 position) {

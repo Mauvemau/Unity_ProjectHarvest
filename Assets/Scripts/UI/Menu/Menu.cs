@@ -1,12 +1,24 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Menu: MonoBehaviour, IMenu {
+    [Header("Button Settings")]
     [SerializeField] private Button initialButton;
+
+    [Header("Event Listeners")] 
+    [SerializeField] public VoidEventChannelSO onRequestOpenRemotely;
+    
+    [Header("Event Invokers")] 
+    [Tooltip("Do not set if the menu is not supposed to pause the game")]
+    [SerializeField] private BoolEventChannelSO onOpenMenuGamePauseChannel;
 
     public Button GetInitialButton() => initialButton;
 
     public void Toggle(bool toggle) {
+        if (onOpenMenuGamePauseChannel) {
+            onOpenMenuGamePauseChannel.RaiseEvent(toggle);
+        }
         this.gameObject.SetActive(toggle);
     }
 

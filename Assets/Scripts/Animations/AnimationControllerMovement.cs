@@ -10,6 +10,10 @@ public class AnimationControllerMovement : MonoBehaviour {
     
     private IMovable _movable;
 
+    private bool IsGamePaused() {
+        return Time.timeScale <= 0.0f;
+    }
+    
     private void Awake() {
         if (!TryGetComponent(out _movable)) {
             Debug.LogError($"{name}: missing reference \"{nameof(_movable)}\"");
@@ -18,13 +22,13 @@ public class AnimationControllerMovement : MonoBehaviour {
     
     private void Update() {
         if (_movable == null) return;
-        if (rendererReference) {
-            if (_movable.GetMovementDirection().x > 0) {
-                rendererReference.flipX = false;
-            }
-            else if (_movable.GetMovementDirection().x < 0) {
-                rendererReference.flipX = true;
-            }
+        if (IsGamePaused()) return;
+        if (!rendererReference) return;
+        if (_movable.GetMovementDirection().x > 0) {
+            rendererReference.flipX = false;
+        }
+        else if (_movable.GetMovementDirection().x < 0) {
+            rendererReference.flipX = true;
         }
     }
 }

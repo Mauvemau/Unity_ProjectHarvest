@@ -329,6 +329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCharacterReference: {fileID: 518799155312524631}
+  onRequestReviveCharacter: {fileID: 11400000, guid: 4dcd71dcf2885534abb59c24d007d620, type: 2}
 --- !u!114 &6604889904921649566
 MonoBehaviour:
   m_ObjectHideFlags: 0

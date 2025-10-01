@@ -6,9 +6,9 @@ using UnityEngine.Events;
 /// </summary>
 [CreateAssetMenu(menuName = "Events/Float Channel")]
 public class FloatEventChannelSO : ScriptableObject {
-    public UnityAction<float> OnEventRaised;
+    public UnityAction<float> onEventRaised;
 
     public void RaiseEvent(float value) {
-        OnEventRaised?.Invoke(value);
+        onEventRaised?.Invoke(value);
     }
 }

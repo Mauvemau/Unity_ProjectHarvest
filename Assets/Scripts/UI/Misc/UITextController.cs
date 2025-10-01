@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 [RequireComponent(typeof(TMP_Text))]
 public class UITextController : MonoBehaviour {
     [Header("Event Invoker")] 
-    [SerializeField] private StringEventChannelSO onUpdateText;
+    [SerializeField] private StringEventChannelSo onUpdateText;
     
     private TMP_Text _text;
 
@@ -24,13 +24,13 @@ public class UITextController : MonoBehaviour {
 
     private void OnEnable() {
         if (onUpdateText) {
-            onUpdateText.OnEventRaised += UpdateText;
+            onUpdateText.onEventRaised += UpdateText;
         }
     }
 
     private void OnDisable() {
         if (onUpdateText) {
-            onUpdateText.OnEventRaised -= UpdateText;
+            onUpdateText.onEventRaised -= UpdateText;
         }
     }
 }

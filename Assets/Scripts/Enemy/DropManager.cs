@@ -4,7 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class CollectibleDrop {
     [Header("Event Invoker")]
-    [SerializeField] private Vector2EventChannelSO onRequestDropChannel;
+    [SerializeField] private Vector2EventChannelSo onRequestDropChannel;
     [Header("Chance")]
     [field: SerializeField, Range(0f, 1f)] public float DropChance { get; set; }
 

@@ -87,6 +87,19 @@ public class MyObjectPool {
     /// Sets active the first inactive object in the Pool at the specified transform.
     /// </summary>
     public void PoolRequest(Vector3 position, Quaternion rotation, Vector3 scale) => PoolGetRequest(position, rotation, scale);
+    
+    /// <summary>
+    /// Disables all objects in the pool.
+    /// </summary>
+    public void PoolCleanup() {
+        if (pool == null || pool.Length == 0) return;
+
+        foreach (GameObject obj in pool) {
+            if (obj != null && obj.activeSelf) {
+                obj.SetActive(false);
+            }
+        }
+    }
 
     /// <summary>
     /// Initializes the pool instantiating the specified amount of objects of the specific GameObject inside a parent.
