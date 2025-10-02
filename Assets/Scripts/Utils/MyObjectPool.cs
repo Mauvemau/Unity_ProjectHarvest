@@ -9,6 +9,14 @@ public class MyObjectPool {
     
     [SerializeField] private GameObject[] pool;
 
+    public GameObject GetObjectToPool() {
+        return objectToPool;
+    }
+
+    public int GetPooledCount() {
+        return pool.Length;
+    }
+
     /// <summary>
     /// Expands the pool by a specified amount
     /// </summary>
