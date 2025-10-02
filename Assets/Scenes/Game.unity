@@ -909,9 +909,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7763fbbf22095bd44bdd51ef2d74dffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolController:
-    onRequestPoolChannel: {fileID: 11400000, guid: 951ece4bffcfbcb4fb1c3c16ed20c8ba, type: 2}
-    onReturnPoolChannel: {fileID: 0}
+  enemyFactory:
+    prefabToCreate: {fileID: 4210210132979722889, guid: 637b9d4b9c5081247a9c11aff171998e, type: 3}
+    centralizedFactory: {fileID: 2054613208}
   spawn: 1
   mainCameraReference: {fileID: 1069011098}
   spawnOffset: 1
@@ -6370,42 +6370,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2054613207}
-  - component: {fileID: 2054613206}
+  - component: {fileID: 2054613208}
   m_Layer: 0
-  m_Name: PoolManager
+  m_Name: "\U0001F3ED CentralizedFactory"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2054613206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2054613205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cfd060897376674190bb4d98c80ba4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pools:
-  - pool:
-      objectToPool: {fileID: 4210210132979722889, guid: 637b9d4b9c5081247a9c11aff171998e, type: 3}
-      poolSize: 20
-      expandable: 1
-      pool: []
-    onRequestPoolChannel: {fileID: 11400000, guid: 951ece4bffcfbcb4fb1c3c16ed20c8ba, type: 2}
-    onReturnPoolChannel: {fileID: 0}
-  - pool:
-      objectToPool: {fileID: 8325983632572383665, guid: fd3b8b79613a36847b4ae453d3ed5234, type: 3}
-      poolSize: 100
-      expandable: 1
-      pool: []
-    onRequestPoolChannel: {fileID: 11400000, guid: eef0f3b314f29a04f87e63a38c1834cc, type: 2}
-    onReturnPoolChannel: {fileID: 0}
-  onRequestResetAllPools: {fileID: 11400000, guid: eaa0c95c7fd930143b6e3b86104d2ea4, type: 2}
 --- !u!4 &2054613207
 Transform:
   m_ObjectHideFlags: 0
@@ -6421,6 +6393,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2054613208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054613205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cca34267fb7554481ebbeff53427aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPools:
+  - objectToPool: {fileID: 4210210132979722889, guid: 637b9d4b9c5081247a9c11aff171998e, type: 3}
+    poolSize: 20
+    expandable: 1
+    pool: []
+  - objectToPool: {fileID: 8325983632572383665, guid: fd3b8b79613a36847b4ae453d3ed5234, type: 3}
+    poolSize: 100
+    expandable: 1
+    pool: []
 --- !u!1001 &3431711331352404105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6482,8 +6475,8 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1069011099}
   - {fileID: 3431711331352404105}
+  - {fileID: 1069011099}
   - {fileID: 633214495}
   - {fileID: 1414712855}
   - {fileID: 1125368742}

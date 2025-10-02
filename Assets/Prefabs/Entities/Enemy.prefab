@@ -210,7 +210,7 @@ MonoBehaviour:
   movementSpeed: 1.5
   dropManager:
     drops:
-    - onRequestDropChannel: {fileID: 11400000, guid: eef0f3b314f29a04f87e63a38c1834cc, type: 2}
+    - collectiblePrefab: {fileID: 8325983632572383665, guid: fd3b8b79613a36847b4ae453d3ed5234, type: 3}
       <DropChance>k__BackingField: 0.9
   findPlayer: 1
   disableOnDeath: 1

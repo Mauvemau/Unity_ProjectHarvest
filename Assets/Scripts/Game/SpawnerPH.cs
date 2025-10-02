@@ -1,8 +1,8 @@
 using UnityEngine;
 
 public class SpawnerPh : MonoBehaviour {
-    [Header("Pool Settings")]
-    [SerializeField] private ObjectPoolController poolController;
+    [Header("Factory Settings")]
+    [SerializeField] private Factory enemyFactory;
     
     [Header("Spawning Settings")]
     [SerializeField] private bool spawn = true;
@@ -15,7 +15,7 @@ public class SpawnerPh : MonoBehaviour {
     [SerializeField, Min(0.1f)] private float maxSpawnDistance = 5f;
     [SerializeField, Min(0)] private float spawnInterval = 1f;
     
-    private float _nextSpawn = 0f;
+    private float _nextSpawn = 3f;
 
     /// <summary>
     /// Spawns within a square range around the gameObject position
@@ -73,6 +73,6 @@ public class SpawnerPh : MonoBehaviour {
 
         Vector3 spawnPos = GetSpawnPositionFromCamera();
         
-        poolController.PerformPoolRequest(spawnPos);
+        enemyFactory.Create(spawnPos, Quaternion.identity, Vector3.one);
     }
 }

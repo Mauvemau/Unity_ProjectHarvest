@@ -8,6 +8,7 @@ public class Factory {
     [SerializeField] private CentralizedFactory centralizedFactory;
 
     public GameObject Create(Vector3 position, Quaternion rotation, Vector3 scale, Transform parent = null) {
+        if (!prefabToCreate) return null;
         if (centralizedFactory != null) {
             return centralizedFactory.Create(prefabToCreate, position, rotation, scale);
         }

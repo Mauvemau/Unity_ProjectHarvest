@@ -3,14 +3,14 @@ using UnityEngine;
 
 [System.Serializable]
 public class CollectibleDrop {
-    [Header("Event Invoker")]
-    [SerializeField] private Vector2EventChannelSo onRequestDropChannel;
+    [Header("Prefab")]
+    [SerializeField] private GameObject collectiblePrefab;
     [Header("Chance")]
     [field: SerializeField, Range(0f, 1f)] public float DropChance { get; set; }
 
-    public void RequestDrop(Vector2 position) {
-        if (!onRequestDropChannel) return;
-        onRequestDropChannel.RaiseEvent(position);
+    public void RequestDrop(CentralizedFactory centralizedFactory, Vector2 position) {
+        if (centralizedFactory == null) return;
+        centralizedFactory.Create(collectiblePrefab, position, Quaternion.identity, Vector3.one);
     }
 }
 
@@ -18,12 +18,20 @@ public class CollectibleDrop {
 public class DropManager {
     [SerializeField] private List<CollectibleDrop> drops;
 
+    private CentralizedFactory centralizedFactory;
+
+    private bool TryFindCentralizedFactory() {
+        if (centralizedFactory != null) return true;
+        if (!ServiceLocator.TryGetService(out centralizedFactory)) return false;
+        return true;
+    }
+
     /// <summary>
     /// Rolls a random number and triggers a drop if it falls within a drop chance
     /// </summary>
     public void HandleRequestDrops(Vector2 position) {
-        if (drops == null || drops.Count == 0)
-            return;
+        if (drops == null || drops.Count == 0) return;
+        if (!TryFindCentralizedFactory()) return;
 
         float roll = Random.value;
         float cumulative = 0f;
@@ -31,7 +39,7 @@ public class DropManager {
         foreach (var drop in drops) {
             cumulative += drop.DropChance;
             if (!(roll <= cumulative)) continue;
-            drop.RequestDrop(position);
+            drop.RequestDrop(centralizedFactory, position);
             return;
         }
     }
