@@ -912,6 +912,7 @@ MonoBehaviour:
   enemyFactory:
     prefabToCreate: {fileID: 4210210132979722889, guid: 637b9d4b9c5081247a9c11aff171998e, type: 3}
     centralizedFactory: {fileID: 2054613208}
+    autoFindCentralizedFactory: 0
   spawn: 1
   mainCameraReference: {fileID: 1069011098}
   spawnOffset: 1

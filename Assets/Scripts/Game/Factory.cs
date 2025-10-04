@@ -6,10 +6,21 @@ public class Factory {
     [SerializeField] private GameObject prefabToCreate;
     [Header("Optional References")]
     [SerializeField] private CentralizedFactory centralizedFactory;
+    [SerializeField] private bool autoFindCentralizedFactory;
+
+    private void TryFindCentralizedFactory() {
+        if (centralizedFactory) return;
+        if (ServiceLocator.TryGetService(out centralizedFactory)) {
+            autoFindCentralizedFactory = false;
+        }
+    }
 
     public GameObject Create(Vector3 position, Quaternion rotation, Vector3 scale, Transform parent = null) {
         if (!prefabToCreate) return null;
-        if (centralizedFactory != null) {
+        if (autoFindCentralizedFactory) {
+            TryFindCentralizedFactory();
+        }
+        if (centralizedFactory) {
             return centralizedFactory.Create(prefabToCreate, position, rotation, scale);
         }
 

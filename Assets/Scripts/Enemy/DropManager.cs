@@ -9,7 +9,7 @@ public class CollectibleDrop {
     [field: SerializeField, Range(0f, 1f)] public float DropChance { get; set; }
 
     public void RequestDrop(CentralizedFactory centralizedFactory, Vector2 position) {
-        if (centralizedFactory == null) return;
+        if (!centralizedFactory) return;
         centralizedFactory.Create(collectiblePrefab, position, Quaternion.identity, Vector3.one);
     }
 }
@@ -18,12 +18,10 @@ public class CollectibleDrop {
 public class DropManager {
     [SerializeField] private List<CollectibleDrop> drops;
 
-    private CentralizedFactory centralizedFactory;
+    private CentralizedFactory _centralizedFactory;
 
     private bool TryFindCentralizedFactory() {
-        if (centralizedFactory != null) return true;
-        if (!ServiceLocator.TryGetService(out centralizedFactory)) return false;
-        return true;
+        return _centralizedFactory || ServiceLocator.TryGetService(out _centralizedFactory);
     }
 
     /// <summary>
@@ -39,7 +37,7 @@ public class DropManager {
         foreach (var drop in drops) {
             cumulative += drop.DropChance;
             if (!(roll <= cumulative)) continue;
-            drop.RequestDrop(centralizedFactory, position);
+            drop.RequestDrop(_centralizedFactory, position);
             return;
         }
     }
