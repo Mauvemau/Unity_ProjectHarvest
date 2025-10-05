@@ -25,13 +25,12 @@ public class WeaponCollider : Weapon {
 
     protected override void OnAwake() {
         if (!TryGetComponent(out _collider)) {
-            Debug.Log($"{name}: missing required component {nameof(CircleCollider2D)}");
+            Debug.LogError($"{name}: missing required component {nameof(CircleCollider2D)}");
         }
         _collider.isTrigger = true;
         _collider.radius = BaseStats.attackSize;
-        
-        const int everything = ~0;
-        int inverted = everything & ~targetLayer;
+
+        int inverted = ~0 & ~targetLayer;
         _collider.includeLayers = 0;
         _collider.excludeLayers = inverted;
     }
