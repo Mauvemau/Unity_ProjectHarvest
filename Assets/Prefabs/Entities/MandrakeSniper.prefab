@@ -115,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   threatTargetReference: {fileID: 0}
   healthBarReference: {fileID: 8570558148526515536}
-  maxHealth: 6
+  maxHealth: 8
   currentHealth: 0
   movementSpeed: 0.5
   dropManager:
@@ -336,11 +336,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 422161869203098071, guid: 88c41b68693c83c4ebcda6079bcfd502, type: 3}
       propertyPath: bulletStats.speed
-      value: 300
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 422161869203098071, guid: 88c41b68693c83c4ebcda6079bcfd502, type: 3}
       propertyPath: bulletStats.lifeTime
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 422161869203098071, guid: 88c41b68693c83c4ebcda6079bcfd502, type: 3}
+      propertyPath: <BaseStats>k__BackingField.attackSize
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 422161869203098071, guid: 88c41b68693c83c4ebcda6079bcfd502, type: 3}
+      propertyPath: <BaseStats>k__BackingField.attackDamage
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4038727559878163834, guid: 88c41b68693c83c4ebcda6079bcfd502, type: 3}
       propertyPath: m_Name
