@@ -85,6 +85,10 @@ MonoBehaviour:
     attackDamage: 1
     attackRateInSeconds: 2
     attackSize: 0.225
+  currentStats:
+    attackDamage: 0
+    attackRateInSeconds: 0
+    attackSize: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -104,7 +108,7 @@ GameObject:
   - component: {fileID: 3529738234245799113}
   - component: {fileID: 2988119223851631035}
   m_Layer: 7
-  m_Name: Enemy
+  m_Name: Mandrake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -189,8 +193,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.2}
-  m_Radius: 0.225
+  m_Offset: {x: 0, y: -0.35}
+  m_Radius: 0.45
 --- !u!114 &3529738234245799113
 MonoBehaviour:
   m_ObjectHideFlags: 0
