@@ -1,13 +1,11 @@
 using UnityEngine;
 
 /// <summary>
-/// Defines how a weapon is controlled by the player
+/// Defines how a weapon is controlled by the player reading inputs
 /// </summary>
 [RequireComponent(typeof(IWeapon))]
-public class WeaponController : MonoBehaviour { 
-    
+public class InputWeaponController : WeaponController {
     private IControllableCamera _mainCameraReference;
-    private IWeapon _weaponReference;
 
     private void TrySetCameraReference() {
         if (_mainCameraReference != null) return;
@@ -25,28 +23,20 @@ public class WeaponController : MonoBehaviour {
         }
         return direction;
     }
-    
-    private void AimWeapon(Vector2 input) {
+
+    private void HandleInput(Vector2 input) {
         TrySetCameraReference();
         if (input == Vector2.zero) return;
         if (_mainCameraReference == null) return;
-        
-        input = TranslateInput(input);
-        
-        _weaponReference.AimWeapon(input.normalized);
-    }
-    
-    private void Awake() {
-        if (!TryGetComponent(out _weaponReference)) {
-            Debug.LogError($"{name}: missing reference \"{nameof(_weaponReference)}\"");
-        }
+
+        AimWeapon(TranslateInput(input));
     }
     
     private void OnEnable() {
-        InputManager.OnPlayerAimInputPerformed += AimWeapon;
+        InputManager.OnPlayerAimInputPerformed += HandleInput;
     }
 
     private void OnDisable() {
-        InputManager.OnPlayerAimInputPerformed -= AimWeapon;
+        InputManager.OnPlayerAimInputPerformed -= HandleInput;
     }
 }

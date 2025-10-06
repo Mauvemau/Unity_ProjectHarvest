@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7661068927275595052}
   - component: {fileID: 4532988484326375520}
   - component: {fileID: 2138769752804154190}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Scythe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,13 +194,13 @@ MonoBehaviour:
     attackDamage: 4
     attackRateInSeconds: 1
     attackSize: 5
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 128
   currentStats:
     attackDamage: 0
     attackRateInSeconds: 0
     attackSize: 0
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 128
   attackAngle: 90
   pushForce: 12
   arcSegments: 40

@@ -9,4 +9,6 @@ public class BulletStats {
     [SerializeField] public float lifeTime = 5f;
     // Amount of targets a bullet can penetrate trough
     [SerializeField] public int penetrationCount = 0;
+    // Amount of counter force applied to the target on impact
+    [Min(0)] public float pushForce = 0f;
 }

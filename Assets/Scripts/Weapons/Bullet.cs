@@ -69,6 +69,15 @@ public class Bullet : MonoBehaviour, IBullet {
         if (_targetsPenetratedCount > _currentBulletStats.penetrationCount) {
             gameObject.SetActive(false); // If layered correctly it will disappear upon hitting walls
         }
+
+        if (other.TryGetComponent<IPushable>(out var pushable)) {
+            if (_currentBulletStats.pushForce < 0.1f) return;
+
+            Vector2 toTarget = (other.transform.position - transform.position);
+            Vector2 pushDir = toTarget.normalized;
+
+            pushable.RequestPush(pushDir, _currentBulletStats.pushForce);
+        }
     }
 
     private void FixedUpdate() {

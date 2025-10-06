@@ -96,9 +96,9 @@ public class WeaponScythe : Weapon {
         foreach (var col in hits) {
             if (!col.TryGetComponent<IDamageable>(out var damageable))
                 continue;
-            
-            Vector2 toEnemy = ((Vector2)col.transform.position - (Vector2)transform.position);
-            Vector2 pushDir = toEnemy.normalized;
+
+            Vector2 toTarget = (col.transform.position - transform.position);
+            Vector2 pushDir = toTarget.normalized;
 
             if (!fullCircle) {
                 float angleToEnemy = Vector2.Angle(aimDirection, pushDir);
@@ -108,6 +108,7 @@ public class WeaponScythe : Weapon {
             
             damageable.TakeDamage(currentStats.attackDamage);
             if (col.TryGetComponent<IPushable>(out var pushable)) {
+                if (pushForce < 0.1f) return; // Don't bother it if it's so small
                 pushable.RequestPush(pushDir, pushForce);
             }
         }

@@ -14,7 +14,7 @@ TagManager:
   - PlayerEntity
   - Entity
   - Collectable
-  - Bullet
+  - Weapons
   - 
   - 
   - 

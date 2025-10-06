@@ -97,7 +97,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.15
+  m_Radius: 0.5
 --- !u!114 &1022794766229345135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,15 +112,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preset: {fileID: 11400000, guid: 7e7e2ec5bc9778641b98f115c7728aab, type: 2}
   currentBehaviour:
-    rid: 8748630540952797774
+    rid: 8748630554931626211
   _currentBulletStats:
     speed: 50
     lifeTime: 5
     penetrationCount: 0
+    pushForce: 0
   references:
     version: 2
     RefIds:
-    - rid: 8748630540952797774
+    - rid: 8748630554931626211
       type: {class: LinearShotStrategy, ns: , asm: Assembly-CSharp}
       data: 
 --- !u!212 &4052143771903301830

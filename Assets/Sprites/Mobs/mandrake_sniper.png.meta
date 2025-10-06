@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: c96ba4318fa526d4eb8936447e9c430f
+guid: e798bacdbd6cede4caa6c0a3ee6c3d34
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3354362025859048660
-    second: Bullet32_0
+      213: 1289132537457188801
+    second: Mandragora sniper flippeada_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
-    sRGBTexture: 0
+    sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bullet32_0
+      name: Mandragora sniper flippeada_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 2
         y: 0
-        width: 32
-        height: 32
+        width: 29
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c2b9c987289e271d0800000000000000
-      internalID: -3354362025859048660
+      spriteID: 1cf9883763be3e110800000000000000
+      internalID: 1289132537457188801
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Bullet32_0: -3354362025859048660
+      Mandragora sniper flippeada_0: 1289132537457188801
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
