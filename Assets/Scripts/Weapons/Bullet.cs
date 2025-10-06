@@ -14,17 +14,16 @@ public class Bullet : MonoBehaviour, IBullet {
     private Rigidbody2D _rb;
     private Vector2 _aimDirection;
     private float _damage = 0f;
-    private float _speed = 50f;
+
+    [SerializeField] private BulletStats _currentBulletStats;
+
     private bool _shot = false;
+    private float _timeOfDeath = 0f;
+    private int _targetsPenetratedCount = 0;
 
     private readonly HashSet<Collider2D> _currentOverlaps = new HashSet<Collider2D>();
 
-    [ContextMenu("Debug - Shoot")]
-    private void ShootDebug() {
-        Shoot(preset, Vector2.right, 0, _damage, _speed);
-    }
-
-    public void Shoot(BulletPresetSO presetToSet, Vector2 direction, LayerMask targetLayer, float damage, float speed) {
+    public void Shoot(BulletPresetSO presetToSet, Vector2 direction, LayerMask targetLayer, float damage, BulletStats stats) {
         if (presetToSet) {
             preset = presetToSet;
             SetUpPreset();
@@ -33,20 +32,23 @@ public class Bullet : MonoBehaviour, IBullet {
         SetUpCollision(targetLayer);
         _aimDirection = direction;
         _damage = damage;
-        _speed = speed;
 
+        _currentBulletStats = stats;
+
+        _timeOfDeath = Time.time + _currentBulletStats.lifeTime;
         _shot = true;
     }
 
     private void SetUpPreset() {
-        IBulletStrategy strategy = preset.BehaviourHandler;
-        Sprite sprite = preset.BulletSprite;
+        IBulletStrategy strategy = preset.Behaviour;
+        Sprite sprite = preset.Sprite;
 
         if (strategy != null) {
             currentBehaviour = strategy;
         }
         if (sprite && _spriteRenderer) {
             _spriteRenderer.sprite = sprite;
+            _spriteRenderer.color = preset.Tint;
         }
     }
 
@@ -62,12 +64,23 @@ public class Bullet : MonoBehaviour, IBullet {
         if (other.TryGetComponent(out IDamageable damageable)) {
             damageable.TakeDamage(_damage);
         }
-        gameObject.SetActive(false); // If layered correctly it will disappear upon hitting walls
+
+        _targetsPenetratedCount++;
+        if (_targetsPenetratedCount > _currentBulletStats.penetrationCount) {
+            gameObject.SetActive(false); // If layered correctly it will disappear upon hitting walls
+        }
     }
 
     private void FixedUpdate() {
         if (!_shot && currentBehaviour == null) return;
-        currentBehaviour.HandleMovement(transform, _rb, _aimDirection, _speed);
+        currentBehaviour.HandleMovement(transform, _rb, _aimDirection, _currentBulletStats.speed);
+    }
+
+    private void Update() {
+        if (!_shot) return;
+        if(Time.time >= _timeOfDeath) {
+            gameObject.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -96,6 +109,7 @@ public class Bullet : MonoBehaviour, IBullet {
 
     private void OnEnable() {
         _shot = false;
+        _targetsPenetratedCount = 0;
         _currentOverlaps.Clear();
         if (_collider) {
             _collider.isTrigger = true;
@@ -105,6 +119,12 @@ public class Bullet : MonoBehaviour, IBullet {
             _rb.linearVelocity = Vector2.zero;
             _rb.angularVelocity = 0f;
         }
+    }
+
+    private void OnDisable() {
+        _shot = false;
+        _targetsPenetratedCount = 0;
+        _currentOverlaps.Clear();
     }
 
     private void OnValidate() {

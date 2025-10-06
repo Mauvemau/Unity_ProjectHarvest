@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behaviour:
     rid: 8748630540952797304
-  bulletSprite: {fileID: 21300000, guid: c96ba4318fa526d4eb8936447e9c430f, type: 3}
+  sprite: {fileID: 21300000, guid: c96ba4318fa526d4eb8936447e9c430f, type: 3}
+  tint: {r: 0.07450981, g: 0.7019608, b: 0.90588236, a: 1}
   references:
     version: 2
     RefIds:

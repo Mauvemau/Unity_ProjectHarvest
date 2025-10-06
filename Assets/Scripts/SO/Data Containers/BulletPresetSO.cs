@@ -9,8 +9,10 @@ public class BulletPresetSO : ScriptableObject {
     [SerializeReference, SubclassSelector] private IBulletStrategy behaviour = new LinearShotStrategy();
 
     [Header("Visual Settings")]
-    [SerializeField] private Sprite bulletSprite;
+    [SerializeField] private Sprite sprite;
+    [SerializeField] private Color tint = Color.white;
 
-    public IBulletStrategy BehaviourHandler => behaviour;
-    public Sprite BulletSprite => bulletSprite;
+    public IBulletStrategy Behaviour => behaviour;
+    public Sprite Sprite => sprite;
+    public Color Tint => tint;
 }

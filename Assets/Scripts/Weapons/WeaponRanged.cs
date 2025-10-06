@@ -6,7 +6,7 @@ public class WeaponRanged : Weapon {
 
     [Header("Bullet Settings")]
     [SerializeField] private BulletPresetSO preset;
-    [SerializeField] private float bulletSpeed;
+    [SerializeField] private BulletStats bulletStats;
 
     private void HandleAttack() {
         if (aimDirection.sqrMagnitude < 0.001f) return;
@@ -18,7 +18,7 @@ public class WeaponRanged : Weapon {
         GameObject bulletObject = bulletFactory.Create(transform.position, Quaternion.identity, bulletScale);
         if (!bulletObject.TryGetComponent(out IBullet bullet)) return;
 
-        bullet.Shoot(preset, aimDirection, targetLayer, currentStats.attackDamage, bulletSpeed);
+        bullet.Shoot(preset, aimDirection, targetLayer, currentStats.attackDamage, bulletStats);
     }
 
     private void Update() {
