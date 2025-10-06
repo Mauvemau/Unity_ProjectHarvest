@@ -255,14 +255,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1603019924547165758, guid: beb980beae75b9a42ae40223a26b09eb, type: 3}
-      propertyPath: bulletStats.speed
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 1603019924547165758, guid: beb980beae75b9a42ae40223a26b09eb, type: 3}
-      propertyPath: bulletStats.lifeTime
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 3146381714383076667, guid: beb980beae75b9a42ae40223a26b09eb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.483457
@@ -306,10 +298,6 @@ PrefabInstance:
     - target: {fileID: 4579851862573548496, guid: beb980beae75b9a42ae40223a26b09eb, type: 3}
       propertyPath: m_Name
       value: MandrakeSniper
-      objectReference: {fileID: 0}
-    - target: {fileID: 7628224437859476084, guid: beb980beae75b9a42ae40223a26b09eb, type: 3}
-      propertyPath: maxHealth
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7628224437859476084, guid: beb980beae75b9a42ae40223a26b09eb, type: 3}
       propertyPath: threatTargetReference
