@@ -2,7 +2,6 @@ using UnityEngine;
 
 [System.Serializable]
 public class Factory {
-    [Header("Object Settings")]
     [SerializeField] private GameObject prefabToCreate;
     [Header("Optional References")]
     [SerializeField] private CentralizedFactory centralizedFactory;

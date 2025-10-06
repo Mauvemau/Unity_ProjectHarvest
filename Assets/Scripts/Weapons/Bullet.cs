@@ -2,9 +2,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(CircleCollider2D))]
-public class Bullet : MonoBehaviour {
-    [Header("Behaviour Settings")]
-    [SerializeReference, SubclassSelector] private IBulletStrategy behaviourHandler = new LinearShotStrategy();
+public class Bullet : MonoBehaviour, IBullet {
+    [Header("Preset")]
+    [SerializeField] BulletPresetSO preset;
+
+    [Header("Current Behaviour")]
+    [SerializeReference, SubclassSelector] private IBulletStrategy currentBehaviour = new LinearShotStrategy();
 
     private SpriteRenderer _spriteRenderer;
     private CircleCollider2D _collider;
@@ -12,17 +15,22 @@ public class Bullet : MonoBehaviour {
     private Vector2 _aimDirection;
     private float _damage = 0f;
     private float _speed = 50f;
-    [SerializeField] private bool _shot = false;
+    private bool _shot = false;
 
     private readonly HashSet<Collider2D> _currentOverlaps = new HashSet<Collider2D>();
 
     [ContextMenu("Debug - Shoot")]
     private void ShootDebug() {
-        Shoot(Vector2.right, 0, _damage, 0f, _speed);
+        Shoot(preset, Vector2.right, 0, _damage, _speed);
     }
 
-    public void Shoot(Vector2 direction, LayerMask targetLayer, float damage, float bulletRadius, float speed) {
-        SetUpCollision(targetLayer, bulletRadius);
+    public void Shoot(BulletPresetSO presetToSet, Vector2 direction, LayerMask targetLayer, float damage, float speed) {
+        if (presetToSet) {
+            preset = presetToSet;
+            SetUpPreset();
+        }
+
+        SetUpCollision(targetLayer);
         _aimDirection = direction;
         _damage = damage;
         _speed = speed;
@@ -30,20 +38,24 @@ public class Bullet : MonoBehaviour {
         _shot = true;
     }
 
-    private void SetUpCollision(LayerMask targetLayer, float bulletRadius) {
+    private void SetUpPreset() {
+        IBulletStrategy strategy = preset.BehaviourHandler;
+        Sprite sprite = preset.BulletSprite;
+
+        if (strategy != null) {
+            currentBehaviour = strategy;
+        }
+        if (sprite && _spriteRenderer) {
+            _spriteRenderer.sprite = sprite;
+        }
+    }
+
+    private void SetUpCollision(LayerMask targetLayer) {
         if (!_collider) return;
 
         int inverted = ~0 & ~targetLayer;
         _collider.includeLayers = 0;
         _collider.excludeLayers = inverted;
-
-        if (bulletRadius <= 0) return;
-        float baseRadius = _collider.radius;
-        _collider.radius = bulletRadius;
-
-        if (!_spriteRenderer) return;
-        float scale = bulletRadius / baseRadius;
-        _spriteRenderer.transform.localScale = new Vector3(scale, scale, 1f);
     }
 
     private void HandleCollision(Collider2D other) {
@@ -54,8 +66,8 @@ public class Bullet : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        if (!_shot && behaviourHandler == null) return;
-        behaviourHandler.HandleMovement(_rb, _aimDirection, _speed);
+        if (!_shot && currentBehaviour == null) return;
+        currentBehaviour.HandleMovement(transform, _rb, _aimDirection, _speed);
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -93,5 +105,12 @@ public class Bullet : MonoBehaviour {
             _rb.linearVelocity = Vector2.zero;
             _rb.angularVelocity = 0f;
         }
+    }
+
+    private void OnValidate() {
+        if (!TryGetComponent(out _spriteRenderer)) {
+            Debug.LogWarning($"{name}: missing optional component {nameof(CircleCollider2D)}");
+        }
+        SetUpPreset();
     }
 }

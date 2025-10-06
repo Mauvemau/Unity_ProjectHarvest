@@ -4,19 +4,19 @@ using UnityEngine;
 /// Base class for weapons
 /// </summary>
 public abstract class Weapon : MonoBehaviour, IWeapon {
-    [Header("Base Stats")]
+    [Header("Stats")]
     [field: SerializeField] public WeaponStats BaseStats { get; protected set; }
-    
+    [SerializeField, ReadOnly] protected WeaponStats currentStats;
+
     [Header("Base Settings")]
     [SerializeField] protected LayerMask targetLayer;
 
-    protected WeaponStats currentStats;
     protected Vector2 aimDirection;
     protected float nextAttack;
 
     private void InitWeaponStats() {
         currentStats = BaseStats;
-        aimDirection = Vector2.right;
+        aimDirection = Vector2.zero;
         nextAttack = 0;
     }
 
