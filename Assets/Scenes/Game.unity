@@ -171,72 +171,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3954101743771209567, guid: dbcfed1e5bc403b49997de8a71b6dc3e, type: 3}
   m_PrefabInstance: {fileID: 3431711331352404105}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &909063967 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6185150928903746312, guid: dbcfed1e5bc403b49997de8a71b6dc3e, type: 3}
-  m_PrefabInstance: {fileID: 3431711331352404105}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1037943397
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3146381714383076667, guid: beb980beae75b9a42ae40223a26b09eb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 13.483457
-      objectReference: {fileID: 0}
-    - target: {fileID: 3146381714383076667, guid: beb980beae75b9a42ae40223a26b09eb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.8831105
-      objectReference: {fileID: 0}
-    - target: {fileID: 3146381714383076667, guid: beb980beae75b9a42ae40223a26b09eb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3146381714383076667, guid: beb980beae75b9a42ae40223a26b09eb, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3146381714383076667, guid: beb980beae75b9a42ae40223a26b09eb, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3146381714383076667, guid: beb980beae75b9a42ae40223a26b09eb, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3146381714383076667, guid: beb980beae75b9a42ae40223a26b09eb, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3146381714383076667, guid: beb980beae75b9a42ae40223a26b09eb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3146381714383076667, guid: beb980beae75b9a42ae40223a26b09eb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3146381714383076667, guid: beb980beae75b9a42ae40223a26b09eb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4579851862573548496, guid: beb980beae75b9a42ae40223a26b09eb, type: 3}
-      propertyPath: m_Name
-      value: MandrakeSniper
-      objectReference: {fileID: 0}
-    - target: {fileID: 7628224437859476084, guid: beb980beae75b9a42ae40223a26b09eb, type: 3}
-      propertyPath: threatTargetReference
-      value: 
-      objectReference: {fileID: 909063967}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: beb980beae75b9a42ae40223a26b09eb, type: 3}
 --- !u!1 &1053785890
 GameObject:
   m_ObjectHideFlags: 0
@@ -6474,6 +6408,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPools:
   - objectToPool: {fileID: 4210210132979722889, guid: 637b9d4b9c5081247a9c11aff171998e, type: 3}
+    poolSize: 15
+    expandable: 1
+    pool: []
+  - objectToPool: {fileID: 4579851862573548496, guid: beb980beae75b9a42ae40223a26b09eb, type: 3}
     poolSize: 10
     expandable: 0
     pool: []
@@ -6537,6 +6475,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 6749257425476785801, guid: dbcfed1e5bc403b49997de8a71b6dc3e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382280529996613601, guid: dbcfed1e5bc403b49997de8a71b6dc3e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6553,4 +6499,3 @@ SceneRoots:
   - {fileID: 1125368742}
   - {fileID: 2054613207}
   - {fileID: 1632652939}
-  - {fileID: 1037943397}

@@ -1,4 +1,5 @@
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 /// <summary>
@@ -10,6 +11,7 @@ public class AutoWeaponController : WeaponController {
     [SerializeField] private Scanner scannerReference;
 
     [Header("Settings")]
+    [SerializeField] private float minRangeRadius = 0f;
     [SerializeField] private float pollingRate = 0.1f;
 
     private float _nextPoll = 0f;
@@ -22,8 +24,15 @@ public class AutoWeaponController : WeaponController {
         }
         if (!closest.TryGetComponent(out IDamageable damageable)) return;
 
-        Vector2 direction = ((Vector2)closest.transform.position - (Vector2)transform.position).normalized;
+        Vector2 toTarget = (Vector2)closest.transform.position - (Vector2)transform.position;
+        float distance = toTarget.magnitude;
 
+        if (minRangeRadius > 0f && distance <= minRangeRadius) {
+            AimWeapon(Vector2.zero);
+            return;
+        }
+
+        Vector2 direction = toTarget.normalized;
         AimWeapon(direction);
     }
 
@@ -38,5 +47,13 @@ public class AutoWeaponController : WeaponController {
         if (!scannerReference) {
             Debug.LogError($"{name}: missing required component {nameof(CircleCollider2D)}");
         }
+    }
+
+    private void OnDrawGizmos() {
+#if UNITY_EDITOR
+        if (minRangeRadius < 0.1f) return;
+        UnityEditor.Handles.color = Color.white;
+        UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.back, minRangeRadius);
+#endif
     }
 }

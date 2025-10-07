@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 636574805379987224}
   - component: {fileID: 4627234137538212633}
   - component: {fileID: 3529738234245799113}
-  - component: {fileID: 2988119223851631035}
+  - component: {fileID: 3652528655016219177}
   m_Layer: 7
   m_Name: Mandrake
   m_TagString: Untagged
@@ -209,6 +209,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   threatTargetReference: {fileID: 0}
   healthBarReference: {fileID: 1449544048425970047}
+  currentBehaviour:
+    rid: 8748630563905077402
   maxHealth: 10
   currentHealth: 0
   movementSpeed: 1.5
@@ -218,7 +220,13 @@ MonoBehaviour:
       <DropChance>k__BackingField: 0.9
   findPlayer: 1
   disableOnDeath: 1
---- !u!114 &2988119223851631035
+  references:
+    version: 2
+    RefIds:
+    - rid: 8748630563905077402
+      type: {class: FollowTargetStrategy, ns: , asm: Assembly-CSharp}
+      data: 
+--- !u!114 &3652528655016219177
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,10 +235,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4210210132979722889}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72c35ae2daac7274894de77ddbf75415, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c5c20e053d2f29489ec4b31d42a8493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rendererReference: {fileID: 4513896641768806966}
+  spriteRendererReference: {fileID: 4513896641768806966}
 --- !u!1 &5547501926751949969
 GameObject:
   m_ObjectHideFlags: 0

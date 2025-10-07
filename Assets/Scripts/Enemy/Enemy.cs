@@ -1,13 +1,16 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
+public class Enemy : MonoBehaviour, IDamageable, IPushable {
     [Header("References")] 
     [Tooltip("The entity to target for behaviour")]
     [SerializeField] private GameObject threatTargetReference;
     [Tooltip("A health bar will be updated based on the entity's health values if set")]
     [SerializeField] private HealthBar healthBarReference;
-    
+
+    [Header("Behaviour Settings")]
+    [SerializeReference, SubclassSelector] private ICharacterBehaviourStrategy currentBehaviour = new FollowTargetStrategy();
+
     [Header("Health Settings")] 
     [SerializeField] private float maxHealth = 10f;
     [SerializeField] private float currentHealth;
@@ -23,10 +26,16 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
     [SerializeField] private bool findPlayer = false;
     [Tooltip("The GameObject is disabled if currentHealth reaches 0")]
     [SerializeField] private bool disableOnDeath = false;
-    
+
+#if UNITY_EDITOR
+    [Header("Gizmo Settings")]
+    [SerializeField] private bool drawAIGizmo = false;
+    [SerializeField] private Color awarenessGizmoColor = Color.green;
+    [SerializeField] private Color comfortGizmoColor = Color.red;
+#endif
+
     private Rigidbody2D _rb;
     private bool _alive;
-    private Vector2 _movementDirection;
     private Vector2 _pushVelocity;
     
     //
@@ -35,6 +44,7 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
     public void Revive() {
         currentHealth = maxHealth;
         _alive = true;
+        _pushVelocity = Vector2.zero;
         UpdateHealthBar();
     }
     
@@ -106,10 +116,6 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
         Debug.LogWarning($"{name}: trying to request movement on an entity that can't be externally moved!");
     }
 
-    public Vector2 GetMovementDirection() {
-        return _movementDirection.normalized;
-    }
-
     [ContextMenu("Debug - Find Player")]
     private void TryFindThreatTarget() {
         if (!findPlayer || !ServiceLocator.TryGetService(out PlayerCharacter player)) return;
@@ -134,26 +140,17 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
         healthBarReference.gameObject.SetActive(currentHealth < maxHealth);
     }
     
-    private void HandleMovementBehaviour() {
-        if (!_rb || !_alive || !threatTargetReference) return;
-
-        _movementDirection = (threatTargetReference.transform.position - transform.position).normalized;
-        
-        Vector2 move = _movementDirection * (movementSpeed * Time.fixedDeltaTime);
-        Vector2 newPosition = _rb.position + move + _pushVelocity * Time.fixedDeltaTime;
-
-        _rb.MovePosition(newPosition);
-        
-        _pushVelocity *= 0.9f;
-    }
-    
     private void BaseInit() {
         _alive = false;
         Revive();
     }
 
     private void FixedUpdate() {
-        HandleMovementBehaviour();
+        if (!_alive || currentBehaviour == null) return;
+
+        currentBehaviour.HandleMovement(gameObject.transform, _rb, threatTargetReference.transform, movementSpeed, _pushVelocity);
+
+        _pushVelocity *= 0.9f;
     }
     
     private void Awake() {
@@ -166,5 +163,16 @@ public class Enemy : MonoBehaviour, IMovable, IDamageable, IPushable {
     private void OnEnable() {
         Revive();
         TryFindThreatTarget();
+    }
+
+    private void OnDrawGizmos() {
+#if UNITY_EDITOR
+        if (currentBehaviour == null) return;
+        if (!drawAIGizmo) return;
+        UnityEditor.Handles.color = comfortGizmoColor;
+        UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.back, currentBehaviour.GetComforRadius());
+        UnityEditor.Handles.color = awarenessGizmoColor;
+        UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.back, currentBehaviour.GetAwarenessRadius());
+#endif
     }
 }

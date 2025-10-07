@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public class FollowTargetStrategy : ICharacterBehaviourStrategy {
-
+public class FleeFromTargetStrategy : ICharacterBehaviourStrategy {
     public float GetComforRadius() {
         return 0f;
     }
@@ -12,7 +11,7 @@ public class FollowTargetStrategy : ICharacterBehaviourStrategy {
 
     public void HandleMovement(Transform transform, Rigidbody2D rb, Transform targetTransform, float movementSpeed, Vector2 pushVelocity) {
         if (!targetTransform || !rb) return;
-        Vector2 movementDirection = (targetTransform.transform.position - transform.position).normalized;
+        Vector2 movementDirection = (transform.position - targetTransform.position).normalized;
 
         Vector2 move = movementDirection * (movementSpeed * Time.fixedDeltaTime);
         Vector2 newPosition = rb.position + move + pushVelocity * Time.fixedDeltaTime;

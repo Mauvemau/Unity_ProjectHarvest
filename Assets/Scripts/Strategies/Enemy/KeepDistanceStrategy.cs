@@ -1,0 +1,49 @@
+using UnityEngine;
+
+public class KeepDistanceStrategy : ICharacterBehaviourStrategy {
+    // When the target gets past our comfort radius, we begin to flee.
+    [SerializeField, Min(0)] private float comfortRadius = 2.0f;
+    // If the target is beyond our awareness radius we get closer.
+    [SerializeField, Min(0)] private float awarenessRadius = 10.0f;
+    // If target is inside the awareness radius and beyond the comfort radius we stop moving.
+    [Header("Grip Control")]
+    // We will have a slippery grip, it will take us "grip duration" to pick up max speed and also "grip duration" to stop moving completely
+    [SerializeField] private AnimationCurve gripCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
+    [SerializeField, Min(0)] private float gripDuration = 0.5f;
+
+    private ICharacterBehaviourStrategy _followStrategy = new FollowTargetStrategy();
+    private ICharacterBehaviourStrategy _fleeStrategy = new FleeFromTargetStrategy();
+
+    private ICharacterBehaviourStrategy _currentStrategy = new StandyStrategy();
+
+    private float _gripTimer = 0f;
+
+    public float GetComforRadius() => comfortRadius;
+    public float GetAwarenessRadius() => awarenessRadius;
+
+    public void HandleMovement(Transform transform, Rigidbody2D rb, Transform targetTransform, float movementSpeed, Vector2 pushVelocity) {
+        if (!rb || !targetTransform) return;
+
+        float distance = Vector2.Distance(transform.position, targetTransform.position);
+
+        bool shouldFlee = distance < comfortRadius;
+        bool shouldFollow = distance > awarenessRadius;
+
+        float targetGrip = (shouldFlee || shouldFollow) ? 1f : 0f;
+
+        float delta = Time.fixedDeltaTime / gripDuration;
+        _gripTimer = Mathf.MoveTowards(_gripTimer, targetGrip, delta);
+
+        float speedMultiplier = gripCurve.Evaluate(_gripTimer);
+        float effectiveSpeed = movementSpeed * speedMultiplier;
+
+        if (shouldFlee) {
+            _currentStrategy = _fleeStrategy;
+        }
+        if (shouldFollow) {
+            _currentStrategy = _followStrategy;
+        }
+
+        _currentStrategy.HandleMovement(transform, rb, targetTransform, effectiveSpeed, pushVelocity);
+    }
+}
