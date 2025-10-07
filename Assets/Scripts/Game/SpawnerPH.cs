@@ -1,9 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnerPh : MonoBehaviour {
+public class SpawnerPH : MonoBehaviour {
     [Header("Factory Settings")]
-    [SerializeField] private Factory enemyFactory;
-    
+    [SerializeField] private List<FactoryWeightPair> factories;
+
     [Header("Spawning Settings")]
     [SerializeField] private bool spawn = true;
     
@@ -65,14 +66,43 @@ public class SpawnerPh : MonoBehaviour {
 
         return new Vector3(x, y, 0f);
     }
-    
+
+    private Factory GetWeightedRandomFactory() {
+        if (factories == null || factories.Count == 0) return null;
+
+        float totalWeight = 0f;
+        foreach (var pair in factories) totalWeight += pair.Weight;
+
+        float randomValue = Random.Range(0f, totalWeight);
+        float cumulative = 0f;
+
+        foreach (var pair in factories) {
+            cumulative += pair.Weight;
+            if (randomValue <= cumulative) return pair.Factory;
+        }
+
+        return factories[factories.Count - 1].Factory;
+    }
+
     private void Update() {
         if (!spawn) return;
         if (_nextSpawn > Time.time) return;
         _nextSpawn = Time.time + spawnInterval;
 
         Vector3 spawnPos = GetSpawnPositionFromCamera();
-        
-        enemyFactory.Create(spawnPos, Quaternion.identity, Vector3.one);
+
+        Factory chosenFactory = GetWeightedRandomFactory();
+        if (chosenFactory != null) {
+            chosenFactory.Create(spawnPos, Quaternion.identity, Vector3.one);
+        }
     }
+}
+
+[System.Serializable]
+public class FactoryWeightPair {
+    [SerializeField] private Factory factory;
+    [SerializeField, Min(0)] private float weight = 1f;
+
+    public Factory Factory => factory;
+    public float Weight => weight;
 }

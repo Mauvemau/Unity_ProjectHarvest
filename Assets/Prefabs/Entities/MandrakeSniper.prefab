@@ -374,7 +374,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 422161869203098071, guid: 88c41b68693c83c4ebcda6079bcfd502, type: 3}
       propertyPath: bulletStats.speed
-      value: 400
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 422161869203098071, guid: 88c41b68693c83c4ebcda6079bcfd502, type: 3}
       propertyPath: bulletStats.lifeTime

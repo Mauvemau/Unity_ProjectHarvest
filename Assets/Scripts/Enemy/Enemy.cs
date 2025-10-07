@@ -146,7 +146,7 @@ public class Enemy : MonoBehaviour, IDamageable, IPushable {
     }
 
     private void FixedUpdate() {
-        if (!_alive || currentBehaviour == null) return;
+        if (!_alive || currentBehaviour == null || !threatTargetReference) return;
 
         currentBehaviour.HandleMovement(gameObject.transform, _rb, threatTargetReference.transform, movementSpeed, _pushVelocity);
 

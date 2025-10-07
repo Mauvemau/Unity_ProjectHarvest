@@ -80,6 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scannerReference: {fileID: 5898849299700315305}
+  minRangeRadius: 0
   pollingRate: 0.25
 --- !u!1 &6706501637858027700
 GameObject:

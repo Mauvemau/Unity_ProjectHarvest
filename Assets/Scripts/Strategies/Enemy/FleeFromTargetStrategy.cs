@@ -14,7 +14,7 @@ public class FleeFromTargetStrategy : ICharacterBehaviourStrategy {
         Vector2 movementDirection = (transform.position - targetTransform.position).normalized;
 
         Vector2 move = movementDirection * (movementSpeed * Time.fixedDeltaTime);
-        Vector2 newPosition = rb.position + move + pushVelocity * Time.fixedDeltaTime;
+        Vector2 newPosition = rb.position + move;
 
         rb.MovePosition(newPosition);
     }
