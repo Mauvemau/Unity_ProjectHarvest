@@ -6427,8 +6427,12 @@ MonoBehaviour:
     expandable: 1
     pool: []
   - objectToPool: {fileID: 698526753970158529, guid: 01c204ccaf97e414a9be9a54a7ac11cb, type: 3}
-    poolSize: 100
+    poolSize: 30
     expandable: 1
+    pool: []
+  - objectToPool: {fileID: 8122611192328483659, guid: 0d36fd112fc0c1b4c87accaf324d5626, type: 3}
+    poolSize: 10
+    expandable: 0
     pool: []
 --- !u!1001 &3431711331352404105
 PrefabInstance:
@@ -6481,14 +6485,6 @@ PrefabInstance:
     - target: {fileID: 6185150928903746312, guid: dbcfed1e5bc403b49997de8a71b6dc3e, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
-      objectReference: {fileID: 0}
-    - target: {fileID: 6749257425476785801, guid: dbcfed1e5bc403b49997de8a71b6dc3e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7382280529996613601, guid: dbcfed1e5bc403b49997de8a71b6dc3e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

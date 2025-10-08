@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 7fd9f5b4c2a517e4cabbdcb92b9d4768
+guid: 1c73e1ff48d9a4449bc0043adbc19f0f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7250238595965136130
-    second: UnCuarto_0
+      213: -789367053279987352
+    second: Copia de UnCuarto_0
   - first:
-      213: 341489039773982531
-    second: UnCuarto_1
+      213: 6605849157808977223
+    second: Copia de UnCuarto_1
   - first:
-      213: -5963331193374682733
-    second: UnCuarto_2
+      213: -3340690958510775250
+    second: Copia de UnCuarto_2
   - first:
-      213: -1172674399913214194
-    second: UnCuarto_3
+      213: 3574184994346881308
+    second: Copia de UnCuarto_3
   - first:
-      213: 3583927688714236319
-    second: UnCuarto_4
+      213: -4904612378327186292
+    second: Copia de UnCuarto_4
   - first:
-      213: -6427230674133694961
-    second: UnCuarto_5
+      213: 3935197484396586237
+    second: Copia de UnCuarto_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -66,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3299d958c4295a419588fe02363d736
-      internalID: 2038677685
+      spriteID: 462eab6a3c541364e99535dd978ba841
+      internalID: -776530040
       vertices: []
       indices: 
       edges: []
@@ -152,8 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30b2b4c1518a7324a8ca708769bf21bd
-      internalID: 87417366
+      spriteID: 5b94d860ca78317428f85bea0d630585
+      internalID: 288464239
       vertices: []
       indices: 
       edges: []
@@ -174,8 +174,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b53ccbfcffe53cc418af9074ef37f4e0
-      internalID: -198228973
+      spriteID: c3f0dbe2285a2b543bf0b0d3b3b8ccd4
+      internalID: -46877830
       vertices: []
       indices: 
       edges: []
@@ -196,8 +196,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2afdd7df0965004f8c115ca1e19f900
-      internalID: 1234012546
+      spriteID: 2fb10b5777a3ab943b24af32d508d14c
+      internalID: 886864255
       vertices: []
       indices: 
       edges: []
@@ -218,8 +218,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 509a478f2555d6a46aa679e2409740e8
-      internalID: 122109593
+      spriteID: abb632e15f1052b4f84ea1e590d14093
+      internalID: 1376375501
       vertices: []
       indices: 
       edges: []
@@ -240,8 +240,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3b2270a18e8a624dbf494dae2446e8a
-      internalID: -1265167567
+      spriteID: 002d97b4fbbb7cc4ba3fbfe343b01bfb
+      internalID: 1232855692
       vertices: []
       indices: 
       edges: []
@@ -262,8 +262,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d394bb67eb47aaa4e8fd8e693f38c90f
-      internalID: -674594814
+      spriteID: 6a056524150297746b167ae89f9b5b60
+      internalID: -902102216
       vertices: []
       indices: 
       edges: []
@@ -272,7 +272,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 502a77a277b3bd84482001413f01fff9
+    spriteID: 670a5a2a1191c7b4fa7343b038b39f4a
     internalID: 0
     vertices: []
     indices: 
@@ -282,13 +282,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      vfx_scythe_90_0: 2038677685
-      vfx_scythe_90_1: 87417366
-      vfx_scythe_90_2: -198228973
-      vfx_scythe_90_3: 1234012546
-      vfx_scythe_90_4: 122109593
-      vfx_scythe_90_5: -1265167567
-      vfx_scythe_90_6: -674594814
+      vfx_scythe_90_0: -776530040
+      vfx_scythe_90_1: 288464239
+      vfx_scythe_90_2: -46877830
+      vfx_scythe_90_3: 886864255
+      vfx_scythe_90_4: 1376375501
+      vfx_scythe_90_5: 1232855692
+      vfx_scythe_90_6: -902102216
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268093187915502579}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.778, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -201,8 +201,19 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 128
-  attackAngle: 90
-  pushForce: 12
+  attackAngle: 105
+  pushForce: 8
+  vfxPlayer:
+    vfxFactory:
+      prefabToCreate: {fileID: 8122611192328483659, guid: 0d36fd112fc0c1b4c87accaf324d5626, type: 3}
+      centralizedFactory: {fileID: 0}
+      autoFindCentralizedFactory: 1
+    vfxPreset:
+      controller: {fileID: 9100000, guid: b57f4554f34f05f4ab39964324a12cc8, type: 2}
+      playbackSpeed: 1
+      animationStartOffset: 0
+    scaleOffset: {x: 4.45, y: 4.45, z: 1}
+  vfxOffsetInSeconds: -0.2
   arcSegments: 40
   lineWidth: 0.05
   visualColor: {r: 0, g: 0.5368862, b: 1, a: 0.47058824}

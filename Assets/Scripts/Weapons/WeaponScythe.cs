@@ -10,6 +10,11 @@ public class WeaponScythe : Weapon {
     [SerializeField, Range(10f, 360f)] private float attackAngle = 90f;
     [SerializeField] private float pushForce = 12f;
 
+    [Header("VFX Settings")]
+    [SerializeField] private VFXPlayer vfxPlayer;
+    [Tooltip("The vfx will start playing this many seconds before or after the attack logic")]
+    [SerializeField] private float vfxOffsetInSeconds;
+
     [Header("Visual Settings")]
     [SerializeField, Min(12)] private int arcSegments = 40;
     [SerializeField] private float lineWidth = .05f;
@@ -21,6 +26,7 @@ public class WeaponScythe : Weapon {
     private LineRenderer _lineRenderer;
     private CircleCollider2D _collider;
     private Coroutine _colorCrossFadeRoutine;
+    private float _nextVFX = 0f;
     
     private IEnumerator DoArcColorCrossFade() {
         _lineRenderer.startColor = visualColorAttack;
@@ -81,10 +87,19 @@ public class WeaponScythe : Weapon {
         _lineRenderer.SetPositions(positions);
     }
 
+    private void HandleAttackVFX() {
+        if (Time.time < _nextVFX) return;
+        _nextVFX = float.MaxValue;
+
+        float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+        vfxPlayer.PlayVFX(transform.position, Quaternion.Euler(0f, 0f, aimAngle));
+    }
+
     private void HandleAttack() {
         if (Time.time < nextAttack) return;
         nextAttack = Time.time + currentStats.attackRateInSeconds;
-        
+        _nextVFX = nextAttack + vfxOffsetInSeconds;
+
         Collider2D[] hits = Physics2D.OverlapCircleAll(
             transform.position, 
             currentStats.attackSize * transform.lossyScale.x,
@@ -112,7 +127,7 @@ public class WeaponScythe : Weapon {
                 pushable.RequestPush(pushDir, pushForce);
             }
         }
-        
+
         if (_colorCrossFadeRoutine != null)
             StopCoroutine(_colorCrossFadeRoutine);
         _colorCrossFadeRoutine = StartCoroutine(DoArcColorCrossFade());
@@ -121,6 +136,7 @@ public class WeaponScythe : Weapon {
     private void Update() {
         DrawAttackAreaOutline();
 
+        HandleAttackVFX();
         HandleAttack();
     }
 
