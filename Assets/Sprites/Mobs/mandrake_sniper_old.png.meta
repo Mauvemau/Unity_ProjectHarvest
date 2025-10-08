@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c9619ea5963331f4399dd9cdc634d38d
+guid: e798bacdbd6cede4caa6c0a3ee6c3d34
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3791989834699156646
-    second: Mandragora sniper_0
+      213: 1289132537457188801
+    second: Mandragora sniper flippeada_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mandragora sniper_0
+      name: Mandragora sniper flippeada_0
       rect:
         serializedVersion: 2
         x: 2
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6aca221f9aadf9430800000000000000
-      internalID: 3791989834699156646
+      spriteID: 1cf9883763be3e110800000000000000
+      internalID: 1289132537457188801
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Mandragora sniper_0: 3791989834699156646
+      Mandragora sniper flippeada_0: 1289132537457188801
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

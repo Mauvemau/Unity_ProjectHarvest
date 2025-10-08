@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c9619ea5963331f4399dd9cdc634d38d
+guid: 1e4f2bc59804a2e4ba5cc0e17ad3410a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3791989834699156646
-    second: Mandragora sniper_0
+      213: -1287095172508291592
+    second: Mandragora curandera _0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mandragora sniper_0
+      name: Mandragora curandera _0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 0
         y: 0
-        width: 29
-        height: 29
+        width: 27
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6aca221f9aadf9430800000000000000
-      internalID: 3791989834699156646
+      spriteID: 8fde58a82c1532ee0800000000000000
+      internalID: -1287095172508291592
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Mandragora sniper_0: 3791989834699156646
+      Mandragora curandera _0: -1287095172508291592
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
