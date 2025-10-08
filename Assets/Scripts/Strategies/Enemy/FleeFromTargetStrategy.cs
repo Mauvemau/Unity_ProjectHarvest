@@ -1,19 +1,18 @@
 using UnityEngine;
 
 public class FleeFromTargetStrategy : ICharacterBehaviourStrategy {
-    public float GetComforRadius() {
-        return 0f;
-    }
+    private Vector2 _movementDirection = Vector2.zero;
 
-    public float GetAwarenessRadius() {
-        return 0f;
-    }
+    public Vector2 GetDirectionVector() => _movementDirection;
+
+    public float GetComforRadius() => 0f;
+    public float GetAwarenessRadius() => 0f;
 
     public void HandleMovement(Transform transform, Rigidbody2D rb, Transform targetTransform, float movementSpeed, Vector2 pushVelocity) {
         if (!targetTransform || !rb) return;
-        Vector2 movementDirection = (transform.position - targetTransform.position).normalized;
+        _movementDirection = (transform.position - targetTransform.position).normalized;
 
-        Vector2 move = movementDirection * (movementSpeed * Time.fixedDeltaTime);
+        Vector2 move = _movementDirection * (movementSpeed * Time.fixedDeltaTime);
         Vector2 newPosition = rb.position + move;
 
         rb.MovePosition(newPosition);

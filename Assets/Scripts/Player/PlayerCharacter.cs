@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerCharacter : MonoBehaviour, IMovable, IDamageable {
+public class PlayerCharacter : MonoBehaviour, IMovable, IDamageable, IFacingDirection {
     [Header("Health Settings")] 
     [SerializeField] private float maxHealth = 10f;
     [SerializeField] private float currentHealth;
@@ -25,6 +25,12 @@ public class PlayerCharacter : MonoBehaviour, IMovable, IDamageable {
     private float _slipTimer;
     private float _currentSpeed;
     private bool _alive = false;
+
+    // IFacingDirection
+
+    public Vector2 GetFacingDirection() {
+        return GetMovementDirection();
+    }
 
     // IDamageable
 
@@ -101,11 +107,11 @@ public class PlayerCharacter : MonoBehaviour, IMovable, IDamageable {
         _currentSpeed = moveSpeed;
     }
 
-    // PlayerCharacter
-    
     public Vector2 GetMovementDirection() {
         return _inputDir.normalized;
     }
+
+    // PlayerCharacter
 
     private void HandlePhysics() {
         if (_inputDir.sqrMagnitude > 0f) {

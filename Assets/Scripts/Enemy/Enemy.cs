@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Enemy : MonoBehaviour, IDamageable, IPushable {
+public class Enemy : MonoBehaviour, IDamageable, IPushable, IFacingDirection {
     [Header("References")] 
     [Tooltip("The entity to target for behaviour")]
     [SerializeField] private GameObject threatTargetReference;
@@ -9,14 +9,15 @@ public class Enemy : MonoBehaviour, IDamageable, IPushable {
     [SerializeField] private HealthBar healthBarReference;
 
     [Header("Behaviour Settings")]
-    [SerializeReference, SubclassSelector] private ICharacterBehaviourStrategy currentBehaviour = new FollowTargetStrategy();
+    [SerializeReference, SubclassSelector] private ICharacterBehaviourStrategy currentBehaviour = new StandbyStrategy();
 
-    [Header("Health Settings")] 
+    [Header("Health Settings")]
     [SerializeField] private float maxHealth = 10f;
     [SerializeField] private float currentHealth;
 
-    [Header("Movement Settings")] 
+    [Header("Movement Settings")]
     [SerializeField] private float movementSpeed = 1f;
+    [SerializeField] private bool alwaysFaceTarget = false;
 
     [Header("Drops Settings")] 
     [SerializeField] private DropManager dropManager;
@@ -37,9 +38,20 @@ public class Enemy : MonoBehaviour, IDamageable, IPushable {
     private Rigidbody2D _rb;
     private bool _alive;
     private Vector2 _pushVelocity;
-    
+
     //
-    
+
+    public Vector2 GetFacingDirection() {
+        if (alwaysFaceTarget && threatTargetReference) {
+            return (threatTargetReference.transform.position - transform.position).normalized;
+        }
+        else {
+            return currentBehaviour.GetDirectionVector();
+        }
+    }
+
+    //
+
     [ContextMenu("Debug - Revive")]
     public void Revive() {
         currentHealth = maxHealth;

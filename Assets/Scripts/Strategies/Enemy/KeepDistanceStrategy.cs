@@ -14,9 +14,12 @@ public class KeepDistanceStrategy : ICharacterBehaviourStrategy {
     private ICharacterBehaviourStrategy _followStrategy = new FollowTargetStrategy();
     private ICharacterBehaviourStrategy _fleeStrategy = new FleeFromTargetStrategy();
 
-    private ICharacterBehaviourStrategy _currentStrategy = new StandyStrategy();
+    private ICharacterBehaviourStrategy _currentStrategy = new StandbyStrategy();
 
     private float _gripTimer = 0f;
+    private Vector2 _lookDirection = Vector2.zero;
+
+    public Vector2 GetDirectionVector() => _lookDirection;
 
     public float GetComforRadius() => comfortRadius;
     public float GetAwarenessRadius() => awarenessRadius;
@@ -24,15 +27,16 @@ public class KeepDistanceStrategy : ICharacterBehaviourStrategy {
     public void HandleMovement(Transform transform, Rigidbody2D rb, Transform targetTransform, float movementSpeed, Vector2 pushVelocity) {
         if (!rb || !targetTransform) return;
 
-        float distance = Vector2.Distance(transform.position, targetTransform.position);
+        Vector2 delta = targetTransform.position - transform.position;
+        float distance = delta.magnitude;
 
         bool shouldFlee = distance < comfortRadius;
         bool shouldFollow = distance > awarenessRadius;
 
         float targetGrip = (shouldFlee || shouldFollow) ? 1f : 0f;
 
-        float delta = Time.fixedDeltaTime / gripDuration;
-        _gripTimer = Mathf.MoveTowards(_gripTimer, targetGrip, delta);
+        float deltaTime = Time.fixedDeltaTime / gripDuration;
+        _gripTimer = Mathf.MoveTowards(_gripTimer, targetGrip, deltaTime);
 
         float speedMultiplier = gripCurve.Evaluate(_gripTimer);
         float effectiveSpeed = movementSpeed * speedMultiplier;
@@ -45,5 +49,11 @@ public class KeepDistanceStrategy : ICharacterBehaviourStrategy {
         }
 
         _currentStrategy.HandleMovement(transform, rb, targetTransform, effectiveSpeed, pushVelocity);
+        if (shouldFlee || shouldFollow) {
+            _lookDirection = _currentStrategy.GetDirectionVector();
+        }
+        else {
+            _lookDirection = delta.normalized;
+        }
     }
 }

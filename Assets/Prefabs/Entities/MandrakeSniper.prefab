@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8496097217356086025}
   - component: {fileID: 6046723007640733290}
   - component: {fileID: 7628224437859476084}
-  - component: {fileID: 1506016109844072880}
+  - component: {fileID: 5002202156563225772}
   m_Layer: 7
   m_Name: MandrakeSniper
   m_TagString: Untagged
@@ -120,6 +120,7 @@ MonoBehaviour:
   maxHealth: 8
   currentHealth: 0
   movementSpeed: 3
+  alwaysFaceTarget: 0
   dropManager:
     drops:
     - collectiblePrefab: {fileID: 8325983632572383665, guid: fd3b8b79613a36847b4ae453d3ed5234, type: 3}
@@ -162,7 +163,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         gripDuration: 0.5
---- !u!114 &1506016109844072880
+--- !u!114 &5002202156563225772
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,10 +172,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4579851862573548496}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c5c20e053d2f29489ec4b31d42a8493, type: 3}
+  m_Script: {fileID: 11500000, guid: 72c35ae2daac7274894de77ddbf75415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRendererReference: {fileID: 5717135572370234133}
+  rendererReference: {fileID: 5717135572370234133}
 --- !u!1 &4870758651970462197
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,7 +379,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 422161869203098071, guid: 88c41b68693c83c4ebcda6079bcfd502, type: 3}
       propertyPath: bulletStats.lifeTime
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 422161869203098071, guid: 88c41b68693c83c4ebcda6079bcfd502, type: 3}
       propertyPath: <BaseStats>k__BackingField.attackSize
