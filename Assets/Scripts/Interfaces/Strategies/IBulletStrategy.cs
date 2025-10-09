@@ -2,6 +2,6 @@ using System;
 using UnityEngine;
 
 public interface IBulletStrategy : ICloneable {
-    public void Init(Transform transform, Rigidbody2D rb, Vector2 aimDirection, float movementSpeed);
+    public void Init(Transform bulletTransform, Rigidbody2D rb, Vector2 aimDirection, float movementSpeed, Transform weaponTransform = null);
     public void HandleMovement();
 }

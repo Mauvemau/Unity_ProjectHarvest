@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour, IBullet {
 
     private readonly HashSet<Collider2D> _currentOverlaps = new HashSet<Collider2D>();
 
-    public void Shoot(BulletPresetSO presetToSet, Vector2 direction, LayerMask targetLayer, float damage, BulletStats stats) {
+    public void Shoot(BulletPresetSO presetToSet, Vector2 direction, LayerMask targetLayer, float damage, BulletStats stats, Transform weaponTransform = null) {
         if (presetToSet) {
             preset = presetToSet;
             SetUpPreset();
@@ -36,7 +36,8 @@ public class Bullet : MonoBehaviour, IBullet {
         _currentBulletStats = stats;
 
         _timeOfDeath = Time.time + _currentBulletStats.lifeTime;
-        currentBehaviour.Init(transform, _rb, _aimDirection, _currentBulletStats.speed);
+        currentBehaviour.Init(transform, _rb, _aimDirection, _currentBulletStats.speed, weaponTransform);
+        _spriteRenderer.enabled = true;
         _shot = true;
     }
 
@@ -128,6 +129,9 @@ public class Bullet : MonoBehaviour, IBullet {
             _rb.bodyType = RigidbodyType2D.Kinematic;
             _rb.linearVelocity = Vector2.zero;
             _rb.angularVelocity = 0f;
+        }
+        if (_spriteRenderer) {
+            _spriteRenderer.enabled = false;
         }
     }
 

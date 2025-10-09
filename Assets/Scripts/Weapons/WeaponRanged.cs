@@ -18,7 +18,7 @@ public class WeaponRanged : Weapon {
         GameObject bulletObject = bulletFactory.Create(transform.position, Quaternion.identity, bulletScale);
         if (!bulletObject.TryGetComponent(out IBullet bullet)) return;
 
-        bullet.Shoot(preset, aimDirection, targetLayer, currentStats.attackDamage, bulletStats);
+        bullet.Shoot(preset, aimDirection, targetLayer, currentStats.attackDamage, bulletStats, gameObject.transform);
     }
 
     private void Update() {

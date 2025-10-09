@@ -112,7 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preset: {fileID: 11400000, guid: 7e7e2ec5bc9778641b98f115c7728aab, type: 2}
   currentBehaviour:
-    rid: 8748630584866111988
+    rid: 8748630608635757012
   _currentBulletStats:
     speed: 50
     lifeTime: 5
@@ -121,7 +121,7 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 8748630584866111988
+    - rid: 8748630608635757012
       type: {class: LinearShotStrategy, ns: , asm: Assembly-CSharp}
       data: 
 --- !u!212 &4052143771903301830

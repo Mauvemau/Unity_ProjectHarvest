@@ -2,13 +2,13 @@ using UnityEngine;
 
 [System.Serializable]
 public class LinearShotStrategy : IBulletStrategy {
-    private Transform _transform;
+    private Transform _bulletTransform;
     private Rigidbody2D _rb;
     private Vector2 _aimDirection;
     private float _movementSpeed;
 
-    public void Init(Transform transform, Rigidbody2D rb, Vector2 aimDirection, float movementSpeed) {
-        _transform = transform;
+    public void Init(Transform bulletTransform, Rigidbody2D rb, Vector2 aimDirection, float movementSpeed, Transform weaponTransform = null) {
+        _bulletTransform = bulletTransform;
         _rb = rb;
         _aimDirection = aimDirection;
         _movementSpeed = movementSpeed;
@@ -23,8 +23,9 @@ public class LinearShotStrategy : IBulletStrategy {
 
         _rb.MovePosition(newPosition);
 
+        if (!_bulletTransform) return;
         float angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg;
-        _transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        _bulletTransform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 
     public object Clone() => MemberwiseClone();

@@ -11,7 +11,7 @@ public abstract class Weapon : MonoBehaviour, IWeapon {
     [Header("Base Settings")]
     [SerializeField] protected LayerMask targetLayer;
 
-    protected Vector2 aimDirection;
+    [SerializeField, ReadOnly] protected Vector2 aimDirection;
     protected float nextAttack;
 
     private void InitWeaponStats() {
