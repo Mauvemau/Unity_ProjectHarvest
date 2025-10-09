@@ -6,9 +6,9 @@ using UnityEngine.Events;
 /// </summary>
 [CreateAssetMenu(menuName = "Events/Menu Channel")]
 public class MenuEventChannelSO : ScriptableObject {
-    public UnityAction<Menu> onEventRaised;
+    public UnityAction<Menu> OnEventRaised;
 
     public void RaiseEvent(Menu value) {
-        onEventRaised?.Invoke(value);
+        OnEventRaised?.Invoke(value);
     }
 }

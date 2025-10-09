@@ -12,12 +12,12 @@ public abstract class Weapon : MonoBehaviour, IWeapon {
     [SerializeField] protected LayerMask targetLayer;
 
     [SerializeField, ReadOnly] protected Vector2 aimDirection;
-    protected float nextAttack;
+    protected float NextAttack;
 
     private void InitWeaponStats() {
         currentStats = BaseStats;
         aimDirection = Vector2.zero;
-        nextAttack = 0;
+        NextAttack = 0;
     }
 
     public void AimWeapon(Vector2 direction) {

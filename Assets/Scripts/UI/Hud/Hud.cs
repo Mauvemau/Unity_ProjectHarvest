@@ -10,13 +10,13 @@ public class Hud : MonoBehaviour {
 
     private void Awake() {
         if (onRequestEnable) {
-            onRequestEnable.onEventRaised += SetEnabled;
+            onRequestEnable.OnEventRaised += SetEnabled;
         }
     }
 
     private void OnDestroy() {
         if (onRequestEnable) {
-            onRequestEnable.onEventRaised -= SetEnabled;
+            onRequestEnable.OnEventRaised -= SetEnabled;
         }
     }
 }

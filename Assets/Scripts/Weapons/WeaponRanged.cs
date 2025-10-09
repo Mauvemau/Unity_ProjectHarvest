@@ -10,8 +10,8 @@ public class WeaponRanged : Weapon {
 
     private void HandleAttack() {
         if (aimDirection.sqrMagnitude < 0.001f) return;
-        if (Time.time < nextAttack) return;
-        nextAttack = Time.time + currentStats.attackRateInSeconds;
+        if (Time.time < NextAttack) return;
+        NextAttack = Time.time + currentStats.attackRateInSeconds;
 
         Vector3 bulletScale = new Vector3(currentStats.attackSize, currentStats.attackSize, 1f);
 

@@ -96,9 +96,9 @@ public class WeaponScythe : Weapon {
     }
 
     private void HandleAttack() {
-        if (Time.time < nextAttack) return;
-        nextAttack = Time.time + currentStats.attackRateInSeconds;
-        _nextVFX = nextAttack + vfxOffsetInSeconds;
+        if (Time.time < NextAttack) return;
+        NextAttack = Time.time + currentStats.attackRateInSeconds;
+        _nextVFX = NextAttack + vfxOffsetInSeconds;
 
         Collider2D[] hits = Physics2D.OverlapCircleAll(
             transform.position, 

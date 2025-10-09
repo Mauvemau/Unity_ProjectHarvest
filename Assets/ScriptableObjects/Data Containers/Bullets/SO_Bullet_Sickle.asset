@@ -22,5 +22,7 @@ MonoBehaviour:
     - rid: 8748630608635756764
       type: {class: OrbitStrategy, ns: , asm: Assembly-CSharp}
       data:
-        orbitRadius: 4
+        initialOrbitRadius: 4
+        orbitExpansionSpeed: 0
+        bulletSpinSpeed: 0
         stickToMass: 1

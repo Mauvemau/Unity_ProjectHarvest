@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <BaseStats>k__BackingField:
-    attackDamage: 4
-    attackRateInSeconds: 7
+    attackDamage: 3
+    attackRateInSeconds: 5
     attackSize: 2
   currentStats:
     attackDamage: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
     speed: 25
     lifeTime: 3
     penetrationCount: 100
-    pushForce: 0
+    pushForce: 15
 --- !u!114 &1354548757129229597
 MonoBehaviour:
   m_ObjectHideFlags: 0

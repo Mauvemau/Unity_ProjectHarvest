@@ -40,10 +40,10 @@ public abstract class Collectible : MonoBehaviour, ICollectable {
     }
 
     private void OnValidate() {
-        if (!TryGetComponent(out CircleCollider2D collider)) {
-            Debug.LogError($"{name}: missing reference \"{nameof(collider)}\"");
+        if (!TryGetComponent(out CircleCollider2D col)) {
+            Debug.LogError($"{name}: missing reference \"{nameof(col)}\"");
             return;
         }
-        collider.isTrigger = true;
+        col.isTrigger = true;
     }
 }

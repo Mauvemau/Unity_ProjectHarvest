@@ -24,13 +24,13 @@ public class UITextController : MonoBehaviour {
 
     private void OnEnable() {
         if (onUpdateText) {
-            onUpdateText.onEventRaised += UpdateText;
+            onUpdateText.OnEventRaised += UpdateText;
         }
     }
 
     private void OnDisable() {
         if (onUpdateText) {
-            onUpdateText.onEventRaised -= UpdateText;
+            onUpdateText.OnEventRaised -= UpdateText;
         }
     }
 }

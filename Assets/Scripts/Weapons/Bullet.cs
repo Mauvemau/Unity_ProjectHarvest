@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(CircleCollider2D))]
 public class Bullet : MonoBehaviour, IBullet {
     [Header("Preset")]
-    [SerializeField] BulletPresetSO preset;
+    [SerializeField] private BulletPresetSO preset;
 
     [Header("Current Behaviour")]
     [SerializeReference, SubclassSelector] private IBulletStrategy currentBehaviour = new LinearShotStrategy();
@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour, IBullet {
     private Vector2 _aimDirection;
     private float _damage = 0f;
 
-    [SerializeField] private BulletStats _currentBulletStats;
+    private BulletStats _currentBulletStats;
 
     private bool _shot = false;
     private float _timeOfDeath = 0f;

@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[System.Serializable]
 public class KeepDistanceStrategy : ICharacterBehaviourStrategy {
     // When the target gets past our comfort radius, we begin to flee.
     [SerializeField, Min(0)] private float comfortRadius = 7.0f;

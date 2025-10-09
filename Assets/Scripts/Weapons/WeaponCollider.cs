@@ -11,8 +11,8 @@ public class WeaponCollider : Weapon {
     private CircleCollider2D _collider;
 
     private void HandleAttack(Collider2D other) {
-        if (Time.time < nextAttack) return;
-        nextAttack = Time.time + currentStats.attackRateInSeconds;
+        if (Time.time < NextAttack) return;
+        NextAttack = Time.time + currentStats.attackRateInSeconds;
         
         if (!other.TryGetComponent(out IDamageable damageable)) return;
         

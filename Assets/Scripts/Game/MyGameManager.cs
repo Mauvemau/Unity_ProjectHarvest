@@ -79,10 +79,10 @@ public class GameManager : MonoBehaviour {
         PlayerCharacter.OnPlayerDeath += HandlePlayerDeath;
         ExperienceCollectible.OnExperienceCollected += globalVariableManager.AddCurrentExperience;
         if (onStartGameChannel) {
-            onStartGameChannel.onEventRaised += StartGame;
+            onStartGameChannel.OnEventRaised += StartGame;
         }
         if (onEndGameChannel) {
-            onEndGameChannel.onEventRaised += EndGame;
+            onEndGameChannel.OnEventRaised += EndGame;
         }
     }
     
@@ -91,10 +91,10 @@ public class GameManager : MonoBehaviour {
         PlayerCharacter.OnPlayerDeath -= HandlePlayerDeath;
         ExperienceCollectible.OnExperienceCollected -= globalVariableManager.AddCurrentExperience;
         if (onStartGameChannel) {
-            onStartGameChannel.onEventRaised -= StartGame;
+            onStartGameChannel.OnEventRaised -= StartGame;
         }
         if (onEndGameChannel) {
-            onEndGameChannel.onEventRaised -= EndGame;
+            onEndGameChannel.OnEventRaised -= EndGame;
         }
     }
 }

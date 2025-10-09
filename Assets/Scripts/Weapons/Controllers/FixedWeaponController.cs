@@ -7,13 +7,13 @@ using UnityEngine;
 public class FixedWeaponController : WeaponController {
     [SerializeField] private Vector2 fixedAimDirection = Vector2.right;
 
-    const float delay = 2f;
+    private const float Delay = 2f;
 
     private void FixAim() {
         AimWeapon(fixedAimDirection);
     }
 
     protected override void OnAwake() {
-        Invoke(nameof(FixAim), delay);
+        Invoke(nameof(FixAim), Delay);
     }
 }

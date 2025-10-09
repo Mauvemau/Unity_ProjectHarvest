@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[System.Serializable]
 public class StandbyStrategy : ICharacterBehaviourStrategy {
     public Vector2 GetDirectionVector() => Vector2.zero;
 

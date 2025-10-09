@@ -62,19 +62,19 @@ public class ProgressBar : MonoBehaviour {
     
     private void OnEnable() {
         if (setMaxValueListener) {
-            setMaxValueListener.onEventRaised += SetMaxValue;
+            setMaxValueListener.OnEventRaised += SetMaxValue;
         }
         if (setCurrentValueListener) {
-            setCurrentValueListener.onEventRaised += SetCurrentValue;
+            setCurrentValueListener.OnEventRaised += SetCurrentValue;
         }
     }
 
     private void OnDisable() {
         if (setMaxValueListener) {
-            setMaxValueListener.onEventRaised -= SetMaxValue;
+            setMaxValueListener.OnEventRaised -= SetMaxValue;
         }
         if (setCurrentValueListener) {
-            setCurrentValueListener.onEventRaised -= SetCurrentValue;
+            setCurrentValueListener.OnEventRaised -= SetCurrentValue;
         }
     }
 }

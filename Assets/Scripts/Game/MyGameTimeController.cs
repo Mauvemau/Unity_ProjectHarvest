@@ -14,13 +14,13 @@ public class MyGameTimeController {
 
     public void OnEnable() {
         if (onSetGamePaused) {
-            onSetGamePaused.onEventRaised += SetGamePaused;
+            onSetGamePaused.OnEventRaised += SetGamePaused;
         }
     }
 
     public void OnDisable() {
         if (onSetGamePaused) {
-            onSetGamePaused.onEventRaised -= SetGamePaused;
+            onSetGamePaused.OnEventRaised -= SetGamePaused;
         }
     }
 }
