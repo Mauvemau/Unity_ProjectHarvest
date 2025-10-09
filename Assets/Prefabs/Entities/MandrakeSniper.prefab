@@ -119,7 +119,7 @@ MonoBehaviour:
     rid: 8748630567095894170
   maxHealth: 8
   currentHealth: 0
-  movementSpeed: 3
+  movementSpeed: 3.5
   alwaysFaceTarget: 0
   dropManager:
     drops:
@@ -162,7 +162,7 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-        gripDuration: 0.5
+        gripDuration: 0.25
 --- !u!114 &5002202156563225772
 MonoBehaviour:
   m_ObjectHideFlags: 0
