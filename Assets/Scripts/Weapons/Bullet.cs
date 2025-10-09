@@ -36,6 +36,7 @@ public class Bullet : MonoBehaviour, IBullet {
         _currentBulletStats = stats;
 
         _timeOfDeath = Time.time + _currentBulletStats.lifeTime;
+        currentBehaviour.Init(transform, _rb, _aimDirection, _currentBulletStats.speed);
         _shot = true;
     }
 
@@ -44,7 +45,7 @@ public class Bullet : MonoBehaviour, IBullet {
         Sprite sprite = preset.Sprite;
 
         if (strategy != null) {
-            currentBehaviour = strategy;
+            currentBehaviour = (IBulletStrategy)strategy.Clone();
         }
         if (sprite && _spriteRenderer) {
             _spriteRenderer.sprite = sprite;
@@ -82,7 +83,7 @@ public class Bullet : MonoBehaviour, IBullet {
 
     private void FixedUpdate() {
         if (!_shot && currentBehaviour == null) return;
-        currentBehaviour.HandleMovement(transform, _rb, _aimDirection, _currentBulletStats.speed);
+        currentBehaviour.HandleMovement();
     }
 
     private void Update() {
