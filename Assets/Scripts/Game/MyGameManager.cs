@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private VoidEventChannelSO onEndGameChannel;
 
     [Header("Debug Controls")]
-    private bool skipMainMenu = false;
+    [SerializeField] private bool _spawnOnStart = true;
 
     private bool _hudVisible = false;
 
@@ -59,7 +59,9 @@ public class GameManager : MonoBehaviour {
         playerCharacter.SetActive(true);
         inputManager.SetPlayerInputEnabled(true);
         SetHudEnabled(true);
-        spawnManager.SetSpawning(true);
+        if (_spawnOnStart) {
+            spawnManager.SetSpawning(true);
+        }
     }
 
     private void Awake() {
