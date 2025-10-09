@@ -22,6 +22,12 @@ public class InputManager : MonoBehaviour {
     private bool _shouldReadPlayerInput = false;
     private bool _shouldReadMouseInput = true;
 
+    // Public
+
+    public void SetPlayerInputEnabled(bool shouldReadPlayerInput) {
+        _shouldReadPlayerInput = shouldReadPlayerInput;
+    }
+
     // Tools
     
     private Vector2 ApplyDeadZone(Vector2 input) {
@@ -76,20 +82,6 @@ public class InputManager : MonoBehaviour {
 
     private void HandleQuitProgramInput(InputAction.CallbackContext ctx) {
         Application.Quit();
-    }
-    
-    // Init
-
-    private void Init() {
-        _shouldReadPlayerInput = true;
-    }
-
-    private void Reset() {
-        Init();
-    }
-
-    private void Awake() {
-        Init();
     }
 
     // Input Events

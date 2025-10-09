@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -6,6 +7,8 @@ public class Factory {
     [Header("Optional References")]
     [SerializeField] private CentralizedFactory centralizedFactory;
     [SerializeField] private bool autoFindCentralizedFactory;
+
+    private List<GameObject> _creations;
 
     private void TryFindCentralizedFactory() {
         if (centralizedFactory) return;
@@ -24,9 +27,18 @@ public class Factory {
         }
 
         GameObject obj = Object.Instantiate(prefabToCreate, parent);
+        _creations.Add(obj);
         obj.transform.position = position;
         obj.transform.rotation = rotation;
         obj.transform.localScale = scale;
         return obj;
+    }
+
+    public void SoftWipe() {
+        foreach (GameObject creation in _creations) {
+            if (creation) {
+                creation.SetActive(false);
+            }
+        }
     }
 }

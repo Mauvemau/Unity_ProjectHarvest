@@ -261,6 +261,7 @@ GameObject:
   - component: {fileID: 134720279}
   - component: {fileID: 134720278}
   - component: {fileID: 134720277}
+  - component: {fileID: 134720281}
   m_Layer: 5
   m_Name: Hud
   m_TagString: Untagged
@@ -357,6 +358,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &134720281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134720276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c46a500ca69bd44680d60463f75d9c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onRequestEnable: {fileID: 11400000, guid: 949c69b1086c4924292fc7990d8c38e9, type: 2}
+  startEnabled: 0
 --- !u!1 &185693303
 GameObject:
   m_ObjectHideFlags: 0
@@ -3436,7 +3451,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 273.0899, y: 23.299988}
+  m_AnchoredPosition: {x: 273.08984, y: 23.299927}
   m_SizeDelta: {x: 523.1797, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1751091427

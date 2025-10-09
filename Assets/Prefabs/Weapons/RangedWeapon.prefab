@@ -57,6 +57,7 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 128
+  aimDirection: {x: 0, y: 0}
   bulletFactory:
     prefabToCreate: {fileID: 698526753970158529, guid: 01c204ccaf97e414a9be9a54a7ac11cb, type: 3}
     centralizedFactory: {fileID: 0}
