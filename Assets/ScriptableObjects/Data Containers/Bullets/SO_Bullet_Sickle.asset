@@ -25,4 +25,5 @@ MonoBehaviour:
         initialOrbitRadius: 4
         orbitExpansionSpeed: 0
         bulletSpinSpeed: 0
+        clockWise: 1
         stickToMass: 1

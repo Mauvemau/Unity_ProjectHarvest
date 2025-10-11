@@ -65,7 +65,7 @@ MonoBehaviour:
   bulletStats:
     speed: 30
     lifeTime: 5
-    penetrationCount: 20
+    penetrationCount: 6
     pushForce: 0
 --- !u!114 &6780377421844000543
 MonoBehaviour:

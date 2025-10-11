@@ -5,6 +5,7 @@ public class OrbitStrategy : IBulletStrategy {
     [SerializeField, Min(0.1f)] private float initialOrbitRadius = 1f;
     [SerializeField] private float orbitExpansionSpeed = 0f; // > 0 expand outwards, < 0 expand inwards
     [SerializeField] private float bulletSpinSpeed = 0f; // 0 = face movement direction > 0 spin around
+    [SerializeField] private bool clockWise = false;
     [SerializeField] private bool stickToMass = false;
 
     private Transform _bulletTransform;
@@ -35,7 +36,7 @@ public class OrbitStrategy : IBulletStrategy {
             _centerOfMass = _weaponTransform.position;
         }
 
-        _currentAngle += _movementSpeed * Time.fixedDeltaTime / _currentOrbitRadius;
+        _currentAngle += (clockWise ? _movementSpeed : -_movementSpeed) * Time.fixedDeltaTime / _currentOrbitRadius;
         _currentOrbitRadius += orbitExpansionSpeed * Time.fixedDeltaTime;
 
         Vector2 newOffset = new Vector2(Mathf.Cos(_currentAngle), Mathf.Sin(_currentAngle)) * _currentOrbitRadius;
