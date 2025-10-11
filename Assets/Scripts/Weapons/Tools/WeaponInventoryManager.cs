@@ -10,7 +10,7 @@ public class EquippedWeaponTracker {
 /// <summary>
 /// Contains and manages weapons and upgrades
 /// </summary>
-public class WeaponManager: MonoBehaviour {
+public class WeaponInventoryManager: MonoBehaviour {
     [Header("Inventory Settings")]
     [SerializeField, Min(0)] private int weaponInventoryLimit = 4;
 
