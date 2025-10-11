@@ -7,8 +7,9 @@ public class Factory {
     [Header("Optional References")]
     [SerializeField] private CentralizedFactory centralizedFactory;
     [SerializeField] private bool autoFindCentralizedFactory;
-
-    private List<GameObject> _creations;
+    
+    [Header("Debug")]
+    [SerializeField, ReadOnly] private List<GameObject> creations;
 
     private void TryFindCentralizedFactory() {
         if (centralizedFactory) return;
@@ -27,18 +28,45 @@ public class Factory {
         }
 
         GameObject obj = Object.Instantiate(prefabToCreate, parent);
-        _creations.Add(obj);
+        creations.Add(obj);
         obj.transform.position = position;
         obj.transform.rotation = rotation;
         obj.transform.localScale = scale;
         return obj;
     }
 
+    public void Destroy(GameObject objReference) {
+        if (objReference == null) return;
+        if (!creations.Contains(objReference)) return;
+        creations.Remove(objReference);
+        Object.Destroy(objReference);
+    }
+    
+    public void SoftDestroy(GameObject objReference) {
+        if (!objReference) return;
+        if (!creations.Contains(objReference)) return;
+        objReference.SetActive(false);
+    }
+
+    public void SetPrefabToCreate(GameObject prefab) {
+        prefabToCreate = prefab;
+    }
+    
     public void SoftWipe() {
-        foreach (GameObject creation in _creations) {
-            if (creation) {
+        foreach (GameObject creation in creations) {
+            if (creation && creation.activeInHierarchy) {
                 creation.SetActive(false);
             }
         }
+    }
+    
+    public void HardWipe() {
+        for (int i = creations.Count - 1; i >= 0; i--) {
+            GameObject creation = creations[i];
+            if (creation) {
+                Object.Destroy(creation);
+            }
+        }
+        creations.Clear();
     }
 }
