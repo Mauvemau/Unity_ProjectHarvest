@@ -66,8 +66,6 @@ public class WeaponInventoryManager: MonoBehaviour {
             return;
         }
         
-        Debug.Log(prefab.name);
-        
         _weaponFactory.SetPrefabToCreate(prefab);
         GameObject weapon = _weaponFactory.Create(transform.position + weaponPositionOffset, Quaternion.identity, Vector3.one, transform);
         EquippedWeaponTracker weaponTracker = new EquippedWeaponTracker {
