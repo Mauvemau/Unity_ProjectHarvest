@@ -1,13 +1,14 @@
 using UnityEngine;
 using UnityEngine.Rendering.VirtualTexturing;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour {
+    [Header("Weapon Upgrades Manager")] 
+    [SerializeField] private WeaponUpgradeManager weaponUpgradeManager;
+    
     [Header("Global Variables")]
     [SerializeField] private GlobalVariableManager globalVariableManager;
-    [Header("Extra Variables")]
-    [Tooltip("Amount of money currently held by the player")]
-    [SerializeField] private int coinsHeld;
 
     [Header("References")]
     [SerializeField] private GameObject playerCharacter;
@@ -24,9 +25,9 @@ public class GameManager : MonoBehaviour {
     [Header("Event Listeners")]
     [SerializeField] private VoidEventChannelSO onStartGameChannel;
     [SerializeField] private VoidEventChannelSO onEndGameChannel;
-
+    
     [Header("Debug Controls")]
-    [SerializeField] private bool _spawnOnStart = true;
+    [SerializeField] private bool spawnOnStart = true;
 
     private bool _hudVisible = false;
 
@@ -34,6 +35,11 @@ public class GameManager : MonoBehaviour {
     private void DebugToggleHud() {
         _hudVisible = !_hudVisible;
         SetHudEnabled(_hudVisible);
+    }
+
+    [ContextMenu("Debug - Upgrade Starting Weapon")]
+    private void DebugUpgradeStartingWeapon() {
+        weaponUpgradeManager.DebugUpgradeStaringWeapon();
     }
 
     private void SetHudEnabled(bool shouldDrawHud) {
@@ -59,7 +65,7 @@ public class GameManager : MonoBehaviour {
         playerCharacter.SetActive(true);
         inputManager.SetPlayerInputEnabled(true);
         SetHudEnabled(true);
-        if (_spawnOnStart) {
+        if (spawnOnStart) {
             spawnManager.SetSpawning(true);
         }
     }
@@ -67,6 +73,7 @@ public class GameManager : MonoBehaviour {
     private void Awake() {
         Random.InitState(System.DateTime.Now.Millisecond);
         globalVariableManager.Init();
+        weaponUpgradeManager.Init();
         StartGame();
     }
     
@@ -76,6 +83,8 @@ public class GameManager : MonoBehaviour {
 
     private void OnEnable() {
         timeController.OnEnable();
+        weaponUpgradeManager.OnEnable();
+        
         PlayerCharacter.OnPlayerDeath += HandlePlayerDeath;
         ExperienceCollectible.OnExperienceCollected += globalVariableManager.AddCurrentExperience;
         if (onStartGameChannel) {
@@ -88,6 +97,8 @@ public class GameManager : MonoBehaviour {
     
     private void OnDisable() {
         timeController.OnDisable();
+        weaponUpgradeManager.OnDisable();
+        
         PlayerCharacter.OnPlayerDeath -= HandlePlayerDeath;
         ExperienceCollectible.OnExperienceCollected -= globalVariableManager.AddCurrentExperience;
         if (onStartGameChannel) {

@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponInventoryLimit: 4
-  equippedPlans: []
+  weaponPositionOffset: {x: 0, y: 0.778, z: 0}
   equippedWeapons: []
 --- !u!114 &518799155312524631
 MonoBehaviour:

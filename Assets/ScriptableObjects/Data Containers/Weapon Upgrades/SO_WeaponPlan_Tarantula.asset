@@ -10,10 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83050d15a1c31544bbc682a13762459b, type: 3}
-  m_Name: SO_WeaponPlan_Scythe
+  m_Name: SO_WeaponPlan_Tarantula
   m_EditorClassIdentifier: 
   weaponLevel:
-  - weaponPrefab: {fileID: 1268093187915502579, guid: acdcba5d75f2bde42a0de1c6cc4e758b, type: 3}
-    upgradeDescription: A farmer's trusty killing machine
-  - weaponPrefab: {fileID: 1268093187915502579, guid: d08fed1b7dc616648aac1feab8167bfc, type: 3}
-    upgradeDescription: :)
+  - weaponPrefab: {fileID: 4038727559878163834, guid: 2cb06854798a16e44b3be463b86c919e, type: 3}
+    upgradeDescription: A powerful companion that will shoot webs at enemies automatically

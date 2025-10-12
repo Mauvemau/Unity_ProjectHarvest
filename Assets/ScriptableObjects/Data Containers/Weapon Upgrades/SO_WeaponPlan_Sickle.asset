@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83050d15a1c31544bbc682a13762459b, type: 3}
-  m_Name: SO_WeaponPlan_Scythe
+  m_Name: SO_WeaponPlan_Sickle
   m_EditorClassIdentifier: 
   weaponLevel:
-  - weaponPrefab: {fileID: 1268093187915502579, guid: acdcba5d75f2bde42a0de1c6cc4e758b, type: 3}
-    upgradeDescription: A farmer's trusty killing machine
-  - weaponPrefab: {fileID: 1268093187915502579, guid: d08fed1b7dc616648aac1feab8167bfc, type: 3}
-    upgradeDescription: :)
+  - weaponPrefab: {fileID: 7322027985843503083, guid: 85341d76af2b4544ab27ecf5d542b83d, type: 3}
+    upgradeDescription: This weapon will spin in a circle protecting you from plants
+      that get close to you
