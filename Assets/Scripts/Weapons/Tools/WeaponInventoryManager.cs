@@ -91,7 +91,7 @@ public class WeaponInventoryManager: MonoBehaviour {
         EquippedWeaponTracker tracker = equippedWeapons[index];
         int nextLevel = tracker.currentLevel + 1;
 
-        if (nextLevel >= upgradePlan.GetUpgradesCount) {
+        if (nextLevel >= upgradePlan.UpgradesCount) {
             Debug.LogError($"{name}: Cannot upgrade; Already at max level ({tracker.currentLevel}).");
             return;
         }

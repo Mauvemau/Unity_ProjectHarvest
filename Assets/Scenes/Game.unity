@@ -1707,6 +1707,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 569b77d9857782048a16ce347ee67edb, type: 2}
     playerInventoryReference: {fileID: 1972705332}
     playerStartingPlan: {fileID: 11400000, guid: 5a389d344323a0940a88548151be01a0, type: 2}
+    onLevelUpChannel: {fileID: 11400000, guid: 12065afae534b5d44b27039d0a206374, type: 2}
     playerCurrentlyEquippedPlans: []
   globalVariableManager:
     gameBaseVariables:
@@ -1753,7 +1754,7 @@ MonoBehaviour:
   onToggleHudChannel: {fileID: 11400000, guid: 949c69b1086c4924292fc7990d8c38e9, type: 2}
   onStartGameChannel: {fileID: 0}
   onEndGameChannel: {fileID: 0}
-  spawnOnStart: 0
+  spawnOnStart: 1
 --- !u!1 &1972705331 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6185150928903746312, guid: dbcfed1e5bc403b49997de8a71b6dc3e, type: 3}

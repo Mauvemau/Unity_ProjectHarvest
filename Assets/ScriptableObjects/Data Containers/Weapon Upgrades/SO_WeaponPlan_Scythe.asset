@@ -16,4 +16,5 @@ MonoBehaviour:
   - weaponPrefab: {fileID: 1268093187915502579, guid: acdcba5d75f2bde42a0de1c6cc4e758b, type: 3}
     upgradeDescription: A farmer's trusty killing machine
   - weaponPrefab: {fileID: 1268093187915502579, guid: d08fed1b7dc616648aac1feab8167bfc, type: 3}
-    upgradeDescription: :)
+    upgradeDescription: Attack angle increases by 90 degrees
+  weaponIcon: {fileID: 21300000, guid: 7b5adb2e4d8a3784c840d198e19705d0, type: 3}
