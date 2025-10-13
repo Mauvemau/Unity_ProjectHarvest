@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <BaseStats>k__BackingField:
-    attackDamage: 5
+    attackDamage: 4
     attackRateInSeconds: 1
     attackSize: 5
   currentStats:
@@ -210,7 +210,7 @@ MonoBehaviour:
       centralizedFactory: {fileID: 0}
       autoFindCentralizedFactory: 1
     vfxPreset:
-      controller: {fileID: 9100000, guid: b57f4554f34f05f4ab39964324a12cc8, type: 2}
+      controller: {fileID: 9100000, guid: b01e9e0a8c19fef48ae40d8aa21bf785, type: 2}
       playbackSpeed: 1
       animationStartOffset: 0
     scaleOffset: {x: 4.45, y: 4.45, z: 1}

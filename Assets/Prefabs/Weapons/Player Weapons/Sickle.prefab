@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <BaseStats>k__BackingField:
-    attackDamage: 4
+    attackDamage: 3
     attackRateInSeconds: 7
     attackSize: 1.5
   currentStats:
@@ -65,8 +65,9 @@ MonoBehaviour:
   bulletStats:
     speed: 30
     lifeTime: 5
-    penetrationCount: 6
+    penetrationCount: 3
     pushForce: 0
+  firstShotOffset: 0
 --- !u!114 &6780377421844000543
 MonoBehaviour:
   m_ObjectHideFlags: 0

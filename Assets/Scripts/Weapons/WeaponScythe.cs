@@ -22,7 +22,7 @@ public class WeaponScythe : Weapon {
     [SerializeField] private Color visualColorAttack = Color.white;
     [SerializeField] private AnimationCurve attackColorCrossFadeCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
     [SerializeField, Min(0)] private float attackColorCrossFadeDuration = .3f;
-
+    
     private LineRenderer _lineRenderer;
     private CircleCollider2D _collider;
     private Coroutine _colorCrossFadeRoutine;
@@ -71,19 +71,23 @@ public class WeaponScythe : Weapon {
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
         float startAngle = aimAngle - attackAngle / 2f;
 
-        Vector3[] positions = new Vector3[arcSegments + 2];
-
-        positions[0] = Vector3.zero;
-        positions[1] = DirFromAngle(startAngle) * currentStats.attackSize;
-
-        for (int i = 0; i <= arcSegments; i++) {
-            float currentAngle = startAngle + (attackAngle / arcSegments) * i;
-            positions[i + 1] = DirFromAngle(currentAngle) * currentStats.attackSize;
+        bool fullCircle = Mathf.Approximately(attackAngle, 360f);
+        
+        Vector3[] positions = new Vector3[fullCircle ? arcSegments + 1 : arcSegments + 2];
+        if (!fullCircle) {
+            positions[0] = Vector3.zero;
         }
-
-        positions[arcSegments + 1] = Vector3.zero;
-
+        
+        int loopCount = fullCircle ? arcSegments : arcSegments + 1;
+        for (int i = 0; i < loopCount; i++) {
+            float currentAngle = startAngle + (fullCircle ? (360f / arcSegments) : (attackAngle / arcSegments)) * i;
+            positions[(fullCircle ? i : i + 1)] = DirFromAngle(currentAngle) * currentStats.attackSize;
+        }
+        positions[fullCircle ? arcSegments : arcSegments + 1] = fullCircle ? positions[0] : Vector3.zero;
+        
         _lineRenderer.positionCount = positions.Length;
+        _lineRenderer.loop = fullCircle;
+        _lineRenderer.useWorldSpace = false;
         _lineRenderer.SetPositions(positions);
     }
 

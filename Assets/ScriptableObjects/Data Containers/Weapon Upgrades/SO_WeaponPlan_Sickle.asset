@@ -16,4 +16,14 @@ MonoBehaviour:
   - weaponPrefab: {fileID: 7322027985843503083, guid: 85341d76af2b4544ab27ecf5d542b83d, type: 3}
     upgradeDescription: This weapon will spin in a circle protecting you from plants
       that get close to you
+  - weaponPrefab: {fileID: 7322027985843503083, guid: da9c3f017eed2234d9a92029b235a35f, type: 3}
+    upgradeDescription: Attack penetrates trough 3 more targets
+  - weaponPrefab: {fileID: 7322027985843503083, guid: 82065b2c84883be46812c46af3c4af8c, type: 3}
+    upgradeDescription: Adds a second Sickle
+  - weaponPrefab: {fileID: 7322027985843503083, guid: 9bf7b9f16f13e8a42a0ec92d41ae82a2, type: 3}
+    upgradeDescription: Attack Damage increases by 1
+  - weaponPrefab: {fileID: 7322027985843503083, guid: b832e69a14ebf3144a551e6e2665eabd, type: 3}
+    upgradeDescription: Attack penetrates trough 3 more targets
+  - weaponPrefab: {fileID: 7322027985843503083, guid: f1ca431707e6c2547a84f440dd7da81e, type: 3}
+    upgradeDescription: Size of the attack increases by 0.5
   weaponIcon: {fileID: 21300000, guid: 7b5adb2e4d8a3784c840d198e19705d0, type: 3}

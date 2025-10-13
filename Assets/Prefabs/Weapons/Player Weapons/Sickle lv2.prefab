@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7322027985843503083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2945069370789991998}
+  - component: {fileID: 4129608843993675128}
+  - component: {fileID: 6780377421844000543}
+  m_Layer: 9
+  m_Name: Sickle lv2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2945069370789991998
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7322027985843503083}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4129608843993675128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7322027985843503083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2b93084dea0a2545afa603e7e7e6f07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <BaseStats>k__BackingField:
+    attackDamage: 3
+    attackRateInSeconds: 7
+    attackSize: 1.5
+  currentStats:
+    attackDamage: 0
+    attackRateInSeconds: 0
+    attackSize: 0
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  aimDirection: {x: 0, y: 0}
+  bulletFactory:
+    prefabToCreate: {fileID: 698526753970158529, guid: 01c204ccaf97e414a9be9a54a7ac11cb, type: 3}
+    centralizedFactory: {fileID: 0}
+    autoFindCentralizedFactory: 1
+  preset: {fileID: 11400000, guid: f0ad9461d5a6df54b96df4f471fdac74, type: 2}
+  bulletStats:
+    speed: 30
+    lifeTime: 5
+    penetrationCount: 6
+    pushForce: 0
+  firstShotOffset: 0
+--- !u!114 &6780377421844000543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7322027985843503083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7e21112da93c3e4f97e0cbb5d61dcce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fixedAimDirection: {x: 1, y: 0}
