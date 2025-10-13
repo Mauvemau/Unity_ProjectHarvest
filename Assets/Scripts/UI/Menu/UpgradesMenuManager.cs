@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -30,6 +29,7 @@ public class UpgradesMenuManager : MonoBehaviour {
         if (upgrades == null || upgrades.Count == 0) {
             return;
         }
+        Debug.Log($"{name}: Upgrades received! {upgrades.Count} in total!");
         DisableAllButtons();
         
         int count = Mathf.Min(upgrades.Count, buttonsAmount);
@@ -50,9 +50,10 @@ public class UpgradesMenuManager : MonoBehaviour {
     
     private void OnSubmit() {
         if (!eventSystem) return;
+        
         if (currentlySelectedButton) {
             foreach (UpgradesMenuButton button in optionButtons) {
-                button.SetSelected(button.gameObject == currentlySelectedButton);
+                button.SetConfirmedSelection(button.gameObject == currentlySelectedButton);
             }
         }
         Debug.Log($"{name}: Selected option {_currentlySelectedOption}!");
@@ -62,7 +63,7 @@ public class UpgradesMenuManager : MonoBehaviour {
     private void OnCancel() {
         if (!eventSystem || optionButtons.Count <= 0) return;
         foreach (UpgradesMenuButton button in optionButtons) {
-            button.SetSelected(false);
+            button.SetConfirmedSelection(false);
         }
         
         eventSystem.SetSelectedGameObject(optionButtons[_currentlySelectedOption].gameObject);
@@ -95,6 +96,7 @@ public class UpgradesMenuManager : MonoBehaviour {
     }
     
     private void Awake() {
+        WeaponUpgradeManager.OnUpgradesReady += HandleUpgradesReceived;
         if (!buttonPrefab) return;
         
         optionButtons = new List<UpgradesMenuButton>();
@@ -106,8 +108,6 @@ public class UpgradesMenuManager : MonoBehaviour {
             optionButtons.Add(upgradeButton);
             upgradeButton.SetVisible(false);
         }
-
-        WeaponUpgradeManager.OnUpgradesReady += HandleUpgradesReceived;
     }
     
     private void OnDestroy() {
@@ -115,12 +115,12 @@ public class UpgradesMenuManager : MonoBehaviour {
     }
 
     private void OnEnable() {
-        InputManager.OnUISubmitInputCancelled += OnSubmit;
         InputManager.OnUICancelInputStarted += OnCancel;
+        UpgradesMenuButton.OnUpgradeMenuOptionSelected += OnSubmit;
     }
 
     private void OnDisable() {
-        InputManager.OnUISubmitInputCancelled -= OnSubmit;
         InputManager.OnUICancelInputStarted -= OnCancel;
+        UpgradesMenuButton.OnUpgradeMenuOptionSelected -= OnSubmit;
     }
 }

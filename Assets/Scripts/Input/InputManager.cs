@@ -25,7 +25,7 @@ public class InputManager : MonoBehaviour {
     public static event Action OnUISubmitInputCancelled = delegate {};
     public static event Action OnUICancelInputStarted = delegate {};
     public static event Action OnUICancelInputCancelled = delegate {};
-    
+
 
     private bool _shouldReadPlayerInput = false;
     private bool _shouldReadMouseInput = true;
@@ -96,7 +96,6 @@ public class InputManager : MonoBehaviour {
         if (ctx.started) {
             OnUISubmitInputStarted?.Invoke();
         }
-
         if (ctx.canceled) {
             OnUISubmitInputCancelled?.Invoke();
         }
@@ -106,7 +105,6 @@ public class InputManager : MonoBehaviour {
         if (ctx.started) {
             OnUICancelInputStarted?.Invoke();
         }
-
         if (ctx.canceled) {
             OnUICancelInputCancelled?.Invoke();
         }

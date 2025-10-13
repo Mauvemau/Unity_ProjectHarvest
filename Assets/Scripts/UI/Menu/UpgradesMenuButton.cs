@@ -8,10 +8,16 @@ public class UpgradesMenuButton : MonoBehaviour {
     [SerializeField] private TMP_Text itemNameAndLevelText;
     [SerializeField] private TMP_Text itemDescriptionText;
     [SerializeField] private GameObject selectorIndicator;
+
+    public static event Action OnUpgradeMenuOptionSelected = delegate {};
     
-    public void SetSelected(bool selected) {
+    public void SetConfirmedSelection(bool selected) {
         if (!selectorIndicator) return;
         selectorIndicator.SetActive(selected);
+    }
+    
+    public void HandleSelection() {
+        OnUpgradeMenuOptionSelected?.Invoke();
     }
     
     public void SetDisplay(WeaponDisplayContainer displayData) {
@@ -25,7 +31,7 @@ public class UpgradesMenuButton : MonoBehaviour {
     }
     
     private void OnEnable() {
-        SetSelected(false);
+        SetConfirmedSelection(false);
     }
 }
 

@@ -29,15 +29,15 @@ public class GameManager : MonoBehaviour {
 
     private bool _hudVisible = false;
 
-    [ContextMenu("Debug - ToggleHud")]
+    [ContextMenu("Debug - Toggle Hud")]
     private void DebugToggleHud() {
         _hudVisible = !_hudVisible;
         SetHudEnabled(_hudVisible);
     }
 
-    [ContextMenu("Debug - Upgrade Starting Weapon")]
-    private void DebugUpgradeStartingWeapon() {
-        weaponUpgradeManager.DebugUpgradeStaringWeapon();
+    [ContextMenu("Debug - Level Up Player")]
+    private void DebugLevelUp() {
+        globalVariableManager.DebugLevelUp();
     }
 
     private void SetHudEnabled(bool shouldDrawHud) {

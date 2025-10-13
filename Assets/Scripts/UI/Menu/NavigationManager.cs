@@ -57,10 +57,16 @@ public class NavigationManager : MonoBehaviour {
         OpenSelectedMenu();
     }
 
-    private void Awake() {
+    private void Start() {
         CloseAllMenus();
         if (!startOnAwake) return;
         OpenSelectedMenu();
+    }
+    
+    private void Awake() {
+        foreach (Menu menu in menus) {
+            menu.gameObject.SetActive(true); // Awaking all menus if they're disabled in editor
+        }
     }
     
     private void OnValidate() {

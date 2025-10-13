@@ -2318,6 +2318,7 @@ MonoBehaviour:
   eventSystem: {fileID: 2018067451}
   confirmButton: {fileID: 436516045}
   optionButtons: []
+  currentlySelectedButton: {fileID: 0}
 --- !u!1 &1087027048
 GameObject:
   m_ObjectHideFlags: 0
