@@ -35,12 +35,9 @@ public class WeaponUpgradeManager {
     
     [Header("Debug")]
     [SerializeField, ReadOnly] private WeaponUpgradePlanSO[] playerCurrentlyEquippedPlans;
+    [SerializeField, ReadOnly] private List<WeaponUpgradePlanSO> currentlyAvailablePlans = new List<WeaponUpgradePlanSO>();
     
     public static event Action<List<WeaponDisplayContainer>> OnUpgradesReady = delegate {};
-    
-    public void DebugUpgradeStaringWeapon() {
-        UpgradePlayerWeapon(playerStartingPlan);
-    }
     
     public List<WeaponDisplayContainer> GetSelectableWeapons(int count) {
         List<WeaponDisplayContainer> result = new List<WeaponDisplayContainer>();
@@ -80,6 +77,7 @@ public class WeaponUpgradeManager {
                 }
             }
 
+            currentlyAvailablePlans = usedPlans.ToList();
             if (result.Count >= count) break;
         }
 
@@ -89,10 +87,27 @@ public class WeaponUpgradeManager {
     private void HandleLevelUpgrades() {
         List<WeaponDisplayContainer> levelUpWeapons = GetSelectableWeapons(4);
         OnUpgradesReady?.Invoke(levelUpWeapons);
+        /*
         for (int i = 1; i <= levelUpWeapons.Count; i++) {
             WeaponDisplayContainer current =  levelUpWeapons[i - 1];
             Debug.Log($"[{i}] {current.weaponName} (Level {current.level})\n{current.description}.\n");
         }
+        */
+    }
+
+    private void HandleConfirmUpgrade(int option) {
+        if (currentlyAvailablePlans.Count <= 0) return;
+        if (option < 0 || option >= currentlyAvailablePlans.Count) return;
+        WeaponUpgradePlanSO selection = currentlyAvailablePlans[option];
+        currentlyAvailablePlans.Clear();
+        if (!selection) return;
+        if (playerCurrentlyEquippedPlans.Contains(selection)) {
+            Debug.Log($"{nameof(WeaponUpgradeManager)}: Upgrading {selection.WeaponName}");
+            UpgradePlayerWeapon(selection);
+            return;
+        }
+        Debug.Log($"{nameof(WeaponUpgradeManager)}: Equipping {selection.WeaponName} plan");
+        EquipPlanOnPlayer(selection);
     }
     
     private void UpgradePlayerWeapon(WeaponUpgradePlanSO plan) {
@@ -101,6 +116,7 @@ public class WeaponUpgradeManager {
             return;
         }
         playerInventoryReference.UpgradeWeapon(plan);
+        FetchCurrentlyEquippedPlans();
     }
     
     private void EquipPlanOnPlayer(WeaponUpgradePlanSO planToEquip) {
@@ -109,7 +125,8 @@ public class WeaponUpgradeManager {
             Debug.LogError($"{nameof(WeaponUpgradeManager)}: trying to equip invalid plan!");
             return;
         }
-        playerInventoryReference.EquipPlan(playerStartingPlan);
+        playerInventoryReference.EquipPlan(planToEquip);
+        FetchCurrentlyEquippedPlans();
     }
     
     private void FetchCurrentlyEquippedPlans() {
@@ -119,8 +136,6 @@ public class WeaponUpgradeManager {
     public void Init() {
         if (!playerInventoryReference) return;
         EquipPlanOnPlayer(playerStartingPlan);
-        
-        FetchCurrentlyEquippedPlans();
     }
     
     public void OnEnable() {
@@ -131,11 +146,15 @@ public class WeaponUpgradeManager {
         if (onLevelUpChannel) {
             onLevelUpChannel.OnEventRaised += HandleLevelUpgrades;
         }
+
+        UpgradesMenuManager.OnUpgradeOptionConfirmed += HandleConfirmUpgrade;
     }
 
     public void OnDisable() {
         if (onLevelUpChannel) {
             onLevelUpChannel.OnEventRaised -= HandleLevelUpgrades;
         }
+        
+        UpgradesMenuManager.OnUpgradeOptionConfirmed -= HandleConfirmUpgrade;
     }
 }

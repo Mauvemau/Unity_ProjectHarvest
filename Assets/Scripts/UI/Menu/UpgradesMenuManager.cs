@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -16,9 +17,17 @@ public class UpgradesMenuManager : MonoBehaviour {
     [SerializeField, ReadOnly] private List<UpgradesMenuButton> optionButtons;
     [SerializeField, ReadOnly] private GameObject currentlySelectedButton;
 
+    public static event Action<int> OnUpgradeOptionConfirmed = delegate {};
+    
     private GameObject _lastSelected;
-    private int _currentlySelectedOption = 0;
+    private int _currentlySelectedOption = -1;
 
+    public void ConfirmSelection() {
+        if (_currentlySelectedOption >= 0) {
+            OnUpgradeOptionConfirmed?.Invoke(_currentlySelectedOption);
+        }
+    }
+    
     private void DisableAllButtons() {
         foreach (UpgradesMenuButton button in optionButtons) {
             button.SetVisible(false);
@@ -43,13 +52,18 @@ public class UpgradesMenuManager : MonoBehaviour {
             } 
         }
         
-        _currentlySelectedOption = 0;
         if (!eventSystem) return;
-        eventSystem.SetSelectedGameObject(optionButtons[_currentlySelectedOption].gameObject);
+        eventSystem.SetSelectedGameObject(optionButtons[0].gameObject);
     }
     
     private void OnSubmit() {
         if (!eventSystem) return;
+        
+        for (int i = 0; i < optionButtons.Count; i++) {
+            if (optionButtons[i].gameObject != currentlySelectedButton) continue;
+            _currentlySelectedOption = i;
+            break;
+        }
         
         if (currentlySelectedButton) {
             foreach (UpgradesMenuButton button in optionButtons) {
@@ -57,7 +71,10 @@ public class UpgradesMenuManager : MonoBehaviour {
             }
         }
         Debug.Log($"{name}: Selected option {_currentlySelectedOption}!");
+        
+        if (!confirmButton || _currentlySelectedOption < 0) return;
         eventSystem.SetSelectedGameObject(confirmButton.gameObject);
+        confirmButton.interactable = true;
     }
 
     private void OnCancel() {
@@ -66,7 +83,12 @@ public class UpgradesMenuManager : MonoBehaviour {
             button.SetConfirmedSelection(false);
         }
         
+        if (confirmButton) {
+            confirmButton.interactable = false;
+        }
+        
         eventSystem.SetSelectedGameObject(optionButtons[_currentlySelectedOption].gameObject);
+        _currentlySelectedOption = -1;
     }
     
     private void Update() {
@@ -77,12 +99,6 @@ public class UpgradesMenuManager : MonoBehaviour {
         if (current != _lastSelected && current) {
             _lastSelected = current;
             currentlySelectedButton = current;
-            
-            for (int i = 0; i < optionButtons.Count; i++) {
-                if (optionButtons[i].gameObject != current) continue;
-                _currentlySelectedOption = i;
-                break;
-            }
         }
         
         if (current) return;
@@ -91,7 +107,7 @@ public class UpgradesMenuManager : MonoBehaviour {
             eventSystem.SetSelectedGameObject(_lastSelected);
         }
         else if (optionButtons.Count > 0) {
-            eventSystem.SetSelectedGameObject(optionButtons[_currentlySelectedOption].gameObject);
+            eventSystem.SetSelectedGameObject(optionButtons[0].gameObject);
         }
     }
     
@@ -115,11 +131,19 @@ public class UpgradesMenuManager : MonoBehaviour {
     }
 
     private void OnEnable() {
+        if (confirmButton) {
+            confirmButton.interactable = false;
+        }
+        
         InputManager.OnUICancelInputStarted += OnCancel;
         UpgradesMenuButton.OnUpgradeMenuOptionSelected += OnSubmit;
     }
 
     private void OnDisable() {
+        if (confirmButton) {
+            confirmButton.interactable = false;
+        }
+        
         InputManager.OnUICancelInputStarted -= OnCancel;
         UpgradesMenuButton.OnUpgradeMenuOptionSelected -= OnSubmit;
     }
