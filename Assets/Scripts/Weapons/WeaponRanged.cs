@@ -16,6 +16,7 @@ public class WeaponRanged : Weapon {
     private void HandleAttack() {
         if (aimDirection.sqrMagnitude < 0.001f) return;
         if (Time.time < NextAttack) return;
+        if (!preset) return;
         NextAttack = Time.time + currentStats.attackRateInSeconds;
 
         Vector3 bulletScale = new Vector3(currentStats.attackSize, currentStats.attackSize, 1f);
@@ -35,6 +36,8 @@ public class WeaponRanged : Weapon {
     }
     
     protected override void OnAwake() {
-        
+        if (!preset) {
+            Debug.LogWarning($"{name}: No {nameof(BulletPresetSO)} set!");
+        }
     }
 }
