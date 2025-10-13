@@ -1715,13 +1715,13 @@ MonoBehaviour:
   globalVariableManager:
     gameBaseVariables:
       <CurrentLevel>k__BackingField: 1
-      <ExperienceNeeded>k__BackingField: 8
+      <ExperienceNeeded>k__BackingField: 10
       <CurrentExperience>k__BackingField: 0
     gameCurrentVariables:
       <CurrentLevel>k__BackingField: 0
       <ExperienceNeeded>k__BackingField: 0
       <CurrentExperience>k__BackingField: 0
-    experienceNeededIncrease: 1.5
+    experienceNeededIncrease: 1.3
     playerBaseVariables:
       <MaxHealth>k__BackingField: 10
       <DamageMultiplier>k__BackingField: 1
@@ -1757,7 +1757,7 @@ MonoBehaviour:
   onToggleHudChannel: {fileID: 11400000, guid: 949c69b1086c4924292fc7990d8c38e9, type: 2}
   onStartGameChannel: {fileID: 0}
   onEndGameChannel: {fileID: 0}
-  spawnOnStart: 0
+  spawnOnStart: 1
 --- !u!1 &1972705331 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6185150928903746312, guid: dbcfed1e5bc403b49997de8a71b6dc3e, type: 3}

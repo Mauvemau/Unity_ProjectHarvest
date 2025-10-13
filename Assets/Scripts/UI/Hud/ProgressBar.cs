@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -59,8 +60,8 @@ public class ProgressBar : MonoBehaviour {
             fillImage.type = Image.Type.Filled;
         OnValidated();
     }
-    
-    private void OnEnable() {
+
+    private void Awake() {
         if (setMaxValueListener) {
             setMaxValueListener.OnEventRaised += SetMaxValue;
         }
@@ -69,7 +70,7 @@ public class ProgressBar : MonoBehaviour {
         }
     }
 
-    private void OnDisable() {
+    private void OnDestroy() {
         if (setMaxValueListener) {
             setMaxValueListener.OnEventRaised -= SetMaxValue;
         }
