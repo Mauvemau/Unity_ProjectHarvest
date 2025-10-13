@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [System.Serializable]
 public class WeaponDisplayContainer {
@@ -33,6 +35,8 @@ public class WeaponUpgradeManager {
     
     [Header("Debug")]
     [SerializeField, ReadOnly] private WeaponUpgradePlanSO[] playerCurrentlyEquippedPlans;
+    
+    public static event Action<List<WeaponDisplayContainer>> OnUpgradesReady = delegate {};
     
     public void DebugUpgradeStaringWeapon() {
         UpgradePlayerWeapon(playerStartingPlan);
@@ -83,7 +87,8 @@ public class WeaponUpgradeManager {
     }
 
     private void HandleLevelUpgrades() {
-        List<WeaponDisplayContainer> levelUpWeapons = GetSelectableWeapons(3);
+        List<WeaponDisplayContainer> levelUpWeapons = GetSelectableWeapons(4);
+        OnUpgradesReady?.Invoke(levelUpWeapons);
         for (int i = 1; i <= levelUpWeapons.Count; i++) {
             WeaponDisplayContainer current =  levelUpWeapons[i - 1];
             Debug.Log($"[{i}] {current.weaponName} (Level {current.level})\n{current.description}.\n");
