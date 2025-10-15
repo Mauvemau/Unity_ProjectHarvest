@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour {
 
     [ContextMenu("Debug - Level Up Player")]
     private void DebugLevelUp() {
+        if (!Debug.isDebugBuild) return;
+        if (timeController.IsGamePaused()) return;
         globalVariableManager.DebugLevelUp();
     }
 
@@ -85,6 +87,8 @@ public class GameManager : MonoBehaviour {
         
         PlayerCharacter.OnPlayerDeath += HandlePlayerDeath;
         ExperienceCollectible.OnExperienceCollected += globalVariableManager.AddCurrentExperience;
+        InputManager.OnDebugLevelUpInputPerformed += DebugLevelUp;
+        
         if (onStartGameChannel) {
             onStartGameChannel.OnEventRaised += StartGame;
         }
@@ -99,6 +103,8 @@ public class GameManager : MonoBehaviour {
         
         PlayerCharacter.OnPlayerDeath -= HandlePlayerDeath;
         ExperienceCollectible.OnExperienceCollected -= globalVariableManager.AddCurrentExperience;
+        InputManager.OnDebugLevelUpInputPerformed -= DebugLevelUp;
+        
         if (onStartGameChannel) {
             onStartGameChannel.OnEventRaised -= StartGame;
         }

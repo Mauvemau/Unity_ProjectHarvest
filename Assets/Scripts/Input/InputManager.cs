@@ -14,6 +14,10 @@ public class InputManager : MonoBehaviour {
     [SerializeField] private InputActionReference uiSubmitAction;
     [SerializeField] private InputActionReference uiCancelAction;
 
+    [Header("DebugAction")] 
+    [SerializeField] private InputActionReference debugComboPrefixAction;
+    [SerializeField] private InputActionReference debugLevelUpAction;
+
     [Header("Settings")] 
     [SerializeField, Range(0f, 1f)] private float stickDeadZone = .2f;
 
@@ -25,10 +29,13 @@ public class InputManager : MonoBehaviour {
     public static event Action OnUISubmitInputCancelled = delegate {};
     public static event Action OnUICancelInputStarted = delegate {};
     public static event Action OnUICancelInputCancelled = delegate {};
+    
+    public static event Action OnDebugLevelUpInputPerformed = delegate {};
 
 
     private bool _shouldReadPlayerInput = false;
     private bool _shouldReadMouseInput = true;
+    private bool _shouldReadDebugInput = false;
 
     // Public
 
@@ -109,6 +116,18 @@ public class InputManager : MonoBehaviour {
             OnUICancelInputCancelled?.Invoke();
         }
     }
+    
+    // Debug
+
+    private void HandleDebugPrefixInput(InputAction.CallbackContext ctx) {
+        _shouldReadDebugInput = ctx.started;
+    }
+
+    private void HandleLevelUpInput(InputAction.CallbackContext ctx) {
+        if (!_shouldReadDebugInput || !_shouldReadPlayerInput || IsGamePaused()) return;
+        if (!Debug.isDebugBuild) return;
+        OnDebugLevelUpInputPerformed?.Invoke();
+    }
 
     // Input Events
 
@@ -142,6 +161,16 @@ public class InputManager : MonoBehaviour {
         if (uiCancelAction) {
             uiCancelAction.action.started += HandleCancelInput;
             uiCancelAction.action.canceled += HandleCancelInput;
+        }
+        
+        // Debug Actions
+        if (debugComboPrefixAction) {
+            debugComboPrefixAction.action.started += HandleDebugPrefixInput;
+            debugComboPrefixAction.action.canceled += HandleDebugPrefixInput;
+        }
+
+        if (debugLevelUpAction) {
+            debugLevelUpAction.action.started += HandleLevelUpInput;
         }
     }
 

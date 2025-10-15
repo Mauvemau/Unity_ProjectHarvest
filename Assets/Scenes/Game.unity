@@ -866,6 +866,8 @@ MonoBehaviour:
   uiQuitProgramAction: {fileID: -6245001166417737689, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   uiSubmitAction: {fileID: 392368643174621059, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   uiCancelAction: {fileID: 7727032971491509709, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  debugComboPrefixAction: {fileID: 5039080804167421277, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  debugLevelUpAction: {fileID: 7827404728468856214, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   stickDeadZone: 0.1
 --- !u!4 &1125368742
 Transform:

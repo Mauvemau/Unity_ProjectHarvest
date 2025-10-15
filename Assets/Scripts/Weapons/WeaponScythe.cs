@@ -144,6 +144,10 @@ public class WeaponScythe : Weapon {
         HandleAttack();
     }
 
+    private void Start() {
+        aimDirection = Vector2.right;
+    }
+    
     protected override void OnAwake() {
         if (!DebugTools.GetOptionalComponent(gameObject, out _lineRenderer)) {
             return;
