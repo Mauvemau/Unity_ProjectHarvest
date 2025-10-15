@@ -6,9 +6,9 @@ using UnityEngine.Events;
 /// </summary>
 [CreateAssetMenu(menuName = "Events/GameObject Channel")]
 public class GameObjectEventChannelSo : ScriptableObject {
-    public UnityAction<GameObject> onEventRaised;
+    public UnityAction<GameObject> OnEventRaised;
 
     public void RaiseEvent(GameObject value) {
-        onEventRaised?.Invoke(value);
+        OnEventRaised?.Invoke(value);
     }
 }

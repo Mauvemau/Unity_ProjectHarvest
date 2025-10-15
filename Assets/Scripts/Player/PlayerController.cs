@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour {
         InputManager.OnPlayerInteractInputPerformed += PerformCharacterInteraction;
         
         if (onRequestReviveCharacter) {
-            onRequestReviveCharacter.onEventRaised += playerCharacterReference.Revive;
+            onRequestReviveCharacter.OnEventRaised += playerCharacterReference.Revive;
         }
     }
 
@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour {
         InputManager.OnPlayerInteractInputPerformed -= PerformCharacterInteraction;
         
         if (onRequestReviveCharacter) {
-            onRequestReviveCharacter.onEventRaised -= playerCharacterReference.Revive;
+            onRequestReviveCharacter.OnEventRaised -= playerCharacterReference.Revive;
         }
     }
 }

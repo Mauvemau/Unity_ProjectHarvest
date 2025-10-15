@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpawnerPH : MonoBehaviour {
@@ -6,8 +7,9 @@ public class SpawnerPH : MonoBehaviour {
     [SerializeField] private List<FactoryWeightPair> factories;
 
     [Header("Spawning Settings")]
-    [SerializeField] private bool spawn = true;
-    
+    [SerializeField] private bool spawn = false;
+    [SerializeField] private float spawnDelay = 3f;
+
     [Header("Camera-Based Spawn Logic Settings")]
     [SerializeField] private Camera mainCameraReference; 
     [SerializeField, Min(0.1f)] private float spawnOffset = 1f; 
@@ -15,8 +17,22 @@ public class SpawnerPH : MonoBehaviour {
     [Header("Random Spawn Logic Settings")]
     [SerializeField, Min(0.1f)] private float maxSpawnDistance = 5f;
     [SerializeField, Min(0)] private float spawnInterval = 1f;
-    
-    private float _nextSpawn = 3f;
+
+    private float _nextSpawn = 0f;
+
+    // Public
+
+    public void SetSpawning(bool shouldSpawn) {
+        _nextSpawn = Time.time + spawnDelay;
+        spawn = shouldSpawn;
+    }
+
+    public void Wipe() {
+        foreach (FactoryWeightPair factoryWP in factories) {
+            Factory factory = factoryWP.Factory;
+            factory.SoftWipe();
+        }
+    }
 
     /// <summary>
     /// Spawns within a square range around the gameObject position

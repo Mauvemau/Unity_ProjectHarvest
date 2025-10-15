@@ -6,9 +6,9 @@ using UnityEngine.Events;
 /// </summary>
 [CreateAssetMenu(menuName = "Events/Vector2 Channel")]
 public class Vector2EventChannelSo : ScriptableObject {
-    public UnityAction<Vector2> onEventRaised;
+    public UnityAction<Vector2> OnEventRaised;
 
     public void RaiseEvent(Vector2 value) {
-        onEventRaised?.Invoke(value);
+        OnEventRaised?.Invoke(value);
     }
 }

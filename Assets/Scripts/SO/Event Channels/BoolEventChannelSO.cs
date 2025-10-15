@@ -6,9 +6,9 @@ using UnityEngine.Events;
 /// </summary>
 [CreateAssetMenu(menuName = "Events/Bool Channel")]
 public class BoolEventChannelSO : ScriptableObject {
-    public UnityAction<bool> onEventRaised;
+    public UnityAction<bool> OnEventRaised;
 
     public void RaiseEvent(bool value) {
-        onEventRaised?.Invoke(value);
+        OnEventRaised?.Invoke(value);
     }
 }

@@ -12,19 +12,18 @@ public class Scanner : MonoBehaviour {
     public GameObject GetClosest(Vector2 position) {
         GameObject closest = null;
         int overlapsCount = _currentOverlaps.Count;
-        if (overlapsCount <= 0) return closest;
+        if (overlapsCount <= 0) return null;
 
         float closestDist = float.MaxValue;
 
-        foreach (Collider2D collider in _currentOverlaps) {
-            if (!collider || !collider.gameObject.activeInHierarchy)
+        foreach (Collider2D col in _currentOverlaps) {
+            if (!col || !col.gameObject.activeInHierarchy)
                 continue;
 
-            float dist = ((Vector2)collider.transform.position - position).sqrMagnitude;
-            if (dist < closestDist) {
-                closestDist = dist;
-                closest = collider.gameObject;
-            }
+            float dist = ((Vector2)col.transform.position - position).sqrMagnitude;
+            if (!(dist < closestDist)) continue;
+            closestDist = dist;
+            closest = col.gameObject;
         }
 
         return closest;

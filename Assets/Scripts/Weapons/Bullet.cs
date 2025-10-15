@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(CircleCollider2D))]
 public class Bullet : MonoBehaviour, IBullet {
     [Header("Preset")]
-    [SerializeField] BulletPresetSO preset;
+    [SerializeField] private BulletPresetSO preset;
 
     [Header("Current Behaviour")]
     [SerializeReference, SubclassSelector] private IBulletStrategy currentBehaviour = new LinearShotStrategy();
@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour, IBullet {
     private Vector2 _aimDirection;
     private float _damage = 0f;
 
-    [SerializeField] private BulletStats _currentBulletStats;
+    private BulletStats _currentBulletStats;
 
     private bool _shot = false;
     private float _timeOfDeath = 0f;
@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour, IBullet {
 
     private readonly HashSet<Collider2D> _currentOverlaps = new HashSet<Collider2D>();
 
-    public void Shoot(BulletPresetSO presetToSet, Vector2 direction, LayerMask targetLayer, float damage, BulletStats stats) {
+    public void Shoot(BulletPresetSO presetToSet, Vector2 direction, LayerMask targetLayer, float damage, BulletStats stats, Transform weaponTransform = null) {
         if (presetToSet) {
             preset = presetToSet;
             SetUpPreset();
@@ -36,6 +36,8 @@ public class Bullet : MonoBehaviour, IBullet {
         _currentBulletStats = stats;
 
         _timeOfDeath = Time.time + _currentBulletStats.lifeTime;
+        currentBehaviour.Init(transform, _rb, _aimDirection, _currentBulletStats.speed, weaponTransform);
+        _spriteRenderer.enabled = true;
         _shot = true;
     }
 
@@ -44,7 +46,7 @@ public class Bullet : MonoBehaviour, IBullet {
         Sprite sprite = preset.Sprite;
 
         if (strategy != null) {
-            currentBehaviour = strategy;
+            currentBehaviour = (IBulletStrategy)strategy.Clone();
         }
         if (sprite && _spriteRenderer) {
             _spriteRenderer.sprite = sprite;
@@ -82,7 +84,7 @@ public class Bullet : MonoBehaviour, IBullet {
 
     private void FixedUpdate() {
         if (!_shot && currentBehaviour == null) return;
-        currentBehaviour.HandleMovement(transform, _rb, _aimDirection, _currentBulletStats.speed);
+        currentBehaviour.HandleMovement();
     }
 
     private void Update() {
@@ -127,6 +129,9 @@ public class Bullet : MonoBehaviour, IBullet {
             _rb.bodyType = RigidbodyType2D.Kinematic;
             _rb.linearVelocity = Vector2.zero;
             _rb.angularVelocity = 0f;
+        }
+        if (_spriteRenderer) {
+            _spriteRenderer.enabled = false;
         }
     }
 

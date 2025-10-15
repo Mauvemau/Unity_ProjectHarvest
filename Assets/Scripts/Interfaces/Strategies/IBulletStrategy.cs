@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 
-public interface IBulletStrategy {
-    public void HandleMovement(Transform transform, Rigidbody2D rb, Vector2 direction, float speed);
+public interface IBulletStrategy : ICloneable {
+    public void Init(Transform bulletTransform, Rigidbody2D rb, Vector2 aimDirection, float movementSpeed, Transform weaponTransform = null);
+    public void HandleMovement();
 }

@@ -13,12 +13,16 @@ MonoBehaviour:
   m_Name: SO_Bullet_Boomerang
   m_EditorClassIdentifier: 
   behaviour:
-    rid: 8748630540952797304
+    rid: 8748630608635756764
   sprite: {fileID: 21300000, guid: cbb1de69fcfb81b49aee096bfc8e76b2, type: 3}
-  tint: {r: 0.07262372, g: 0.70118517, b: 0.9056604, a: 1}
+  tint: {r: 1, g: 1, b: 1, a: 1}
   references:
     version: 2
     RefIds:
-    - rid: 8748630540952797304
-      type: {class: LinearShotStrategy, ns: , asm: Assembly-CSharp}
-      data: 
+    - rid: 8748630608635756764
+      type: {class: OrbitStrategy, ns: , asm: Assembly-CSharp}
+      data:
+        initialOrbitRadius: 3
+        orbitExpansionSpeed: 3.5
+        bulletSpinSpeed: 2000
+        stickToMass: 0

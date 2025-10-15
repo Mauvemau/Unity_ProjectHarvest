@@ -11,7 +11,7 @@ public class BulletPresetSO : ScriptableObject {
     [Header("Visual Settings")]
     [SerializeField] private Sprite sprite;
     [SerializeField] private Color tint = Color.white;
-
+    
     public IBulletStrategy Behaviour => behaviour;
     public Sprite Sprite => sprite;
     public Color Tint => tint;

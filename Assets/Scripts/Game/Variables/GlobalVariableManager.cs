@@ -45,6 +45,10 @@ public class GlobalVariableManager {
     }
     
     //
+
+    public void DebugLevelUp() {
+        AddCurrentExperience(gameCurrentVariables.ExperienceNeeded);
+    }
     
     [ContextMenu("Debug GlobalVars - Reset XP")]
     public void ResetGameVariables() {

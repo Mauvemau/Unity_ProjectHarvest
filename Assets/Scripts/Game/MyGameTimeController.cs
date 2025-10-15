@@ -4,6 +4,10 @@ using UnityEngine;
 public class MyGameTimeController {
     [SerializeField] private BoolEventChannelSO onSetGamePaused;
 
+    public bool IsGamePaused() {
+        return Time.timeScale <= 0f;
+    }
+    
     public void SetTimeScale(float timeScale) {
         Time.timeScale = timeScale;
     }
@@ -14,13 +18,13 @@ public class MyGameTimeController {
 
     public void OnEnable() {
         if (onSetGamePaused) {
-            onSetGamePaused.onEventRaised += SetGamePaused;
+            onSetGamePaused.OnEventRaised += SetGamePaused;
         }
     }
 
     public void OnDisable() {
         if (onSetGamePaused) {
-            onSetGamePaused.onEventRaised -= SetGamePaused;
+            onSetGamePaused.OnEventRaised -= SetGamePaused;
         }
     }
 }

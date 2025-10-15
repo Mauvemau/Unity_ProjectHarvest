@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -58,10 +57,16 @@ public class NavigationManager : MonoBehaviour {
         OpenSelectedMenu();
     }
 
-    private void Awake() {
+    private void Start() {
         CloseAllMenus();
         if (!startOnAwake) return;
         OpenSelectedMenu();
+    }
+    
+    private void Awake() {
+        foreach (Menu menu in menus) {
+            menu.gameObject.SetActive(true); // Awaking all menus if they're disabled in editor
+        }
     }
     
     private void OnValidate() {
@@ -75,47 +80,47 @@ public class NavigationManager : MonoBehaviour {
     
     private void OnEnable() {
         if (onNavigateToMenu) {
-            onNavigateToMenu.onEventRaised += NavigateToMenu;
+            onNavigateToMenu.OnEventRaised += NavigateToMenu;
         }
         
         if (onSelectMenuChannel) {
-            onSelectMenuChannel.onEventRaised += SelectMenu;
+            onSelectMenuChannel.OnEventRaised += SelectMenu;
         }
         
         if(onOpenSelectedMenuChannel) {
-            onOpenSelectedMenuChannel.onEventRaised += OpenSelectedMenu;
+            onOpenSelectedMenuChannel.OnEventRaised += OpenSelectedMenu;
         }
         
         if (onCloseAllMenusChannel) {
-            onCloseAllMenusChannel.onEventRaised += CloseAllMenus;
+            onCloseAllMenusChannel.OnEventRaised += CloseAllMenus;
         }
 
         foreach (Menu menu in menus) { // We subscribe externally too.
             if(!menu.onRequestOpenRemotely) continue;
-            menu.onRequestOpenRemotely.onEventRaised += menu.Open;
+            menu.onRequestOpenRemotely.OnEventRaised += menu.Open;
         }
     }
     
     private void OnDisable() {
         if (onNavigateToMenu) {
-            onNavigateToMenu.onEventRaised -= NavigateToMenu;
+            onNavigateToMenu.OnEventRaised -= NavigateToMenu;
         }
         
         if (onSelectMenuChannel) {
-            onSelectMenuChannel.onEventRaised -= SelectMenu;
+            onSelectMenuChannel.OnEventRaised -= SelectMenu;
         }
         
         if(onOpenSelectedMenuChannel) {
-            onOpenSelectedMenuChannel.onEventRaised -= OpenSelectedMenu;
+            onOpenSelectedMenuChannel.OnEventRaised -= OpenSelectedMenu;
         }
         
         if (onCloseAllMenusChannel) {
-            onCloseAllMenusChannel.onEventRaised -= CloseAllMenus;
+            onCloseAllMenusChannel.OnEventRaised -= CloseAllMenus;
         }
         
         foreach (Menu menu in menus) {
             if(!menu.onRequestOpenRemotely) continue;
-            menu.onRequestOpenRemotely.onEventRaised -= menu.Open;
+            menu.onRequestOpenRemotely.OnEventRaised -= menu.Open;
         }
     }
 }

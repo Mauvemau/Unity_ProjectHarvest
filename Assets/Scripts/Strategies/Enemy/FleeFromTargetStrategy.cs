@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[System.Serializable]
 public class FleeFromTargetStrategy : ICharacterBehaviourStrategy {
     private Vector2 _movementDirection = Vector2.zero;
 

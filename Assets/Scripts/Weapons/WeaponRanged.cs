@@ -7,25 +7,37 @@ public class WeaponRanged : Weapon {
     [Header("Bullet Settings")]
     [SerializeField] private BulletPresetSO preset;
     [SerializeField] private BulletStats bulletStats;
-
+    [SerializeField] private float firstShotOffset = 0f;
+    
+    private void Shoot(IBullet bullet, BulletPresetSO bulletPreset, Vector2 direction, float damage, BulletStats stats) {
+        bullet.Shoot(bulletPreset, direction, targetLayer, damage, stats, gameObject.transform);
+    }
+    
     private void HandleAttack() {
         if (aimDirection.sqrMagnitude < 0.001f) return;
-        if (Time.time < nextAttack) return;
-        nextAttack = Time.time + currentStats.attackRateInSeconds;
+        if (Time.time < NextAttack) return;
+        if (!preset) return;
+        NextAttack = Time.time + currentStats.attackRateInSeconds;
 
         Vector3 bulletScale = new Vector3(currentStats.attackSize, currentStats.attackSize, 1f);
 
         GameObject bulletObject = bulletFactory.Create(transform.position, Quaternion.identity, bulletScale);
         if (!bulletObject.TryGetComponent(out IBullet bullet)) return;
-
-        bullet.Shoot(preset, aimDirection, targetLayer, currentStats.attackDamage, bulletStats);
+        
+        Shoot(bullet, preset, aimDirection, currentStats.attackDamage, bulletStats);
     }
 
     private void Update() {
         HandleAttack();
     }
 
+    private void Start() {
+        NextAttack = Time.time + firstShotOffset;
+    }
+    
     protected override void OnAwake() {
-
+        if (!preset) {
+            Debug.LogWarning($"{name}: No {nameof(BulletPresetSO)} set!");
+        }
     }
 }

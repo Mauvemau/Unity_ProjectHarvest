@@ -1,13 +1,13 @@
 using UnityEngine;
 
+[System.Serializable]
 public class KeepDistanceStrategy : ICharacterBehaviourStrategy {
     // When the target gets past our comfort radius, we begin to flee.
-    [SerializeField, Min(0)] private float comfortRadius = 2.0f;
+    [SerializeField, Min(0)] private float comfortRadius = 7.0f;
     // If the target is beyond our awareness radius we get closer.
-    [SerializeField, Min(0)] private float awarenessRadius = 10.0f;
+    [SerializeField, Min(0)] private float awarenessRadius = 12.0f;
     // If target is inside the awareness radius and beyond the comfort radius we stop moving.
     [Header("Grip Control")]
-    // We will have a slippery grip, it will take us "grip duration" to pick up max speed and also "grip duration" to stop moving completely
     [SerializeField] private AnimationCurve gripCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
     [SerializeField, Min(0)] private float gripDuration = 0.5f;
 
