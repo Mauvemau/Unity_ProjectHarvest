@@ -92,6 +92,7 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
+  aimDirection: {x: 0, y: 0}
   drawRadiusGizmo: 1
   gizmoColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &4210210132979722889
@@ -420,7 +421,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 1fdd5261d71f1604390853d83800afa2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
