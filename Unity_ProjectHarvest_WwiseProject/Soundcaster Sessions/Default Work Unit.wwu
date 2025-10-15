@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{C73091DC-8FFA-493E-ACC4-EE0E8953AB9B}" SchemaVersion="123">
 	<SoundcasterSessions>
-		<WorkUnit Name="Default Work Unit" ID="{C73091DC-8FFA-493E-ACC4-EE0E8953AB9B}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{C73091DC-8FFA-493E-ACC4-EE0E8953AB9B}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="Music_Test" ID="{82C32CC9-4029-4A12-BB25-E086A53F0586}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Start" ID="{8A89D28D-A17C-4E61-AAC2-B5AA571525E8}" WorkUnitID="{D5FE0764-4F64-45A3-BBE5-9C04E443A2D8}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="Toro_Distance" ID="{B9C20ECB-8150-486C-8532-9773CF5A725A}"/>
+							<Value>100</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Player_Health" ID="{3F9A1CB9-1438-4BCE-8194-924B5CC15166}"/>
+							<Value>100</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Music_Volume" ID="{ED00DA30-E895-4DA4-81E1-56E555706DE3}"/>
+							<Value>80</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true">
+						<CurrentStateRef Name="Harvest_Combat" ID="{093046DC-DF7A-407D-B5BD-086421FD76E3}"/>
+					</CurrentStateList>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="No" ID="{AB94F416-0319-49E1-AAB2-DE33432CEDEA}"/>
+					</CurrentSwitchList>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundcasterSessions>
 </WwiseDocument>

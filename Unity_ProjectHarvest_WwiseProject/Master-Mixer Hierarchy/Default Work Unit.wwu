@@ -17,6 +17,52 @@
 						</Reference>
 					</ReferenceList>
 				</Bus>
+				<Bus Name="MusicBus" ID="{56E2DF6F-FCC7-4A05-A0F4-ECD6D4C0E520}">
+					<ReferenceList>
+						<Reference Name="AudioDevice" PluginName="System" CompanyID="0" PluginID="174" PluginType="7">
+							<ObjectRef Name="System" ID="{A71B2FF9-15EC-45CB-932D-660469434D45}" WorkUnitID="{C5BF3387-3581-4B28-9032-03338418B0A3}"/>
+						</Reference>
+					</ReferenceList>
+					<ObjectLists>
+						<ObjectList Name="RTPC">
+							<Reference>
+								<Local>
+									<RTPC Name="" ID="{086CCCF5-2B44-45E1-8278-EB9CE4C2ECE1}" ShortID="1046907927">
+										<PropertyList>
+											<Property Name="PropertyName" Type="string" Value="BusVolume"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="ControlInput">
+												<ObjectRef Name="Music_Volume" ID="{ED00DA30-E895-4DA4-81E1-56E555706DE3}" WorkUnitID="{F71958F0-9A0F-47C0-B38D-15E5BB39915A}"/>
+											</Reference>
+											<Reference Name="Curve">
+												<Custom>
+													<Curve Name="" ID="{7E4D943A-D071-4AAB-A6E7-DF65878051A4}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</RTPC>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</Bus>
 			</ChildrenList>
 		</WorkUnit>
 	</Busses>

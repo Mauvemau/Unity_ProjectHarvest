@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{E2758875-EF17-4E75-A3A7-BCEA4BFFE52F}" SchemaVersion="123" RootDocumentID="{756DBA00-BE0B-4831-830E-783A90CF67B2}" ParentDocumentID="{756DBA00-BE0B-4831-830E-783A90CF67B2}">
+	<States>
+		<WorkUnit Name="Gameplay" ID="{E2758875-EF17-4E75-A3A7-BCEA4BFFE52F}" OwnerID="{756DBA00-BE0B-4831-830E-783A90CF67B2}" PersistMode="Nested">
+			<ChildrenList>
+				<StateGroup Name="GameplaySituation" ID="{922CA5F2-466D-4623-A546-9270AD4233A3}">
+					<ChildrenList>
+						<State Name="None" ID="{1949EEB3-69F2-4CE7-8631-684B93938458}"/>
+						<State Name="Harvest_Combat" ID="{093046DC-DF7A-407D-B5BD-086421FD76E3}"/>
+						<State Name="Harvest_UpgradeMenu" ID="{EEC93FC1-8933-482F-854B-7218BEADECBA}"/>
+					</ChildrenList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
+	</States>
+</WwiseDocument>

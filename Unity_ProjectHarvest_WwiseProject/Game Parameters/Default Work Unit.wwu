@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{F71958F0-9A0F-47C0-B38D-15E5BB39915A}" SchemaVersion="123">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{F71958F0-9A0F-47C0-B38D-15E5BB39915A}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{F71958F0-9A0F-47C0-B38D-15E5BB39915A}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="Music_Volume" ID="{ED00DA30-E895-4DA4-81E1-56E555706DE3}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="80"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="Player_Health" ID="{3F9A1CB9-1438-4BCE-8194-924B5CC15166}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="100"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="Toro_Distance" ID="{B9C20ECB-8150-486C-8532-9773CF5A725A}">
+					<PropertyList>
+						<Property Name="BindToBuiltInParam" Type="int16" Value="1"/>
+						<Property Name="InitialValue" Type="Real64" Value="100"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
 	</GameParameters>
 </WwiseDocument>
