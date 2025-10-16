@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fd40e1c54fcd19048b1768cfdb73543e
+guid: 2770d8bfcea4b264f91f217febe9eb1d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5831868107294630328
-    second: Copia de 400x225-BARRA DE XP_0
+      213: -2918026126367437232
+    second: BARRA DE XP_white_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Copia de 400x225-BARRA DE XP_0
+      name: BARRA DE XP_white_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8b1e9302525fee050800000000000000
-      internalID: 5831868107294630328
+      spriteID: 05e4f8cc2b61187d0800000000000000
+      internalID: -2918026126367437232
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Copia de 400x225-BARRA DE XP_0: 5831868107294630328
+      BARRA DE XP_white_0: -2918026126367437232
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

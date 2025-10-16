@@ -1,46 +1,46 @@
 fileFormatVersion: 2
-guid: 9f9090ad90679c749aeb9bd65d47cde0
+guid: e0fef512e1caef245a3516d43b1907d0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4175221817709371841
-    second: Copia de XP_Sprite_0
+      213: -9034459043491144056
+    second: XP_FIX_Sprite_0
   - first:
-      213: -601519531068043123
-    second: Copia de XP_Sprite_1
+      213: -4249338062596140
+    second: XP_FIX_Sprite_1
   - first:
-      213: 5234433253983233735
-    second: Copia de XP_Sprite_2
+      213: 3077929091360854477
+    second: XP_FIX_Sprite_2
   - first:
-      213: -1289738963276299750
-    second: Copia de XP_Sprite_3
+      213: 6951926114921905145
+    second: XP_FIX_Sprite_3
   - first:
-      213: 8303490497842056677
-    second: Copia de XP_Sprite_4
+      213: 5724782598829688194
+    second: XP_FIX_Sprite_4
   - first:
-      213: 2394659310621144826
-    second: Copia de XP_Sprite_5
+      213: -6152178818992868961
+    second: XP_FIX_Sprite_5
   - first:
-      213: -8926572980879960246
-    second: Copia de XP_Sprite_6
+      213: -8785595092213175082
+    second: XP_FIX_Sprite_6
   - first:
-      213: 7441189795534928556
-    second: Copia de XP_Sprite_7
+      213: 6022065603007144642
+    second: XP_FIX_Sprite_7
   - first:
-      213: -783210918595787003
-    second: Copia de XP_Sprite_8
+      213: -712109042513960279
+    second: XP_FIX_Sprite_8
   - first:
-      213: -8388279430725809526
-    second: Copia de XP_Sprite_9
+      213: 5344708754042552580
+    second: XP_FIX_Sprite_9
   - first:
-      213: 9157641314297393137
-    second: Copia de XP_Sprite_10
+      213: -5196778774551943273
+    second: XP_FIX_Sprite_10
   - first:
-      213: -2881916722263763881
-    second: Copia de XP_Sprite_11
+      213: 2307064008001756262
+    second: XP_FIX_Sprite_11
   - first:
-      213: -2844806902374026988
-    second: Copia de XP_Sprite_12
+      213: -7619995862327515878
+    second: XP_FIX_Sprite_12
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -108,7 +108,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: experience_bar_foreground_0
+      name: hud_xp_anim_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 400
-        height: 225
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,20 +151,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2bbac31ecd62b34cbf3b5a35618e186
-      internalID: 285953144
+      spriteID: ba631674fa173ed48ba47f371f32c52d
+      internalID: 762277673
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: experience_bar_foreground_1
+      name: hud_xp_anim_1
       rect:
         serializedVersion: 2
         x: 400
         y: 0
         width: 400
-        height: 225
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b345dbe6db1c6b419f5fb2e556f82db
-      internalID: 647960778
+      spriteID: b3f95f76c67538a499989e1f31282034
+      internalID: 1172931077
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: experience_bar_foreground_2
+      name: hud_xp_anim_2
       rect:
         serializedVersion: 2
         x: 800
         y: 0
         width: 400
-        height: 225
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b4d77e69dbbfd243b45b11cdea0521b
-      internalID: -685671409
+      spriteID: fb7f93fb27d5b5146bb2d0d53ab59996
+      internalID: -1813741540
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: experience_bar_foreground_3
+      name: hud_xp_anim_3
       rect:
         serializedVersion: 2
         x: 1200
         y: 0
         width: 400
-        height: 225
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,20 +217,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc3e2c9b6ad09b9408cfb78055330075
-      internalID: -1111937404
+      spriteID: 18ec39cebdc58fc4da01b05abddb9962
+      internalID: -348766580
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: experience_bar_foreground_4
+      name: hud_xp_anim_4
       rect:
         serializedVersion: 2
         x: 1600
         y: 0
         width: 400
-        height: 225
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,20 +239,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ade8770441e07f44bcd06290059eb93
-      internalID: 827394218
+      spriteID: 559a77439914d6a4397f5d1feed2c4cd
+      internalID: -839503983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: experience_bar_foreground_5
+      name: hud_xp_anim_5
       rect:
         serializedVersion: 2
         x: 2000
         y: 0
         width: 400
-        height: 225
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -261,20 +261,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e88bcf9bbb355341a204f30e877c92d
-      internalID: 747508643
+      spriteID: 5e9f14b3f39b0d7428709594a7f651d1
+      internalID: 20983118
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: experience_bar_foreground_6
+      name: hud_xp_anim_6
       rect:
         serializedVersion: 2
         x: 2400
         y: 0
         width: 400
-        height: 225
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -283,20 +283,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 738c6f762c72ed54baf88230e9baaf26
-      internalID: 1770129112
+      spriteID: 59427e378a3ed374c846c3ea4bba357f
+      internalID: 1561151329
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: experience_bar_foreground_7
+      name: hud_xp_anim_7
       rect:
         serializedVersion: 2
         x: 2800
         y: 0
         width: 400
-        height: 225
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,20 +305,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a38a89edb69eacc4e8d551c4c4b432e0
-      internalID: -978261629
+      spriteID: 428b94e16d6449c42a0d775c53f33d80
+      internalID: -805348755
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: experience_bar_foreground_8
+      name: hud_xp_anim_8
       rect:
         serializedVersion: 2
         x: 3200
         y: 0
         width: 400
-        height: 225
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -327,20 +327,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 457fa2440e85d6e49a391422462a5da6
-      internalID: 466687549
+      spriteID: de0890cca0261ce40bd5b2ddb2eb17bb
+      internalID: -22888192
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: experience_bar_foreground_9
+      name: hud_xp_anim_9
       rect:
         serializedVersion: 2
         x: 3600
         y: 0
         width: 400
-        height: 225
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -349,20 +349,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 515b009336cca6a479940cb4372529d8
-      internalID: -542905910
+      spriteID: 9f7cf3dc02abb4141a1aa95cdb3384e3
+      internalID: 1018194013
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: experience_bar_foreground_10
+      name: hud_xp_anim_10
       rect:
         serializedVersion: 2
         x: 4000
         y: 0
         width: 400
-        height: 225
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -371,20 +371,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dab37c2d007e37c4c8b2c66ed15c3d7f
-      internalID: -2069042696
+      spriteID: 5feb24b7df7e93b4992469911d5a3177
+      internalID: 1493148688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: experience_bar_foreground_11
+      name: hud_xp_anim_11
       rect:
         serializedVersion: 2
         x: 4400
         y: 0
         width: 400
-        height: 225
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -393,8 +393,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2856ef9674d71cf4686dcfc7382c301e
-      internalID: 1870073392
+      spriteID: fbd11a0bc1fe2854d844b03400967887
+      internalID: -931121770
       vertices: []
       indices: 
       edges: []
@@ -403,7 +403,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ff41a89ea3678cc41b3d59594062db43
+    spriteID: c465813917e02854a8fe7cdaaa94504a
     internalID: 0
     vertices: []
     indices: 
@@ -413,18 +413,18 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      experience_bar_foreground_0: 285953144
-      experience_bar_foreground_1: 647960778
-      experience_bar_foreground_10: -2069042696
-      experience_bar_foreground_11: 1870073392
-      experience_bar_foreground_2: -685671409
-      experience_bar_foreground_3: -1111937404
-      experience_bar_foreground_4: 827394218
-      experience_bar_foreground_5: 747508643
-      experience_bar_foreground_6: 1770129112
-      experience_bar_foreground_7: -978261629
-      experience_bar_foreground_8: 466687549
-      experience_bar_foreground_9: -542905910
+      hud_xp_anim_0: 762277673
+      hud_xp_anim_1: 1172931077
+      hud_xp_anim_10: 1493148688
+      hud_xp_anim_11: -931121770
+      hud_xp_anim_2: -1813741540
+      hud_xp_anim_3: -348766580
+      hud_xp_anim_4: -839503983
+      hud_xp_anim_5: 20983118
+      hud_xp_anim_6: 1561151329
+      hud_xp_anim_7: -805348755
+      hud_xp_anim_8: -22888192
+      hud_xp_anim_9: 1018194013
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
