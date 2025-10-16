@@ -24,6 +24,50 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_BoomerangThrow" ID="{FF79C0D0-479A-4858-9AA6-736D8CCB29AD}">
+					<ChildrenList>
+						<Action Name="" ID="{B3183D83-D6AC-4DC0-820D-7A2E4E81D36A}" ShortID="874233146">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Boomerang" ID="{E62CE0CF-ACAC-47BA-A97D-B2AB92192CF1}" WorkUnitID="{2A900AED-FB27-46FF-9350-EB1B5CFF717C}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_ButtonHover" ID="{98189560-1FD0-438F-A9B2-8C37F2CFCCF4}">
+					<ChildrenList>
+						<Action Name="" ID="{E842404E-7EE9-417A-805B-E7085B8EFCDB}" ShortID="308122795">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ButtonHover" ID="{4CB74D23-8051-4154-B763-F428F91BA65F}" WorkUnitID="{2A900AED-FB27-46FF-9350-EB1B5CFF717C}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_MandragoraShooter" ID="{9839EEC0-5FB3-434A-B945-1F0D672D71DE}">
+					<ChildrenList>
+						<Action Name="" ID="{6DC2C53D-2D6F-4734-80B9-DC139C8A1067}" ShortID="378398034">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="MandragoraShooter" ID="{A2F8336D-88F7-4318-9C98-BB155D4EC2D9}" WorkUnitID="{2A900AED-FB27-46FF-9350-EB1B5CFF717C}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_ButtonPress" ID="{C48EC611-401F-47F7-8D96-88548E69E63D}">
+					<ChildrenList>
+						<Action Name="" ID="{082835AF-14BD-4BE5-BD41-EAFBBC716B78}" ShortID="325320075">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="hvst_sfx_ui_buttonPress_v1" ID="{D964ED29-E964-4AEF-8E51-1638608D1EC6}" WorkUnitID="{2A900AED-FB27-46FF-9350-EB1B5CFF717C}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

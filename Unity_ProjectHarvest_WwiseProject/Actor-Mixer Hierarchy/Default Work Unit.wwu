@@ -5,7 +5,384 @@
 			<ChildrenList>
 				<Folder Name="Bruja" ID="{36592DD4-8703-434A-A136-6E175D9CC4F8}" ShortID="665563118">
 					<ChildrenList>
-						<SwitchContainer Name="Ataques" ID="{ACDDB736-9FCD-4271-838A-64DA045E3F07}" ShortID="635264598">
+						<Folder Name="Ataques" ID="{64AAFEC5-1AF6-4628-8F38-11C2DE53D033}" ShortID="829409127">
+							<ChildrenList>
+								<SwitchContainer Name="Boomerang" ID="{E62CE0CF-ACAC-47BA-A97D-B2AB92192CF1}" ShortID="956226269">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{2516BA36-6E64-435D-AA1F-F941FAFCB052}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{740E2284-DB23-415F-81CE-B9ADE4A09AD4}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6958D663-5AC5-445B-8CD8-EE9C7FCBD76A}"/>
+										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="Boomerang" ID="{F63E557F-D8F0-486A-ABD7-BA216DB13C1A}" WorkUnitID="{DF53EFBD-A7B1-453C-9F7E-E77A28B7452B}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="Boomerang_Lev1-2" ID="{07669DA7-3004-4171-AEF5-DB3E187545D3}" ShortID="279044048">
+											<PropertyList>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>2</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{CCCC60E2-4CF6-48CB-B27F-137AB0BC4C6C}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="150"/>
+																	<Property Name="Min" Type="Real64" Value="-150"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="UseMaxSoundPerInstance" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{BCDF18B9-55AF-44CD-AD17-4F21B019DDBB}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Min" Type="Real64" Value="-2"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{740E2284-DB23-415F-81CE-B9ADE4A09AD4}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6958D663-5AC5-445B-8CD8-EE9C7FCBD76A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="hvst_sfx_bruja_boomerang_var_001" ID="{9DDC57AE-907C-4751-A4A4-5064613CED7C}" ShortID="164167515">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{740E2284-DB23-415F-81CE-B9ADE4A09AD4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6958D663-5AC5-445B-8CD8-EE9C7FCBD76A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="hvst_sfx_bruja_boomerang_var_001" ID="{F823732E-0CFB-4AEB-9A34-D0974AC52080}">
+															<Language>SFX</Language>
+															<AudioFile>hvst_sfx_bruja_boomerang_var_001.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="22920255"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="hvst_sfx_bruja_boomerang_var_001" ID="{F823732E-0CFB-4AEB-9A34-D0974AC52080}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="hvst_sfx_bruja_boomerang_var_002" ID="{5CAC4F46-9DBE-4D43-B268-D774FF154C7F}" ShortID="773678833">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{740E2284-DB23-415F-81CE-B9ADE4A09AD4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6958D663-5AC5-445B-8CD8-EE9C7FCBD76A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="hvst_sfx_bruja_boomerang_var_002" ID="{0A3CBC3C-2E66-4DA0-A883-14B63D0D9F8D}">
+															<Language>SFX</Language>
+															<AudioFile>hvst_sfx_bruja_boomerang_var_002.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="419831412"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="hvst_sfx_bruja_boomerang_var_002" ID="{0A3CBC3C-2E66-4DA0-A883-14B63D0D9F8D}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="hvst_sfx_bruja_boomerang_var_003" ID="{7BE9144F-72A5-43F2-B2B5-F5AEB22F24C7}" ShortID="802316691">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{740E2284-DB23-415F-81CE-B9ADE4A09AD4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6958D663-5AC5-445B-8CD8-EE9C7FCBD76A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="hvst_sfx_bruja_boomerang_var_003" ID="{89687477-549C-471F-B0A8-F8FBFA9FAABE}">
+															<Language>SFX</Language>
+															<AudioFile>hvst_sfx_bruja_boomerang_var_003.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="701116291"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="hvst_sfx_bruja_boomerang_var_003" ID="{89687477-549C-471F-B0A8-F8FBFA9FAABE}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="hvst_sfx_bruja_boomerang_var_004" ID="{B659266E-BFA6-4359-9D6F-8DD65C1ACF4D}" ShortID="40456246">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{740E2284-DB23-415F-81CE-B9ADE4A09AD4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6958D663-5AC5-445B-8CD8-EE9C7FCBD76A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="hvst_sfx_bruja_boomerang_var_004" ID="{B10BF685-29A1-4093-A5E4-19EAA2814B1B}">
+															<Language>SFX</Language>
+															<AudioFile>hvst_sfx_bruja_boomerang_var_004.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="63882105"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="hvst_sfx_bruja_boomerang_var_004" ID="{B10BF685-29A1-4093-A5E4-19EAA2814B1B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="hvst_sfx_bruja_boomerang_var_005" ID="{4A7BDEAB-B50A-424D-AAFA-4FDB9B40049A}" ShortID="764735620">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{740E2284-DB23-415F-81CE-B9ADE4A09AD4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6958D663-5AC5-445B-8CD8-EE9C7FCBD76A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="hvst_sfx_bruja_boomerang_var_005" ID="{BF2C73B5-9A76-4752-B043-6EAB245BE369}">
+															<Language>SFX</Language>
+															<AudioFile>hvst_sfx_bruja_boomerang_var_005.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="1027831431"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="hvst_sfx_bruja_boomerang_var_005" ID="{BF2C73B5-9A76-4752-B043-6EAB245BE369}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Boomerang_Lev3" ID="{DE03C99F-947E-4CAA-A555-F54751061DA0}" ShortID="519671370">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ValueList>
+														<Value>-100</Value>
+													</ValueList>
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{D16335A4-F802-4A48-AA41-E7C72226CBB7}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="50"/>
+																	<Property Name="Min" Type="Real64" Value="-50"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{740E2284-DB23-415F-81CE-B9ADE4A09AD4}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6958D663-5AC5-445B-8CD8-EE9C7FCBD76A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="hvst_sfx_bruja_boomerang3_var_001" ID="{ADCC91A9-7D89-4524-837B-9F1F54D2E9B7}" ShortID="56653614">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{740E2284-DB23-415F-81CE-B9ADE4A09AD4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6958D663-5AC5-445B-8CD8-EE9C7FCBD76A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="hvst_sfx_bruja_boomerang3_var_001" ID="{B27AAAF3-79FC-4C7B-8E9C-409F4FD4B1D7}">
+															<Language>SFX</Language>
+															<AudioFile>hvst_sfx_bruja_boomerang3_var_001.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="1011333926"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="hvst_sfx_bruja_boomerang3_var_001" ID="{B27AAAF3-79FC-4C7B-8E9C-409F4FD4B1D7}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="hvst_sfx_bruja_boomerang3_var_002" ID="{190C9BA2-E0E5-4602-BD8B-D56EB85BED89}" ShortID="454938290">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{740E2284-DB23-415F-81CE-B9ADE4A09AD4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6958D663-5AC5-445B-8CD8-EE9C7FCBD76A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="hvst_sfx_bruja_boomerang3_var_002" ID="{EC4BFB6E-EEA5-46B2-87C3-C4CD720EDD1C}">
+															<Language>SFX</Language>
+															<AudioFile>hvst_sfx_bruja_boomerang3_var_002.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="708590030"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="hvst_sfx_bruja_boomerang3_var_002" ID="{EC4BFB6E-EEA5-46B2-87C3-C4CD720EDD1C}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="hvst_sfx_bruja_boomerang3_var_003" ID="{E9903EBF-1F93-48BD-AD96-272AE4AA6947}" ShortID="257360590">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{740E2284-DB23-415F-81CE-B9ADE4A09AD4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6958D663-5AC5-445B-8CD8-EE9C7FCBD76A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="hvst_sfx_bruja_boomerang3_var_003" ID="{55FD709F-8186-487E-A75C-EDD8DA0EAED7}">
+															<Language>SFX</Language>
+															<AudioFile>hvst_sfx_bruja_boomerang3_var_003.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="755459194"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="hvst_sfx_bruja_boomerang3_var_003" ID="{55FD709F-8186-487E-A75C-EDD8DA0EAED7}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="hvst_sfx_bruja_boomerang3_var_004" ID="{A7558A64-509C-4BEC-B412-4D6419037980}" ShortID="536319256">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{740E2284-DB23-415F-81CE-B9ADE4A09AD4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6958D663-5AC5-445B-8CD8-EE9C7FCBD76A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="hvst_sfx_bruja_boomerang3_var_004" ID="{67FF7C96-C268-45F7-A76C-8B17B05A86AD}">
+															<Language>SFX</Language>
+															<AudioFile>hvst_sfx_bruja_boomerang3_var_004.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="181397321"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="hvst_sfx_bruja_boomerang3_var_004" ID="{67FF7C96-C268-45F7-A76C-8B17B05A86AD}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="hvst_sfx_bruja_boomerang3_var_005" ID="{270638FF-D13C-4F85-8BB5-1698C7059042}" ShortID="183705640">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{740E2284-DB23-415F-81CE-B9ADE4A09AD4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6958D663-5AC5-445B-8CD8-EE9C7FCBD76A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="hvst_sfx_bruja_boomerang3_var_005" ID="{A179402A-6633-4099-8838-B6BD3EB9E2AF}">
+															<Language>SFX</Language>
+															<AudioFile>hvst_sfx_bruja_boomerang3_var_005.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="225598368"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="hvst_sfx_bruja_boomerang3_var_005" ID="{A179402A-6633-4099-8838-B6BD3EB9E2AF}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+									</ChildrenList>
+									<GroupingInfo>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="Boomerang_Lev3" ID="{DE03C99F-947E-4CAA-A555-F54751061DA0}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Boomerang_Lev1-2" ID="{07669DA7-3004-4171-AEF5-DB3E187545D3}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="Boomerang_Lev12" ID="{FA4F8F50-E01A-4664-841C-640CE406D0D5}"/>
+												<ItemList>
+													<ItemRef Name="Boomerang_Lev1-2" ID="{07669DA7-3004-4171-AEF5-DB3E187545D3}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Boomerang_Lev3" ID="{F075D1E5-35A5-47BD-8CA7-56DC8BFBD0AE}"/>
+												<ItemList>
+													<ItemRef Name="Boomerang_Lev3" ID="{DE03C99F-947E-4CAA-A555-F54751061DA0}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Menu" ID="{8B68B594-2971-4C0C-B425-D26F30A4C888}" ShortID="153090193">
+					<ChildrenList>
+						<RandomSequenceContainer Name="ButtonHover" ID="{4CB74D23-8051-4154-B763-F428F91BA65F}" ShortID="1053155134">
+							<PropertyList>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>2</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>700</Value>
+									</ValueList>
+								</Property>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{740E2284-DB23-415F-81CE-B9ADE4A09AD4}"/>
@@ -15,7 +392,7 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<RandomSequenceContainer Name="Scythe" ID="{44FCE2B5-FD8F-469C-8B08-4389630F5DAD}" ShortID="821258538">
+								<Sound Name="hvst_sfx_ui_mouseHover_var2_v1" ID="{09747136-B6C3-4BAA-B900-AD9EAA4CAD23}" ShortID="1067713349">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{740E2284-DB23-415F-81CE-B9ADE4A09AD4}"/>
@@ -24,16 +401,215 @@
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6958D663-5AC5-445B-8CD8-EE9C7FCBD76A}"/>
 										</Reference>
 									</ReferenceList>
-								</RandomSequenceContainer>
+									<ChildrenList>
+										<AudioFileSource Name="hvst_sfx_ui_mouseHover_var2_v1" ID="{DAE1E39A-493C-420B-B95A-DCF7357F1A1A}">
+											<Language>SFX</Language>
+											<AudioFile>hvst_sfx_ui_mouseHover_var2_v1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="346856575"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="hvst_sfx_ui_mouseHover_var2_v1" ID="{DAE1E39A-493C-420B-B95A-DCF7357F1A1A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="hvst_sfx_ui_mouseHover_var_v1" ID="{F0E7A02D-0DD8-4448-A778-48AAAFE5FA14}" ShortID="758967883">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{740E2284-DB23-415F-81CE-B9ADE4A09AD4}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6958D663-5AC5-445B-8CD8-EE9C7FCBD76A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="hvst_sfx_ui_mouseHover_var_v1" ID="{8E6DE842-0E44-4AF9-BED1-CDF514F07260}">
+											<Language>SFX</Language>
+											<AudioFile>hvst_sfx_ui_mouseHover_var_v1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="847504255"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="hvst_sfx_ui_mouseHover_var_v1" ID="{8E6DE842-0E44-4AF9-BED1-CDF514F07260}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
-							<GroupingInfo>
-								<GroupingBehaviorList>
-									<GroupingBehavior>
-										<ItemRef Name="Scythe" ID="{44FCE2B5-FD8F-469C-8B08-4389630F5DAD}"/>
-									</GroupingBehavior>
-								</GroupingBehaviorList>
-							</GroupingInfo>
-						</SwitchContainer>
+						</RandomSequenceContainer>
+						<Sound Name="hvst_sfx_ui_buttonPress_v1" ID="{D964ED29-E964-4AEF-8E51-1638608D1EC6}" ShortID="32200648">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{740E2284-DB23-415F-81CE-B9ADE4A09AD4}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6958D663-5AC5-445B-8CD8-EE9C7FCBD76A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="hvst_sfx_ui_buttonPress_v1" ID="{78FF311D-5B0E-43F4-9949-7815579B1448}">
+									<Language>SFX</Language>
+									<AudioFile>hvst_sfx_ui_buttonPress_v1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="893586690"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="hvst_sfx_ui_buttonPress_v1" ID="{78FF311D-5B0E-43F4-9949-7815579B1448}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Enemigos" ID="{CF062D76-2975-4BC0-A193-0375D3C780F3}" ShortID="417569760">
+					<ChildrenList>
+						<RandomSequenceContainer Name="MandragoraShooter" ID="{A2F8336D-88F7-4318-9C98-BB155D4EC2D9}" ShortID="765850060">
+							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>3</Value>
+									</ValueList>
+								</Property>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="5m" ID="{7B443898-9A9F-48F2-9B18-8249E7E06532}" WorkUnitID="{534FA15F-9837-4037-8FF4-5DDCE2062302}"/>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{740E2284-DB23-415F-81CE-B9ADE4A09AD4}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6958D663-5AC5-445B-8CD8-EE9C7FCBD76A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="hvst_sfx_mandragoraShooter_shot_var_001" ID="{9BD35D1D-9B67-43BA-BFB5-1F66C3CEC831}" ShortID="68191100">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{740E2284-DB23-415F-81CE-B9ADE4A09AD4}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6958D663-5AC5-445B-8CD8-EE9C7FCBD76A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="hvst_sfx_mandragoraShooter_shot_var_001" ID="{BC6ABBB4-9BFB-40C9-810F-F05AEA865BC4}">
+											<Language>SFX</Language>
+											<AudioFile>hvst_sfx_mandragoraShooter_shot_var_001.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="396857464"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="hvst_sfx_mandragoraShooter_shot_var_001" ID="{BC6ABBB4-9BFB-40C9-810F-F05AEA865BC4}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="hvst_sfx_mandragoraShooter_shot_var_002" ID="{E7497604-81D7-4572-8DEA-326E80443108}" ShortID="779360556">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{740E2284-DB23-415F-81CE-B9ADE4A09AD4}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6958D663-5AC5-445B-8CD8-EE9C7FCBD76A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="hvst_sfx_mandragoraShooter_shot_var_002" ID="{6B28F333-27C6-47CA-8309-33EDB1E387F7}">
+											<Language>SFX</Language>
+											<AudioFile>hvst_sfx_mandragoraShooter_shot_var_002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1018448184"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="hvst_sfx_mandragoraShooter_shot_var_002" ID="{6B28F333-27C6-47CA-8309-33EDB1E387F7}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="hvst_sfx_mandragoraShooter_shot_var_003" ID="{268794E5-6CD6-459D-94B5-CC2628F6D0D3}" ShortID="989064201">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{740E2284-DB23-415F-81CE-B9ADE4A09AD4}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6958D663-5AC5-445B-8CD8-EE9C7FCBD76A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="hvst_sfx_mandragoraShooter_shot_var_003" ID="{057AD45B-DE37-46C1-8B81-66ECCE625B56}">
+											<Language>SFX</Language>
+											<AudioFile>hvst_sfx_mandragoraShooter_shot_var_003.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="994758535"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="hvst_sfx_mandragoraShooter_shot_var_003" ID="{057AD45B-DE37-46C1-8B81-66ECCE625B56}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="hvst_sfx_mandragoraShooter_shot_var_004" ID="{FDEF7FA3-7D6F-40D7-A4E1-FD590C351F98}" ShortID="754633748">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{740E2284-DB23-415F-81CE-B9ADE4A09AD4}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6958D663-5AC5-445B-8CD8-EE9C7FCBD76A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="hvst_sfx_mandragoraShooter_shot_var_004" ID="{5F2519D0-C047-471C-ADCC-00A76C7D5A43}">
+											<Language>SFX</Language>
+											<AudioFile>hvst_sfx_mandragoraShooter_shot_var_004.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1056843872"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="hvst_sfx_mandragoraShooter_shot_var_004" ID="{5F2519D0-C047-471C-ADCC-00A76C7D5A43}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="hvst_sfx_mandragoraShooter_shot_var_005" ID="{C704F01C-F392-4740-A569-AD87AA70C3E7}" ShortID="983167514">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{740E2284-DB23-415F-81CE-B9ADE4A09AD4}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6958D663-5AC5-445B-8CD8-EE9C7FCBD76A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="hvst_sfx_mandragoraShooter_shot_var_005" ID="{0455C80D-40EC-4D90-9B8C-9263C65F5BDB}">
+											<Language>SFX</Language>
+											<AudioFile>hvst_sfx_mandragoraShooter_shot_var_005.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="244901803"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="hvst_sfx_mandragoraShooter_shot_var_005" ID="{0455C80D-40EC-4D90-9B8C-9263C65F5BDB}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

@@ -13,6 +13,10 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID PLAY_BOOMERANGTHROW = 2116017054U;
+        static const AkUniqueID PLAY_BUTTONHOVER = 479606568U;
+        static const AkUniqueID PLAY_BUTTONPRESS = 2652178615U;
+        static const AkUniqueID PLAY_MANDRAGORASHOOTER = 3211203716U;
         static const AkUniqueID START = 1281810935U;
     } // namespace EVENTS
 
@@ -34,6 +38,17 @@ namespace AK
 
     namespace SWITCHES
     {
+        namespace BOOMERANG
+        {
+            static const AkUniqueID GROUP = 1198215643U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID BOOMERANG_LEV3 = 1218330042U;
+                static const AkUniqueID BOOMERANG_LEV12 = 152774810U;
+            } // namespace SWITCH
+        } // namespace BOOMERANG
+
         namespace MANDRAKE_TORO
         {
             static const AkUniqueID GROUP = 1113477063U;

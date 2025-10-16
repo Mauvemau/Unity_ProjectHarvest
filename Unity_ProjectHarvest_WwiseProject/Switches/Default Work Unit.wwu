@@ -49,6 +49,12 @@
 						</Curve>
 					</SwitchOnRTPC>
 				</SwitchGroup>
+				<SwitchGroup Name="Boomerang" ID="{F63E557F-D8F0-486A-ABD7-BA216DB13C1A}">
+					<ChildrenList>
+						<Switch Name="Boomerang_Lev12" ID="{FA4F8F50-E01A-4664-841C-640CE406D0D5}"/>
+						<Switch Name="Boomerang_Lev3" ID="{F075D1E5-35A5-47BD-8CA7-56DC8BFBD0AE}"/>
+					</ChildrenList>
+				</SwitchGroup>
 			</ChildrenList>
 		</WorkUnit>
 	</Switches>

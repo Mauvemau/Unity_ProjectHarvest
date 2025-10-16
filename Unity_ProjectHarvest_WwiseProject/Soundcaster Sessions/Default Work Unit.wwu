@@ -29,8 +29,52 @@
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
 						<CurrentSwitchRef Name="Healthy" ID="{B52D66F8-AA47-4F9F-BDAD-8BC6EC7FA98F}"/>
+						<CurrentSwitchRef Name="Boomerang_Lev12" ID="{FA4F8F50-E01A-4664-841C-640CE406D0D5}"/>
 						<CurrentSwitchRef Name="No" ID="{AB94F416-0319-49E1-AAB2-DE33432CEDEA}"/>
 					</CurrentSwitchList>
+				</SoundcasterSession>
+				<SoundcasterSession Name="WitchWeapons" ID="{5DFD1B7C-1698-4947-9E38-401616A89842}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Play_BoomerangThrow" ID="{FF79C0D0-479A-4858-9AA6-736D8CCB29AD}" WorkUnitID="{D5FE0764-4F64-45A3-BBE5-9C04E443A2D8}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_ButtonPress" ID="{C48EC611-401F-47F7-8D96-88548E69E63D}" WorkUnitID="{D5FE0764-4F64-45A3-BBE5-9C04E443A2D8}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true"/>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="Boomerang_Lev12" ID="{FA4F8F50-E01A-4664-841C-640CE406D0D5}"/>
+					</CurrentSwitchList>
+				</SoundcasterSession>
+				<SoundcasterSession Name="Menu" ID="{7B586069-FEF6-4BA5-81C2-F6890AF0AE67}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Play_ButtonHover" ID="{98189560-1FD0-438F-A9B2-8C37F2CFCCF4}" WorkUnitID="{D5FE0764-4F64-45A3-BBE5-9C04E443A2D8}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_ButtonPress" ID="{C48EC611-401F-47F7-8D96-88548E69E63D}" WorkUnitID="{D5FE0764-4F64-45A3-BBE5-9C04E443A2D8}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true"/>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+				<SoundcasterSession Name="Enemies" ID="{EECECDDD-BC86-4941-9810-6C3611E10549}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Play_MandragoraShooter" ID="{9839EEC0-5FB3-434A-B945-1F0D672D71DE}" WorkUnitID="{D5FE0764-4F64-45A3-BBE5-9C04E443A2D8}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true"/>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true"/>
 				</SoundcasterSession>
 			</ChildrenList>
 		</WorkUnit>
