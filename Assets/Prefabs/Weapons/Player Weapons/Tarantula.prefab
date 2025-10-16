@@ -69,6 +69,7 @@ MonoBehaviour:
     penetrationCount: 0
     pushForce: 1
   firstShotOffset: 0
+  useParentTransform: 0
 --- !u!114 &7039349961994965108
 MonoBehaviour:
   m_ObjectHideFlags: 0
