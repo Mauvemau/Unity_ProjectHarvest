@@ -1711,6 +1711,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 569b77d9857782048a16ce347ee67edb, type: 2}
     playerInventoryReference: {fileID: 1972705332}
     playerStartingPlan: {fileID: 11400000, guid: 5a389d344323a0940a88548151be01a0, type: 2}
+    upgradesAvailablePerLevel: 3
     onLevelUpChannel: {fileID: 11400000, guid: 12065afae534b5d44b27039d0a206374, type: 2}
     playerCurrentlyEquippedPlans: []
     currentlyAvailablePlans: []
@@ -1753,7 +1754,7 @@ MonoBehaviour:
   playerCharacter: {fileID: 1972705331}
   spawnManager: {fileID: 1414712854}
   inputManager: {fileID: 1125368741}
-  timeController:
+  timeManager:
     onSetGamePaused: {fileID: 11400000, guid: bd71b75cc53da714ebacf9612b7c1658, type: 2}
   onDefeatChannel: {fileID: 11400000, guid: ce7f1d0139737054db83ae3adac812ea, type: 2}
   onToggleHudChannel: {fileID: 11400000, guid: 949c69b1086c4924292fc7990d8c38e9, type: 2}

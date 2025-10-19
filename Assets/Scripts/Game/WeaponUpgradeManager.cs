@@ -29,7 +29,8 @@ public class WeaponUpgradeManager {
 
     [Header("Settings")] 
     [SerializeField] private WeaponUpgradePlanSO playerStartingPlan;
-
+    [SerializeField] private int upgradesAvailablePerLevel = 3;
+    
     [Header("Event Listeners")] 
     [SerializeField] private VoidEventChannelSO onLevelUpChannel;
     
@@ -85,7 +86,7 @@ public class WeaponUpgradeManager {
     }
 
     private void HandleLevelUpgrades() {
-        List<WeaponDisplayContainer> levelUpWeapons = GetSelectableWeapons(4);
+        List<WeaponDisplayContainer> levelUpWeapons = GetSelectableWeapons(upgradesAvailablePerLevel);
         OnUpgradesReady?.Invoke(levelUpWeapons);
         /*
         for (int i = 1; i <= levelUpWeapons.Count; i++) {
