@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,8 +14,8 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private SpawnerPH spawnManager;
     [SerializeField] private InputManager inputManager;
 
-    [Header("Time Controller")] 
-    [SerializeField] private MyGameTimeController timeController;
+    [Header("Game Time Manager")] 
+    [SerializeField] private GameTimeManager timeManager;
 
     [Header("Event Invokers")] 
     [SerializeField] private VoidEventChannelSO onDefeatChannel;
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private bool spawnOnStart = true;
 
     private bool _hudVisible = false;
+    private ITimer _currentGameTimer;
 
     [ContextMenu("Debug - Toggle Hud")]
     private void DebugToggleHud() {
@@ -38,7 +40,7 @@ public class GameManager : MonoBehaviour {
     [ContextMenu("Debug - Level Up Player")]
     private void DebugLevelUp() {
         if (!Debug.isDebugBuild) return;
-        if (timeController.IsGamePaused()) return;
+        if (timeManager.IsGamePaused()) return;
         globalVariableManager.DebugLevelUp();
     }
 
@@ -55,6 +57,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private void EndGame() {
+        _currentGameTimer.Stop();
         spawnManager.SetSpawning(false);
         spawnManager.Wipe();
         inputManager.SetPlayerInputEnabled(false);
@@ -68,12 +71,19 @@ public class GameManager : MonoBehaviour {
         if (spawnOnStart) {
             spawnManager.SetSpawning(true);
         }
+        _currentGameTimer.Start();
+    }
+
+    private void Update() {
+        timeManager.Update();
+        Debug.Log($"{(int)(_currentGameTimer.CurrentTime / 60):00}:{(int)(_currentGameTimer.CurrentTime % 60):00}");
     }
 
     private void Awake() {
         Random.InitState(System.DateTime.Now.Millisecond);
         globalVariableManager.Init();
         weaponUpgradeManager.Init();
+        _currentGameTimer = timeManager.CreateTimer();
         StartGame();
     }
     
@@ -82,7 +92,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private void OnEnable() {
-        timeController.OnEnable();
+        timeManager.OnEnable();
         weaponUpgradeManager.OnEnable();
         
         PlayerCharacter.OnPlayerDeath += HandlePlayerDeath;
@@ -98,7 +108,7 @@ public class GameManager : MonoBehaviour {
     }
     
     private void OnDisable() {
-        timeController.OnDisable();
+        timeManager.OnDisable();
         weaponUpgradeManager.OnDisable();
         
         PlayerCharacter.OnPlayerDeath -= HandlePlayerDeath;
