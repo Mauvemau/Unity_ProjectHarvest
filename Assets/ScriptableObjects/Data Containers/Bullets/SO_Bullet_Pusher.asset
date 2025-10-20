@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cad81537ffd1ad4792fa0c3fabee702, type: 3}
+  m_Name: SO_Bullet_Pusher
+  m_EditorClassIdentifier: 
+  behaviour:
+    rid: 8748630608635756764
+  sprite: {fileID: 21300000, guid: cbb1de69fcfb81b49aee096bfc8e76b2, type: 3}
+  tint: {r: 0.8867924, g: 0.10457456, b: 0.10457456, a: 1}
+  references:
+    version: 2
+    RefIds:
+    - rid: 8748630608635756764
+      type: {class: OrbitStrategy, ns: , asm: Assembly-CSharp}
+      data:
+        initialOrbitRadius: 4.75
+        orbitExpansionSpeed: 0
+        bulletSpinSpeed: 0
+        clockWise: 1
+        stickToMass: 1

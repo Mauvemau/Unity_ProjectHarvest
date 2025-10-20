@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour, IDamageable, IPushable, IFacingDirection {
 
     [Header("Movement Settings")]
     [SerializeField] private float movementSpeed = 1f;
+    [SerializeField, Range(0f, 1f)] private float pushResistanceMultiplier = 1f;
     [SerializeField] private bool alwaysFaceTarget = false;
 
     [Header("Drops Settings")] 
@@ -159,8 +160,10 @@ public class Enemy : MonoBehaviour, IDamageable, IPushable, IFacingDirection {
 
     private void FixedUpdate() {
         if (!_alive || currentBehaviour == null || !threatTargetReference) return;
+        Vector2 pushVelocity = _pushVelocity;
+        pushVelocity *= pushResistanceMultiplier;
 
-        currentBehaviour.HandleMovement(gameObject.transform, _rb, threatTargetReference.transform, movementSpeed, _pushVelocity);
+        currentBehaviour.HandleMovement(gameObject.transform, _rb, threatTargetReference.transform, movementSpeed, pushVelocity);
 
         _pushVelocity *= 0.9f;
     }

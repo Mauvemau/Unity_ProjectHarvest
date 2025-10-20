@@ -8,6 +8,9 @@ public class AutoWeaponController : WeaponController {
     [Header("References")]
     [SerializeField] private Scanner scannerReference;
 
+    [Header("Accuracy Settings")] 
+    [SerializeField] private bool inverted = false;
+    
     [Header("Settings")]
     [SerializeField] private float minRangeRadius = 0f;
     [SerializeField] private float pollingRate = 0.1f;
@@ -30,7 +33,7 @@ public class AutoWeaponController : WeaponController {
             return;
         }
 
-        Vector2 direction = toTarget.normalized;
+        Vector2 direction = inverted ? -toTarget.normalized : toTarget.normalized;
         AimWeapon(direction);
     }
 
