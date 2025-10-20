@@ -14,8 +14,9 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private SpawnerPH spawnManager;
     [SerializeField] private InputManager inputManager;
 
-    [Header("Game Time Manager")] 
+    [Header("Game Time")] 
     [SerializeField] private GameTimeManager timeManager;
+    [SerializeField] private float timerPollingInterval = 1f;
 
     [Header("Event Invokers")] 
     [SerializeField] private VoidEventChannelSO onDefeatChannel;
@@ -30,7 +31,10 @@ public class GameManager : MonoBehaviour {
 
     private bool _hudVisible = false;
     private ITimer _currentGameTimer;
-
+    private float _nextTimerPoll = 0f;
+    
+    public static event Action<float> OnUpdateGameTimer = delegate {};
+    
     [ContextMenu("Debug - Toggle Hud")]
     private void DebugToggleHud() {
         _hudVisible = !_hudVisible;
@@ -72,11 +76,17 @@ public class GameManager : MonoBehaviour {
             spawnManager.SetSpawning(true);
         }
         _currentGameTimer.Start();
+        _nextTimerPoll = 0;
     }
 
     private void Update() {
         timeManager.Update();
-        Debug.Log($"{(int)(_currentGameTimer.CurrentTime / 60):00}:{(int)(_currentGameTimer.CurrentTime % 60):00}");
+
+        if (timeManager.IsGamePaused()) return;
+        if (Time.time < _nextTimerPoll) return;
+        Debug.Log("Poll!");
+        _nextTimerPoll = Time.time + timerPollingInterval;
+        OnUpdateGameTimer?.Invoke(_currentGameTimer.CurrentTime);
     }
 
     private void Awake() {

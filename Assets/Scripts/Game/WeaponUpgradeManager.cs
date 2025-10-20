@@ -88,12 +88,6 @@ public class WeaponUpgradeManager {
     private void HandleLevelUpgrades() {
         List<WeaponDisplayContainer> levelUpWeapons = GetSelectableWeapons(upgradesAvailablePerLevel);
         OnUpgradesReady?.Invoke(levelUpWeapons);
-        /*
-        for (int i = 1; i <= levelUpWeapons.Count; i++) {
-            WeaponDisplayContainer current =  levelUpWeapons[i - 1];
-            Debug.Log($"[{i}] {current.weaponName} (Level {current.level})\n{current.description}.\n");
-        }
-        */
     }
 
     private void HandleConfirmUpgrade(int option) {
