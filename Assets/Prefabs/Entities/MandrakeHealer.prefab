@@ -201,6 +201,7 @@ GameObject:
   - component: {fileID: 2824593319498027786}
   - component: {fileID: 6058588328462200187}
   - component: {fileID: 1627601158321872954}
+  - component: {fileID: 6245194723480694647}
   m_Layer: 7
   m_Name: MandrakeHealer
   m_TagString: Untagged
@@ -222,7 +223,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2357501004004482985}
-  - {fileID: 874280534156794968}
   - {fileID: 4907439902456040177}
   - {fileID: 5587784025761189229}
   m_Father: {fileID: 0}
@@ -353,6 +353,22 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         gripDuration: 0.5
+--- !u!114 &6245194723480694647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2717563465280112146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a200768970173b441a1a0f0c3d3c0063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRendererReferences:
+  - {fileID: 3736172957660891269}
+  - {fileID: 3153080926364303866}
+  spinInterval: 0.5
 --- !u!1 &3482910069086156161
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,68 +456,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &2665266207948950118
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1696746635315949032}
-    m_Modifications:
-    - target: {fileID: 2945069370789991998, guid: 84e2950002c2eb847b500238920d8a2e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2945069370789991998, guid: 84e2950002c2eb847b500238920d8a2e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2945069370789991998, guid: 84e2950002c2eb847b500238920d8a2e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2945069370789991998, guid: 84e2950002c2eb847b500238920d8a2e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2945069370789991998, guid: 84e2950002c2eb847b500238920d8a2e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2945069370789991998, guid: 84e2950002c2eb847b500238920d8a2e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2945069370789991998, guid: 84e2950002c2eb847b500238920d8a2e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2945069370789991998, guid: 84e2950002c2eb847b500238920d8a2e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2945069370789991998, guid: 84e2950002c2eb847b500238920d8a2e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2945069370789991998, guid: 84e2950002c2eb847b500238920d8a2e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7322027985843503083, guid: 84e2950002c2eb847b500238920d8a2e, type: 3}
-      propertyPath: m_Name
-      value: HealerPusher
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 84e2950002c2eb847b500238920d8a2e, type: 3}
---- !u!4 &874280534156794968 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2945069370789991998, guid: 84e2950002c2eb847b500238920d8a2e, type: 3}
-  m_PrefabInstance: {fileID: 2665266207948950118}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5738375768693406050
 PrefabInstance:
   m_ObjectHideFlags: 0

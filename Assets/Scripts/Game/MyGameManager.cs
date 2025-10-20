@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour {
 
         if (timeManager.IsGamePaused()) return;
         if (Time.time < _nextTimerPoll) return;
-        Debug.Log("Poll!");
+        
         _nextTimerPoll = Time.time + timerPollingInterval;
         OnUpdateGameTimer?.Invoke(_currentGameTimer.CurrentTime);
     }
