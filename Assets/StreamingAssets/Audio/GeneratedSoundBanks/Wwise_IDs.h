@@ -13,6 +13,7 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID PLAY_BLACKBERRYHIT = 2538688676U;
         static const AkUniqueID PLAY_BOOMERANGTHROW = 2116017054U;
         static const AkUniqueID PLAY_BUTTONHOVER = 479606568U;
         static const AkUniqueID PLAY_BUTTONPRESS = 2652178615U;
