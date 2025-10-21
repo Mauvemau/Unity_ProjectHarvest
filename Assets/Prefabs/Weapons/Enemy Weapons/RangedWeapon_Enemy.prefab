@@ -83,6 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scannerReference: {fileID: 5898849299700315305}
+  inverted: 0
   minRangeRadius: 7
   pollingRate: 0.25
 --- !u!1 &6706501637858027700
@@ -170,3 +171,5 @@ MonoBehaviour:
   scanLayer:
     serializedVersion: 2
     m_Bits: 64
+  followParent: 1
+  amountOverlaps: 0

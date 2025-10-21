@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: c96ba4318fa526d4eb8936447e9c430f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6589f2f11aac73b4eaf3accd96684c87, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.50980395}
   m_FlipX: 0
   m_FlipY: 0
@@ -202,13 +202,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   threatTargetReference: {fileID: 0}
+  characterSpriteReference: {fileID: 5717135572370234133}
   healthBarReference: {fileID: 8570558148526515536}
   currentBehaviour:
     rid: 8748630567095894170
   maxHealth: 8
   currentHealth: 0
   movementSpeed: 3.5
+  pushResistanceMultiplier: 1
   alwaysFaceTarget: 0
+  damageFeedbackManager:
+    feedbackDuration: 0.25
+    damageTint: {r: 1, g: 0, b: 0, a: 1}
+    healingTint: {r: 0, g: 1, b: 0, a: 1}
+    colorSwitchCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
   dropManager:
     drops:
     - collectiblePrefab: {fileID: 8325983632572383665, guid: fd3b8b79613a36847b4ae453d3ed5234, type: 3}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 422161869203098071}
   - component: {fileID: 7039349961994965108}
   m_Layer: 9
-  m_Name: Tarantula
+  m_Name: Tarantula lv6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <BaseStats>k__BackingField:
-    attackDamage: 1
-    attackRateInSeconds: 1
+    attackDamage: 2
+    attackRateInSeconds: 0.5
     attackSize: 0.6
   currentStats:
     attackDamage: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
   bulletStats:
     speed: 700
     lifeTime: 5
-    penetrationCount: 0
+    penetrationCount: 1
     pushForce: 1
   firstShotOffset: 0
   useParentTransform: 0
@@ -83,6 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scannerReference: {fileID: 5898849299700315305}
+  inverted: 0
   minRangeRadius: 0
   pollingRate: 0.1
 --- !u!1 &6706501637858027700
@@ -170,3 +171,5 @@ MonoBehaviour:
   scanLayer:
     serializedVersion: 2
     m_Bits: 128
+  followParent: 1
+  amountOverlaps: 0

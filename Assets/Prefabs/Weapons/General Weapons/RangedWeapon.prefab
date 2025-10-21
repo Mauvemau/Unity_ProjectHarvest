@@ -62,13 +62,14 @@ MonoBehaviour:
     prefabToCreate: {fileID: 698526753970158529, guid: 01c204ccaf97e414a9be9a54a7ac11cb, type: 3}
     centralizedFactory: {fileID: 0}
     autoFindCentralizedFactory: 1
-    creations: []
   preset: {fileID: 11400000, guid: 7e7e2ec5bc9778641b98f115c7728aab, type: 2}
   bulletStats:
     speed: 700
     lifeTime: 5
     penetrationCount: 0
     pushForce: 1
+  firstShotOffset: 0
+  useParentTransform: 0
 --- !u!114 &7039349961994965108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,6 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scannerReference: {fileID: 5898849299700315305}
+  inverted: 0
   minRangeRadius: 0
   pollingRate: 0.1
 --- !u!1 &6706501637858027700
@@ -169,3 +171,5 @@ MonoBehaviour:
   scanLayer:
     serializedVersion: 2
     m_Bits: 128
+  followParent: 1
+  amountOverlaps: 0
