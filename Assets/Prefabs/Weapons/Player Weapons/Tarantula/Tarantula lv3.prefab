@@ -172,3 +172,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   followParent: 1
+  amountOverlaps: 0

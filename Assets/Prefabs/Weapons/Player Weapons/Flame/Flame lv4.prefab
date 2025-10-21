@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4300714416288056149}
   - component: {fileID: 7256834789784800475}
   - component: {fileID: 4331098367094722873}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Scanner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,6 +86,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   followParent: 1
+  amountOverlaps: 0
 --- !u!1 &9156999661277644453
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6282892653777312621}
   - component: {fileID: 5192951996356318042}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Flame lv4
   m_TagString: Untagged
   m_Icon: {fileID: 0}

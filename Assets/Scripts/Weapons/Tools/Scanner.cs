@@ -8,6 +8,8 @@ public class Scanner : MonoBehaviour {
     [SerializeField] private LayerMask scanLayer;
     [SerializeField] private bool followParent = true;
 
+    [SerializeField, ReadOnly] private int amountOverlaps = 0;
+    
     private readonly HashSet<Collider2D> _currentOverlaps = new HashSet<Collider2D>();
     private Vector3 _fixedWorldPosition =  Vector3.zero;
     private CircleCollider2D _col;
@@ -91,6 +93,7 @@ public class Scanner : MonoBehaviour {
     }
 
     private void LateUpdate() {
+        amountOverlaps = _currentOverlaps.Count;
         if (!followParent) {
             transform.position = _fixedWorldPosition;
         }
