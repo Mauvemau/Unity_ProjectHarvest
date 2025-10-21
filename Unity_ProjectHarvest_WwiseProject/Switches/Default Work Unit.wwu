@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{DF53EFBD-A7B1-453C-9F7E-E77A28B7452B}" SchemaVersion="123">
 	<Switches>
-		<WorkUnit Name="Default Work Unit" ID="{DF53EFBD-A7B1-453C-9F7E-E77A28B7452B}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{DF53EFBD-A7B1-453C-9F7E-E77A28B7452B}" PersistMode="Standalone">
+			<ChildrenList>
+				<SwitchGroup Name="Mandrake_Toro" ID="{7ABDAC31-3ADC-4B44-B2C8-F428B26D9C66}">
+					<ChildrenList>
+						<Switch Name="Yes" ID="{D5A96092-EA72-406F-A376-01C7D13F63E5}"/>
+						<Switch Name="No" ID="{AB94F416-0319-49E1-AAB2-DE33432CEDEA}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="Player_Life_Switch" ID="{8C00E0D8-7A86-4034-8BAE-785A4CEA7CCD}">
+					<PropertyList>
+						<Property Name="UseGameParameter" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Switch Name="Healthy" ID="{B52D66F8-AA47-4F9F-BDAD-8BC6EC7FA98F}"/>
+						<Switch Name="Nearly_Defeated" ID="{DA83E742-B942-4A54-9F7E-4CB96886613F}"/>
+						<Switch Name="Wounded" ID="{56066C6F-6E8F-42FA-8B6F-F991BA45C5B6}"/>
+					</ChildrenList>
+					<SwitchOnRTPC>
+						<GameParameterRef Name="Player_Health" ID="{3F9A1CB9-1438-4BCE-8194-924B5CC15166}"/>
+						<Curve Name="" ID="{7B8179B1-2DFF-4BDB-A12C-901149AFAC85}">
+							<PropertyList>
+								<Property Name="Flags" Type="int32" Value="65537"/>
+							</PropertyList>
+							<PointList>
+								<Point>
+									<XPos>0</XPos>
+									<YPos>2</YPos>
+									<Flags>5</Flags>
+								</Point>
+								<Point>
+									<XPos>21</XPos>
+									<YPos>3</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>51</XPos>
+									<YPos>1</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>100</XPos>
+									<YPos>1</YPos>
+									<Flags>37</Flags>
+								</Point>
+							</PointList>
+						</Curve>
+					</SwitchOnRTPC>
+				</SwitchGroup>
+				<SwitchGroup Name="Boomerang" ID="{F63E557F-D8F0-486A-ABD7-BA216DB13C1A}">
+					<ChildrenList>
+						<Switch Name="Boomerang_Lev12" ID="{FA4F8F50-E01A-4664-841C-640CE406D0D5}"/>
+						<Switch Name="Boomerang_Lev3" ID="{F075D1E5-35A5-47BD-8CA7-56DC8BFBD0AE}"/>
+					</ChildrenList>
+				</SwitchGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</Switches>
 </WwiseDocument>
