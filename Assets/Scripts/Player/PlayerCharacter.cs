@@ -3,6 +3,9 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerCharacter : MonoBehaviour, IMovable, IDamageable, IFacingDirection {
+    [Header("References")] 
+    [SerializeField] private SpriteRenderer characterSpriteReference;
+    
     [Header("Health Settings")] 
     [SerializeField] private float maxHealth = 10f;
     [SerializeField] private float currentHealth;
@@ -13,6 +16,9 @@ public class PlayerCharacter : MonoBehaviour, IMovable, IDamageable, IFacingDire
     [Header("Physics Settings")]
     [SerializeField] private AnimationCurve gripCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
     [SerializeField] private float slipDuration = 0.5f;
+
+    [Header("Feedback Settings")] 
+    [SerializeField] private DamageFeedbackSprite damageFeedbackManager;
 
     [Header("Event Invokers")] 
     [SerializeField] private ProgressBarController healthBarController;
@@ -34,6 +40,11 @@ public class PlayerCharacter : MonoBehaviour, IMovable, IDamageable, IFacingDire
 
     // IDamageable
 
+    private void HandleDamageFeedback(float damageReceived) {
+        if (!characterSpriteReference) return;
+        damageFeedbackManager.PlayDamageFeedback(damageReceived);
+    }
+    
     private void UpdateHealthBar() {
         healthBarController.UpdateValues(currentHealth, maxHealth);
     }
@@ -65,7 +76,7 @@ public class PlayerCharacter : MonoBehaviour, IMovable, IDamageable, IFacingDire
     public void SetCurrentHealth(float value) {
         if (!_alive) return;
         currentHealth = value;
-
+        
         UpdateHealthBar();
         
         if (currentHealth > maxHealth) {
@@ -78,9 +89,11 @@ public class PlayerCharacter : MonoBehaviour, IMovable, IDamageable, IFacingDire
     
     public void TakeDamage(float damage) {
         SetCurrentHealth(currentHealth - damage);
+        HandleDamageFeedback(damage);
     }
     public void Heal(float value) {
         SetCurrentHealth(currentHealth + value);
+        HandleDamageFeedback(value);
     }
 
     [ContextMenu("Debug - Kill")]
@@ -132,7 +145,11 @@ public class PlayerCharacter : MonoBehaviour, IMovable, IDamageable, IFacingDire
         if (!_alive) return;
         HandlePhysics();
     }
-    
+
+    private void Update() {
+        damageFeedbackManager.Update();
+    }
+
     private void BaseInit() {
         _alive = false;
         Revive();
@@ -143,6 +160,11 @@ public class PlayerCharacter : MonoBehaviour, IMovable, IDamageable, IFacingDire
             Debug.LogError($"{name}: missing reference \"{nameof(_rb)}\"");
         }
         BaseInit();
+        damageFeedbackManager.Init(characterSpriteReference);
         ServiceLocator.SetService(this);
+    }
+
+    private void OnDisable() {
+        damageFeedbackManager.Reset();
     }
 }
