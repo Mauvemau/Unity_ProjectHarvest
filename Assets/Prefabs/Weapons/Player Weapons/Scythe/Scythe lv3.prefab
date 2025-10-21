@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4532988484326375520}
   - component: {fileID: 2138769752804154190}
   m_Layer: 9
-  m_Name: Scythe lv6
+  m_Name: Scythe lv3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <BaseStats>k__BackingField:
-    attackDamage: 6
+    attackDamage: 4
     attackRateInSeconds: 1
     attackSize: 6
   currentStats:
@@ -202,7 +202,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   aimDirection: {x: 0, y: 0}
-  attackAngle: 360
+  attackAngle: 185
   pushForce: 8
   vfxPlayer:
     vfxFactory:
@@ -210,9 +210,10 @@ MonoBehaviour:
       centralizedFactory: {fileID: 0}
       autoFindCentralizedFactory: 1
     vfxPreset:
-      controller: {fileID: 9100000, guid: b0510edced0a31a4698236c3aa295605, type: 2}
+      controller: {fileID: 9100000, guid: b01e9e0a8c19fef48ae40d8aa21bf785, type: 2}
       playbackSpeed: 1
       animationStartOffset: 0
+      color: {r: 1, g: 1, b: 1, a: 0.627451}
     scaleOffset: {x: 5.45, y: 5.45, z: 1}
   vfxOffsetInSeconds: -0.2
   arcSegments: 40

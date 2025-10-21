@@ -178,7 +178,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: c96ba4318fa526d4eb8936447e9c430f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6589f2f11aac73b4eaf3accd96684c87, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.50980395}
   m_FlipX: 0
   m_FlipY: 0
@@ -369,6 +369,7 @@ MonoBehaviour:
   - {fileID: 3736172957660891269}
   - {fileID: 3153080926364303866}
   spinInterval: 0.5
+  flipPositionX: 1
 --- !u!1 &3482910069086156161
 GameObject:
   m_ObjectHideFlags: 0

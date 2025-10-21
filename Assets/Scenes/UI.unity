@@ -1077,9 +1077,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de666241e34d33b4eab2ce771712c8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 1200
-  baseColor: {r: 1, g: 1, b: 1, a: 1}
-  progressColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &589933123
 GameObject:
   m_ObjectHideFlags: 0
