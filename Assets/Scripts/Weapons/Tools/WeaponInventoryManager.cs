@@ -44,8 +44,8 @@ public class WeaponInventoryManager: MonoBehaviour {
         Debug.LogWarning($"{name}: Requested level for unequipped plan.");
         return -1;
     }
-
-
+    
+    public int WeaponInventoryLimit => weaponInventoryLimit;
     
     /// <summary>
     /// Enacts a weapon upgrade plan, if there's inventory space for it, and spawns the first weapon (level 0) from that plan

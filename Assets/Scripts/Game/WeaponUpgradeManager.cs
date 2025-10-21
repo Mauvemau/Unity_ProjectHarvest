@@ -37,9 +37,11 @@ public class WeaponUpgradeManager {
     [Header("Debug")]
     [SerializeField, ReadOnly] private WeaponUpgradePlanSO[] playerCurrentlyEquippedPlans;
     [SerializeField, ReadOnly] private List<WeaponUpgradePlanSO> currentlyAvailablePlans = new List<WeaponUpgradePlanSO>();
+
+    private int _inventoryLimit = 0;
     
     public static event Action<List<WeaponDisplayContainer>> OnUpgradesReady = delegate {};
-    
+    /*
     public List<WeaponDisplayContainer> GetSelectableWeapons(int count) {
         List<WeaponDisplayContainer> result = new List<WeaponDisplayContainer>();
         HashSet<WeaponUpgradePlanSO> usedPlans = new HashSet<WeaponUpgradePlanSO>();
@@ -84,6 +86,66 @@ public class WeaponUpgradeManager {
 
         return result;
     }
+    */
+    
+    public List<WeaponDisplayContainer> GetSelectableWeapons(int count) {
+    List<WeaponDisplayContainer> result = new List<WeaponDisplayContainer>();
+    HashSet<WeaponUpgradePlanSO> usedPlans = new HashSet<WeaponUpgradePlanSO>();
+
+    bool inventoryFull = playerCurrentlyEquippedPlans.Length >= _inventoryLimit;
+
+    // Shuffle plans in place
+    List<WeaponUpgradePlanSO> shuffledPlans = new List<WeaponUpgradePlanSO>(weaponDatabase);
+    for (int i = 0; i < shuffledPlans.Count; i++) {
+        int swapIndex = Random.Range(i, shuffledPlans.Count);
+        (shuffledPlans[i], shuffledPlans[swapIndex]) = (shuffledPlans[swapIndex], shuffledPlans[i]);
+    }
+
+    foreach (WeaponUpgradePlanSO plan in shuffledPlans) {
+        if (usedPlans.Contains(plan)) continue;
+
+        bool isEquipped = playerCurrentlyEquippedPlans.Contains(plan);
+        int currentLevel = playerInventoryReference.GetPlanLevel(plan);
+        int nextLevel = currentLevel + 1;
+        bool canUpgrade = nextLevel < plan.UpgradesCount;
+
+        // ---- LOGIC BRANCHES ----
+        if (inventoryFull) {
+            // Case 1: Inventory is full, only offer upgrades
+            if (!isEquipped) continue;
+
+            // Case 2: Player has this equipped but it's maxed, skip
+            if (!canUpgrade) continue;
+        }
+
+        // ---- ADD WEAPON ----
+        if (!isEquipped) {
+            // New weapon (only if not at inventory limit)
+            result.Add(new WeaponDisplayContainer(
+                plan.WeaponName,
+                0,
+                plan.GetDescriptionOfLevel(0),
+                plan.WeaponIcon
+            ));
+        } else if (canUpgrade) {
+            // Upgrade existing weapon
+            result.Add(new WeaponDisplayContainer(
+                plan.WeaponName,
+                nextLevel,
+                plan.GetDescriptionOfLevel(nextLevel),
+                plan.WeaponIcon
+            ));
+        }
+
+        usedPlans.Add(plan);
+
+        // Stop once we’ve filled the requested count
+        if (result.Count >= count) break;
+    }
+
+    currentlyAvailablePlans = usedPlans.ToList();
+    return result;
+}
 
     private void HandleLevelUpgrades() {
         List<WeaponDisplayContainer> levelUpWeapons = GetSelectableWeapons(upgradesAvailablePerLevel);
@@ -131,6 +193,7 @@ public class WeaponUpgradeManager {
     public void Init() {
         if (!playerInventoryReference) return;
         EquipPlanOnPlayer(playerStartingPlan);
+        _inventoryLimit = playerInventoryReference.WeaponInventoryLimit;
     }
     
     public void OnEnable() {
