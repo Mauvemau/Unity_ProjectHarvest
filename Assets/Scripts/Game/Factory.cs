@@ -19,14 +19,18 @@ public class Factory {
     
     public GameObject Create(Vector3 position, Quaternion rotation, Vector3 scale, Transform parent = null) {
         if (!prefabToCreate) return null;
+        GameObject obj;
+        
         if (autoFindCentralizedFactory) {
             TryFindCentralizedFactory();
         }
         if (centralizedFactory) {
-            return centralizedFactory.Create(prefabToCreate, position, rotation, scale);
+            obj = centralizedFactory.Create(prefabToCreate, position, rotation, scale);
+            _creations.Add(obj);
+            return obj;
         }
 
-        GameObject obj = Object.Instantiate(prefabToCreate, parent);
+        obj = Object.Instantiate(prefabToCreate, parent);
         _creations.Add(obj);
         obj.transform.position = position;
         obj.transform.rotation = rotation;

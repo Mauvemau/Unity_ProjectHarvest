@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class GameManager : MonoBehaviour {
+public class MyGameManager : MonoBehaviour {
     [Header("Weapon Upgrades Manager")] 
     [SerializeField] private WeaponUpgradeManager weaponUpgradeManager;
     
@@ -32,7 +32,8 @@ public class GameManager : MonoBehaviour {
     private bool _hudVisible = false;
     private ITimer _currentGameTimer;
     private float _nextTimerPoll = 0f;
-    
+
+    public static event Action OnGameEnd = delegate {};
     public static event Action<float> OnUpdateGameTimer = delegate {};
     
     [ContextMenu("Debug - Toggle Hud")]
@@ -60,14 +61,18 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    [ContextMenu("Debug - End Game")]
     private void EndGame() {
         _currentGameTimer.Stop();
         spawnManager.SetSpawning(false);
         spawnManager.Wipe();
+        OnGameEnd?.Invoke();
         inputManager.SetPlayerInputEnabled(false);
         playerCharacter.SetActive(false);
         SetHudEnabled(false);
     }
+    
+    [ContextMenu("Debug - Start Game")]
     private void StartGame() {
         playerCharacter.SetActive(true);
         inputManager.SetPlayerInputEnabled(true);

@@ -1,4 +1,7 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 /// <summary>
 /// A centralized factory that also pools objects
@@ -6,6 +9,8 @@ using UnityEngine;
 public class CentralizedFactory : MonoBehaviour {
     [Header("Pooling")]
     [SerializeField] private MyObjectPool[] objectPools;
+
+    private List<GameObject> _creations = new List<GameObject>();
 
     public GameObject Create(GameObject prefabToCreate, Vector3 position, Quaternion rotation, Vector3 scale) {
         if(!prefabToCreate) {
@@ -22,7 +27,19 @@ public class CentralizedFactory : MonoBehaviour {
         obj.transform.position = position;
         obj.transform.rotation = rotation;
         obj.transform.localScale = scale;
+        _creations.Add(obj);
         return obj;
+    }
+
+    private void SoftWipe() {
+        foreach (MyObjectPool pool in objectPools) {
+            pool.PoolCleanup();
+        }
+        foreach (GameObject creation in _creations) {
+            if (creation && creation.activeInHierarchy) {
+                creation.SetActive(false);
+            }
+        }
     }
 
     private void Awake() {
@@ -30,5 +47,13 @@ public class CentralizedFactory : MonoBehaviour {
         foreach (MyObjectPool pool in objectPools) {
             pool.Initialize(gameObject);
         }
+    }
+
+    private void OnEnable() {
+        MyGameManager.OnGameEnd += SoftWipe;
+    }
+
+    private void OnDisable() {
+        MyGameManager.OnGameEnd -= SoftWipe;
     }
 }
