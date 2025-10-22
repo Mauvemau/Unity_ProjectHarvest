@@ -44,13 +44,9 @@ public class MyGameManager : MonoBehaviour {
     }
 
     private void TogglePause() {
-        Debug.Log("Trying to pause game...");
         if (!timeManager.IsGamePaused()) {
-            Debug.Log("Game isn't paused!");
             if (onOpenPauseMenuChannel) {
-                Debug.Log("Event is properly set!");
                 onOpenPauseMenuChannel?.RaiseEvent();
-                Debug.Log("Pause menu should be open.");
             }
         }
     }

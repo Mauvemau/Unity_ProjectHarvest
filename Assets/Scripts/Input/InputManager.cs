@@ -114,7 +114,6 @@ public class InputManager : MonoBehaviour {
     }
 
     private void HandlePauseInput(InputAction.CallbackContext ctx) {
-        Debug.Log("Pause Input Performed!");
         OnUIPauseInputStarted?.Invoke();
     }
     
