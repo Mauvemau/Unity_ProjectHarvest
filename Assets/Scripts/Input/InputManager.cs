@@ -9,10 +9,10 @@ public class InputManager : MonoBehaviour {
     [SerializeField] private InputActionReference playerAimContinuousAction;
     [SerializeField] private InputActionReference playerInteractAction;
 
-    [Header("UI Actions")] 
-    [SerializeField] private InputActionReference uiQuitProgramAction;
+    [Header("UI Actions")]
     [SerializeField] private InputActionReference uiSubmitAction;
     [SerializeField] private InputActionReference uiCancelAction;
+    [SerializeField] private InputActionReference uiPauseAction;
 
     [Header("DebugAction")] 
     [SerializeField] private InputActionReference debugComboPrefixAction;
@@ -29,6 +29,7 @@ public class InputManager : MonoBehaviour {
     public static event Action OnUISubmitInputCancelled = delegate {};
     public static event Action OnUICancelInputStarted = delegate {};
     public static event Action OnUICancelInputCancelled = delegate {};
+    public static event Action OnUIPauseInputStarted = delegate {};
     
     public static event Action OnDebugLevelUpInputPerformed = delegate {};
 
@@ -94,11 +95,6 @@ public class InputManager : MonoBehaviour {
     }
 
     // UI
-
-    private void HandleQuitProgramInput(InputAction.CallbackContext ctx) {
-        Application.Quit();
-    }
-
     private void HandleSubmitInput(InputAction.CallbackContext ctx) {
         if (ctx.started) {
             OnUISubmitInputStarted?.Invoke();
@@ -115,6 +111,11 @@ public class InputManager : MonoBehaviour {
         if (ctx.canceled) {
             OnUICancelInputCancelled?.Invoke();
         }
+    }
+
+    private void HandlePauseInput(InputAction.CallbackContext ctx) {
+        Debug.Log("Pause Input Performed!");
+        OnUIPauseInputStarted?.Invoke();
     }
     
     // Debug
@@ -151,9 +152,6 @@ public class InputManager : MonoBehaviour {
         }
         
         // UI Actions
-        if (uiQuitProgramAction) {
-            uiQuitProgramAction.action.started += HandleQuitProgramInput;
-        }
         if (uiSubmitAction) {
             uiSubmitAction.action.started += HandleSubmitInput;
             uiSubmitAction.action.canceled += HandleSubmitInput;
@@ -161,6 +159,9 @@ public class InputManager : MonoBehaviour {
         if (uiCancelAction) {
             uiCancelAction.action.started += HandleCancelInput;
             uiCancelAction.action.canceled += HandleCancelInput;
+        }
+        if (uiPauseAction) {
+            uiPauseAction.action.started += HandlePauseInput;
         }
         
         // Debug Actions
@@ -194,9 +195,6 @@ public class InputManager : MonoBehaviour {
         }
         
         // UI Actions
-        if (uiQuitProgramAction) {
-            uiQuitProgramAction.action.started -= HandleQuitProgramInput;
-        }
         if (uiSubmitAction) {
             uiSubmitAction.action.started -= HandleSubmitInput;
             uiSubmitAction.action.canceled -= HandleSubmitInput;
@@ -204,6 +202,19 @@ public class InputManager : MonoBehaviour {
         if (uiCancelAction) {
             uiCancelAction.action.started -= HandleCancelInput;
             uiCancelAction.action.canceled -= HandleCancelInput;
+        }
+        if (uiPauseAction) {
+            uiPauseAction.action.started -= HandlePauseInput;
+        }
+        
+        // Debug Actions
+        if (debugComboPrefixAction) {
+            debugComboPrefixAction.action.started -= HandleDebugPrefixInput;
+            debugComboPrefixAction.action.canceled -= HandleDebugPrefixInput;
+        }
+
+        if (debugLevelUpAction) {
+            debugLevelUpAction.action.started -= HandleLevelUpInput;
         }
     }
 }
