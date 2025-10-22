@@ -26,10 +26,12 @@ public class MyGameManager : MonoBehaviour {
     [Header("Event Listeners")]
     [SerializeField] private VoidEventChannelSO onStartGameChannel;
     [SerializeField] private VoidEventChannelSO onEndGameChannel;
+    [SerializeField] private VoidEventChannelSO onExitAppChannel;
     
     [Header("Debug Controls")]
     [SerializeField] private bool spawnOnStart = true;
     
+    private bool _gameStarted = false;
     private ITimer _currentGameTimer;
     private float _nextTimerPoll = 0f;
 
@@ -44,10 +46,14 @@ public class MyGameManager : MonoBehaviour {
     }
 
     private void TogglePause() {
+        if (!_gameStarted) return;
         if (!timeManager.IsGamePaused()) {
             if (onOpenPauseMenuChannel) {
                 onOpenPauseMenuChannel?.RaiseEvent();
             }
+        }
+        else {
+            // close all menus
         }
     }
     
@@ -63,11 +69,22 @@ public class MyGameManager : MonoBehaviour {
         }
     }
 
+    private void ExitApplication() {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
+    
     [ContextMenu("Debug - End Game")]
     private void EndGame() {
+        _gameStarted = false;
         _currentGameTimer.Stop();
         spawnManager.SetSpawning(false);
         spawnManager.Wipe();
+        globalVariableManager.ResetAll();
+        weaponUpgradeManager.UnequipAll();
         OnGameEnd?.Invoke();
         inputManager.SetPlayerInputEnabled(false);
         playerCharacter.SetActive(false);
@@ -76,6 +93,7 @@ public class MyGameManager : MonoBehaviour {
     
     [ContextMenu("Debug - Start Game")]
     private void StartGame() {
+        weaponUpgradeManager.Init();
         playerCharacter.SetActive(true);
         inputManager.SetPlayerInputEnabled(true);
         SetHudEnabled(true);
@@ -84,6 +102,7 @@ public class MyGameManager : MonoBehaviour {
         }
         _currentGameTimer.Start();
         _nextTimerPoll = 0;
+        _gameStarted = true;
     }
 
     private void Update() {
@@ -99,7 +118,6 @@ public class MyGameManager : MonoBehaviour {
     private void Awake() {
         Random.InitState(System.DateTime.Now.Millisecond);
         globalVariableManager.Init();
-        weaponUpgradeManager.Init();
         _currentGameTimer = timeManager.CreateTimer();
     }
     
@@ -122,6 +140,9 @@ public class MyGameManager : MonoBehaviour {
         if (onEndGameChannel) {
             onEndGameChannel.OnEventRaised += EndGame;
         }
+        if (onExitAppChannel) {
+            onExitAppChannel.OnEventRaised += ExitApplication;
+        }
     }
     
     private void OnDisable() {
@@ -138,6 +159,9 @@ public class MyGameManager : MonoBehaviour {
         }
         if (onEndGameChannel) {
             onEndGameChannel.OnEventRaised -= EndGame;
+        }
+        if (onExitAppChannel) {
+            onExitAppChannel.OnEventRaised -= ExitApplication;
         }
     }
 }

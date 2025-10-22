@@ -1768,6 +1768,7 @@ MonoBehaviour:
   onToggleHudChannel: {fileID: 11400000, guid: 949c69b1086c4924292fc7990d8c38e9, type: 2}
   onStartGameChannel: {fileID: 11400000, guid: 4d8c5cf7ea872e544b46843ac88fd4c1, type: 2}
   onEndGameChannel: {fileID: 11400000, guid: 642bc0dc330ce60499a85b8e230efb84, type: 2}
+  onExitAppChannel: {fileID: 11400000, guid: e22111df79a38544c9dd2a2f309d1164, type: 2}
   spawnOnStart: 1
 --- !u!1 &1972705331 stripped
 GameObject:

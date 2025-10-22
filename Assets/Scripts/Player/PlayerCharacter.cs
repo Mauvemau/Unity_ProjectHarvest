@@ -28,6 +28,7 @@ public class PlayerCharacter : MonoBehaviour, IMovable, IDamageable, IFacingDire
     private Rigidbody2D _rb;
     private Vector2 _inputDir;
     private Vector2 _currentVelocity;
+    private Vector2 _spawnPosition;
     private float _slipTimer;
     private float _currentSpeed;
     private bool _alive = false;
@@ -107,10 +108,10 @@ public class PlayerCharacter : MonoBehaviour, IMovable, IDamageable, IFacingDire
 
     [ContextMenu("Debug - Revive")]
     public void Revive() {
-        if (_alive) return;
         currentHealth = maxHealth;
         _alive = true;
         UpdateHealthBar();
+        SoftInit();
     }
     
     // IMovable
@@ -150,8 +151,17 @@ public class PlayerCharacter : MonoBehaviour, IMovable, IDamageable, IFacingDire
         damageFeedbackManager.Update();
     }
 
+    private void SoftInit() {
+        _inputDir =  Vector2.zero;
+        _currentVelocity =  Vector2.zero; ;
+        _slipTimer = 0;
+        _currentSpeed = 0;
+        transform.position = _spawnPosition;
+    }
+    
     private void BaseInit() {
         _alive = false;
+        SoftInit();
         Revive();
     }
     

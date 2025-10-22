@@ -147,6 +147,11 @@ public class WeaponUpgradeManager {
         playerCurrentlyEquippedPlans = playerInventoryReference.GetEquippedPlans();
     }
 
+    public void UnequipAll() {
+        playerInventoryReference.ClearInventory();
+        FetchCurrentlyEquippedPlans();
+    }
+    
     public void Init() {
         if (!playerInventoryReference) return;
         EquipPlanOnPlayer(playerStartingPlan);
