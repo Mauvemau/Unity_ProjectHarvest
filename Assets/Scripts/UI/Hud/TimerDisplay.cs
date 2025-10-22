@@ -16,10 +16,10 @@ public class TimerDisplay : MonoBehaviour {
     }
 
     private void OnEnable() {
-        GameManager.OnUpdateGameTimer += UpdateTimer;
+        MyGameManager.OnUpdateGameTimer += UpdateTimer;
     }
     
     private void OnDisable() {
-        GameManager.OnUpdateGameTimer -= UpdateTimer;
+        MyGameManager.OnUpdateGameTimer -= UpdateTimer;
     }
 }
