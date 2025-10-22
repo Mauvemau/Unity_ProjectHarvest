@@ -101,7 +101,6 @@ public class MyGameManager : MonoBehaviour {
         globalVariableManager.Init();
         weaponUpgradeManager.Init();
         _currentGameTimer = timeManager.CreateTimer();
-        StartGame();
     }
     
     private void OnValidate() {

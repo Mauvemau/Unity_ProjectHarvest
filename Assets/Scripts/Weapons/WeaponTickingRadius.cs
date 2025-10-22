@@ -8,9 +8,11 @@ public class WeaponTickingRadius : Weapon {
     [SerializeField] private float pushForce = 0f;
     [SerializeField] private bool ignoreParent = true;
     
+#if UNITY_EDITOR
     [Header("Visual Settings")] 
     [SerializeField, Range(12, 32)] private int gizmoAccuracy = 12;
     [SerializeField] private Color radiusGizmoColor = Color.green;
+#endif
 
     [SerializeField, ReadOnly] private GameObject[] currentOverlaps;
     
@@ -38,6 +40,7 @@ public class WeaponTickingRadius : Weapon {
     }
 
     private void OnDrawGizmos() {
+#if UNITY_EDITOR
         Gizmos.color = radiusGizmoColor;
         
         Vector3 prevPoint = Vector3.zero;
@@ -55,6 +58,7 @@ public class WeaponTickingRadius : Weapon {
 
             prevPoint = newPoint;
         }
+#endif
     }
 }
 

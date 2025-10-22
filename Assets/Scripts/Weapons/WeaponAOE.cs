@@ -54,10 +54,12 @@ public class WeaponAOE : Weapon {
     [Header("Vfx Settings")]
     [SerializeField] private VFXPlayer vfxPlayer;
 
+#if UNITY_EDITOR
     [Header("Visual Settings")] 
     [SerializeField] private Color targetAreaGizmoColor = Color.magenta;
 
     private const int GizmoCircleSegments = 16;
+#endif
     
     private List<AOE> _targetPoints = new List<AOE>();
 
@@ -141,11 +143,13 @@ public class WeaponAOE : Weapon {
 
     
     private void OnDrawGizmos() {
+#if UNITY_EDITOR
         Gizmos.color = targetAreaGizmoColor;
         Gizmos.DrawWireCube(transform.position, new Vector3(targetAreaSize.x, targetAreaSize.y, 0));
 
         foreach (AOE targetPoint in _targetPoints) {
             OnDrawTargetCircleGizmos(targetPoint.TargetPoint, targetPoint.AttackRadius);
         }
+#endif
     }
 }
