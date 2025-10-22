@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
@@ -19,8 +20,14 @@ public class PlayerController : MonoBehaviour {
         if (!playerCharacterReference) {
             Debug.LogWarning($"{name}: missing reference \"{nameof(playerCharacterReference)}\"");
         }
+        
+        MyGameManager.OnGameEnd += playerCharacterReference.Revive;
     }
-    
+
+    private void OnDestroy() {
+        MyGameManager.OnGameEnd -= playerCharacterReference.Revive;
+    }
+
     private void OnEnable() {
         InputManager.OnPlayerMoveInputPerformed += MoveCharacter;
         InputManager.OnPlayerInteractInputPerformed += PerformCharacterInteraction;

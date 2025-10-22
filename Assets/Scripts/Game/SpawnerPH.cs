@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpawnerPH : MonoBehaviour {
@@ -28,8 +27,8 @@ public class SpawnerPH : MonoBehaviour {
     }
 
     public void Wipe() {
-        foreach (FactoryWeightPair factoryWP in factories) {
-            Factory factory = factoryWP.Factory;
+        foreach (FactoryWeightPair factoryWp in factories) {
+            Factory factory = factoryWp.Factory;
             factory.SoftWipe();
         }
     }

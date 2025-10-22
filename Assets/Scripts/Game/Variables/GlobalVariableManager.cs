@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 [System.Serializable]
@@ -23,15 +24,23 @@ public class GlobalVariableManager {
     [SerializeField] private VoidEventChannelSO onLevelUp;
     [SerializeField] private StringEventChannelSo onUpdateLevelValue;
 
+    private void UpdateXpBarUI() {
+        xpBarController.UpdateValues(gameCurrentVariables.CurrentExperience, gameCurrentVariables.ExperienceNeeded);
+    }
+
+    private void UpdateCurrentLevelUI() {
+        if (onUpdateLevelValue) {
+            onUpdateLevelValue.RaiseEvent($"{gameCurrentVariables.CurrentLevel}");
+        }
+    }
+    
     private void CheckIfLevelUp() {
         while (gameCurrentVariables.CurrentExperience >= gameCurrentVariables.ExperienceNeeded) {
             gameCurrentVariables.CurrentExperience -= gameCurrentVariables.ExperienceNeeded;
             gameCurrentVariables.CurrentLevel++;
             gameCurrentVariables.ExperienceNeeded *= experienceNeededIncrease;
 
-            if (onUpdateLevelValue) {
-                onUpdateLevelValue.RaiseEvent($"{gameCurrentVariables.CurrentLevel}");
-            }
+            UpdateCurrentLevelUI();
             if (onLevelUp) {
                 onLevelUp.RaiseEvent();
             }
@@ -41,7 +50,7 @@ public class GlobalVariableManager {
     public void AddCurrentExperience(float amount) {
         gameCurrentVariables.CurrentExperience += amount;
         CheckIfLevelUp();
-        xpBarController.UpdateValues(gameCurrentVariables.CurrentExperience, gameCurrentVariables.ExperienceNeeded);
+        UpdateXpBarUI();
     }
     
     //
@@ -52,18 +61,20 @@ public class GlobalVariableManager {
     
     [ContextMenu("Debug GlobalVars - Reset XP")]
     public void ResetGameVariables() {
-        gameCurrentVariables = gameBaseVariables;
+        gameCurrentVariables = gameBaseVariables.Copy();
     }
     
     [ContextMenu("Debug GlobalVars - Reset Player Stats")]
     public void ResetPlayerVariables() {
-        playerCurrentVariables = playerBaseVariables * playerVariableMultiplier;
+        playerCurrentVariables = playerBaseVariables.Copy() * playerVariableMultiplier.Copy();
     }
     
     [ContextMenu("Debug GlobalVars - Reset All")]
     public void ResetAll() {
         ResetPlayerVariables();
         ResetGameVariables();
+        UpdateXpBarUI();
+        UpdateCurrentLevelUI();
     }
     
     public void Init() {

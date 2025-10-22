@@ -69,6 +69,11 @@ MonoBehaviour:
     penetrationCount: 0
     pushForce: 0
   firstShotOffset: 0
+  useParentTransform: 0
+  fireAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
 --- !u!114 &7039349961994965108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,6 +87,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scannerReference: {fileID: 5898849299700315305}
+  inverted: 0
   minRangeRadius: 7
   pollingRate: 0.25
 --- !u!1 &6706501637858027700
@@ -169,3 +175,5 @@ MonoBehaviour:
   scanLayer:
     serializedVersion: 2
     m_Bits: 64
+  followParent: 1
+  amountOverlaps: 0

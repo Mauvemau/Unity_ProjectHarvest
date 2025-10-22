@@ -119,6 +119,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &228297932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 228297933}
+  - component: {fileID: 228297934}
+  m_Layer: 0
+  m_Name: "\U0001F3A7 AudioManager"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &228297933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228297932}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &228297934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228297932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b681e82726216046a2b5ee08f2dab14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onPlayAudioEventChannel: {fileID: 11400000, guid: a556119302e802f4fa917d2a35c1f3fb, type: 2}
 --- !u!1 &633214493
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,9 +888,9 @@ MonoBehaviour:
   playerAimAction: {fileID: 482634814814404691, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   playerAimContinuousAction: {fileID: -7393430844454170723, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   playerInteractAction: {fileID: 1781555164194001046, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  uiQuitProgramAction: {fileID: -6245001166417737689, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   uiSubmitAction: {fileID: 392368643174621059, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   uiCancelAction: {fileID: 7727032971491509709, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  uiPauseAction: {fileID: -6245001166417737689, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   debugComboPrefixAction: {fileID: 5039080804167421277, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   debugLevelUpAction: {fileID: 7827404728468856214, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   stickDeadZone: 0.1
@@ -904,6 +949,11 @@ MonoBehaviour:
       centralizedFactory: {fileID: 2054613208}
       autoFindCentralizedFactory: 0
     weight: 0.25
+  - factory:
+      prefabToCreate: {fileID: 2717563465280112146, guid: 45ac2d3e72879db41bf9ee1bd5ce9501, type: 3}
+      centralizedFactory: {fileID: 2054613208}
+      autoFindCentralizedFactory: 0
+    weight: 0.15
   spawn: 0
   spawnDelay: 2
   mainCameraReference: {fileID: 1069011098}
@@ -1709,8 +1759,10 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 7bae43b72744ba8499a5453b3be89803, type: 2}
     - {fileID: 11400000, guid: 54c73147a8a069544868053419fa0969, type: 2}
     - {fileID: 11400000, guid: 569b77d9857782048a16ce347ee67edb, type: 2}
+    - {fileID: 11400000, guid: 1269f47e596280b4ea057e527ccc4243, type: 2}
     playerInventoryReference: {fileID: 1972705332}
     playerStartingPlan: {fileID: 11400000, guid: 5a389d344323a0940a88548151be01a0, type: 2}
+    upgradesAvailablePerLevel: 3
     onLevelUpChannel: {fileID: 11400000, guid: 12065afae534b5d44b27039d0a206374, type: 2}
     playerCurrentlyEquippedPlans: []
     currentlyAvailablePlans: []
@@ -1753,12 +1805,15 @@ MonoBehaviour:
   playerCharacter: {fileID: 1972705331}
   spawnManager: {fileID: 1414712854}
   inputManager: {fileID: 1125368741}
-  timeController:
+  timeManager:
     onSetGamePaused: {fileID: 11400000, guid: bd71b75cc53da714ebacf9612b7c1658, type: 2}
+  timerPollingInterval: 1
   onDefeatChannel: {fileID: 11400000, guid: ce7f1d0139737054db83ae3adac812ea, type: 2}
+  onOpenPauseMenuChannel: {fileID: 11400000, guid: 314fbefc6ea4c42428fb797d7245f361, type: 2}
   onToggleHudChannel: {fileID: 11400000, guid: 949c69b1086c4924292fc7990d8c38e9, type: 2}
-  onStartGameChannel: {fileID: 0}
-  onEndGameChannel: {fileID: 0}
+  onStartGameChannel: {fileID: 11400000, guid: 4d8c5cf7ea872e544b46843ac88fd4c1, type: 2}
+  onEndGameChannel: {fileID: 11400000, guid: 642bc0dc330ce60499a85b8e230efb84, type: 2}
+  onExitAppChannel: {fileID: 11400000, guid: e22111df79a38544c9dd2a2f309d1164, type: 2}
   spawnOnStart: 1
 --- !u!1 &1972705331 stripped
 GameObject:
@@ -6460,6 +6515,10 @@ MonoBehaviour:
     poolSize: 4
     expandable: 0
     pool: []
+  - objectToPool: {fileID: 2717563465280112146, guid: 45ac2d3e72879db41bf9ee1bd5ce9501, type: 3}
+    poolSize: 2
+    expandable: 0
+    pool: []
   - objectToPool: {fileID: 8325983632572383665, guid: fd3b8b79613a36847b4ae453d3ed5234, type: 3}
     poolSize: 100
     expandable: 1
@@ -6470,7 +6529,7 @@ MonoBehaviour:
     pool: []
   - objectToPool: {fileID: 8122611192328483659, guid: 0d36fd112fc0c1b4c87accaf324d5626, type: 3}
     poolSize: 10
-    expandable: 0
+    expandable: 1
     pool: []
 --- !u!1001 &3431711331352404105
 PrefabInstance:
@@ -6520,10 +6579,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2594235449695597825, guid: dbcfed1e5bc403b49997de8a71b6dc3e, type: 3}
-      propertyPath: parent
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6185150928903746312, guid: dbcfed1e5bc403b49997de8a71b6dc3e, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
@@ -6543,4 +6598,5 @@ SceneRoots:
   - {fileID: 1414712855}
   - {fileID: 1125368742}
   - {fileID: 2054613207}
+  - {fileID: 228297933}
   - {fileID: 1632652939}

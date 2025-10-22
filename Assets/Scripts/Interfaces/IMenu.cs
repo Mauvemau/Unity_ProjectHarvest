@@ -1,7 +1,7 @@
 using UnityEngine.UI;
 
 public interface IMenu {
-    public Button GetInitialButton();
+    public Button InitialButton();
     public void Toggle(bool toggle);
     public void Open();
     public void Close();

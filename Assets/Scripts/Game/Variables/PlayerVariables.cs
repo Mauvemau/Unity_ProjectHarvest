@@ -13,6 +13,17 @@ public class PlayerVariables {
     [Tooltip("Expands the collectible collector radius for the player")]
     [field:SerializeField] public float CollectRange { get; set; }
 
+    public PlayerVariables Copy() {
+        return new PlayerVariables {
+            MaxHealth = this.MaxHealth,
+            DamageMultiplier = this.DamageMultiplier,
+            AttackRateMultiplier = this.AttackRateMultiplier,
+            AttackSizeMultiplier = this.AttackSizeMultiplier,
+            MovementSpeed = this.MovementSpeed,
+            CollectRange = this.CollectRange
+        };
+    }
+    
     public static PlayerVariables operator +(PlayerVariables a, PlayerVariables b) {
         return new PlayerVariables {
             MaxHealth = a.MaxHealth + b.MaxHealth,

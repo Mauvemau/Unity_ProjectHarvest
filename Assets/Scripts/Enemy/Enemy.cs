@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -5,6 +6,8 @@ public class Enemy : MonoBehaviour, IDamageable, IPushable, IFacingDirection {
     [Header("References")] 
     [Tooltip("The entity to target for behaviour")]
     [SerializeField] private GameObject threatTargetReference;
+    [Tooltip("A reference to the sprite, used for damage feedback")]
+    [SerializeField] private SpriteRenderer characterSpriteReference;
     [Tooltip("A health bar will be updated based on the entity's health values if set")]
     [SerializeField] private HealthBar healthBarReference;
 
@@ -17,7 +20,11 @@ public class Enemy : MonoBehaviour, IDamageable, IPushable, IFacingDirection {
 
     [Header("Movement Settings")]
     [SerializeField] private float movementSpeed = 1f;
+    [SerializeField, Range(0f, 1f)] private float pushResistanceMultiplier = 1f;
     [SerializeField] private bool alwaysFaceTarget = false;
+    
+    [Header("Feedback Settings")] 
+    [SerializeField] private DamageFeedbackSprite damageFeedbackManager;
 
     [Header("Drops Settings")] 
     [SerializeField] private DropManager dropManager;
@@ -113,10 +120,12 @@ public class Enemy : MonoBehaviour, IDamageable, IPushable, IFacingDirection {
     
     public void Heal(float value) {
         SetCurrentHealth(currentHealth + value);
+        HandleDamageFeedback(value);
     }
     
     public void TakeDamage(float damage) {
         SetCurrentHealth(currentHealth - damage);
+        HandleDamageFeedback(damage);
     }
     
     public void RequestPush(Vector2 direction, float force) {
@@ -145,6 +154,11 @@ public class Enemy : MonoBehaviour, IDamageable, IPushable, IFacingDirection {
     
     //
 
+    private void HandleDamageFeedback(float damageReceived) {
+        if (!characterSpriteReference) return;
+        damageFeedbackManager.PlayDamageFeedback(damageReceived);
+    }
+    
     private void UpdateHealthBar() {
         if (!healthBarReference) return;
         healthBarReference.SetMaxValue(maxHealth);
@@ -159,22 +173,33 @@ public class Enemy : MonoBehaviour, IDamageable, IPushable, IFacingDirection {
 
     private void FixedUpdate() {
         if (!_alive || currentBehaviour == null || !threatTargetReference) return;
+        Vector2 pushVelocity = _pushVelocity;
+        pushVelocity *= pushResistanceMultiplier;
 
-        currentBehaviour.HandleMovement(gameObject.transform, _rb, threatTargetReference.transform, movementSpeed, _pushVelocity);
+        currentBehaviour.HandleMovement(gameObject.transform, _rb, threatTargetReference.transform, movementSpeed, pushVelocity);
 
         _pushVelocity *= 0.9f;
     }
-    
+
+    private void Update() {
+        damageFeedbackManager.Update();
+    }
+
     private void Awake() {
         if (!TryGetComponent(out _rb)) {
             Debug.LogError($"{name}: missing reference \"{nameof(_rb)}\"");
         }
         BaseInit();
+        damageFeedbackManager.Init(characterSpriteReference);
     }
     
     private void OnEnable() {
         Revive();
         TryFindThreatTarget();
+    }
+
+    private void OnDisable() {
+        damageFeedbackManager.Reset();
     }
 
     private void OnDrawGizmos() {

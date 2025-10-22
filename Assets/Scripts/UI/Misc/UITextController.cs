@@ -20,15 +20,13 @@ public class UITextController : MonoBehaviour {
         if (!TryGetComponent(out _text)) {
             Debug.LogError($"{name}: missing reference \"{nameof(_text)}\"");
         }
-    }
-
-    private void OnEnable() {
+        
         if (onUpdateText) {
             onUpdateText.OnEventRaised += UpdateText;
         }
     }
 
-    private void OnDisable() {
+    private void OnDestroy() {
         if (onUpdateText) {
             onUpdateText.OnEventRaised -= UpdateText;
         }

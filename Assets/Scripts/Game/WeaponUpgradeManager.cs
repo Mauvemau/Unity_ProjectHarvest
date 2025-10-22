@@ -29,19 +29,24 @@ public class WeaponUpgradeManager {
 
     [Header("Settings")] 
     [SerializeField] private WeaponUpgradePlanSO playerStartingPlan;
-
+    [SerializeField] private int upgradesAvailablePerLevel = 3;
+    
     [Header("Event Listeners")] 
     [SerializeField] private VoidEventChannelSO onLevelUpChannel;
     
     [Header("Debug")]
     [SerializeField, ReadOnly] private WeaponUpgradePlanSO[] playerCurrentlyEquippedPlans;
     [SerializeField, ReadOnly] private List<WeaponUpgradePlanSO> currentlyAvailablePlans = new List<WeaponUpgradePlanSO>();
+
+    private int _inventoryLimit = 0;
     
     public static event Action<List<WeaponDisplayContainer>> OnUpgradesReady = delegate {};
     
     public List<WeaponDisplayContainer> GetSelectableWeapons(int count) {
         List<WeaponDisplayContainer> result = new List<WeaponDisplayContainer>();
         HashSet<WeaponUpgradePlanSO> usedPlans = new HashSet<WeaponUpgradePlanSO>();
+
+        bool inventoryFull = playerCurrentlyEquippedPlans.Length >= _inventoryLimit;
         
         List<WeaponUpgradePlanSO> shuffledPlans = new List<WeaponUpgradePlanSO>(weaponDatabase);
         for (int i = 0; i < shuffledPlans.Count; i++) {
@@ -53,6 +58,22 @@ public class WeaponUpgradeManager {
             if (usedPlans.Contains(plan)) continue;
 
             bool isEquipped = playerCurrentlyEquippedPlans.Contains(plan);
+
+            if (inventoryFull && !isEquipped) {
+                continue;
+            }
+
+            int nextLevel = 0;
+            bool canUpgrade = false;
+
+            if (isEquipped) {
+                int currentLevel = playerInventoryReference.GetPlanLevel(plan);
+                nextLevel = currentLevel + 1;
+                canUpgrade = nextLevel < plan.UpgradesCount;
+                
+                if (inventoryFull && !canUpgrade)
+                    continue;
+            }
             
             if (!isEquipped) {
                 result.Add(new WeaponDisplayContainer(
@@ -61,38 +82,31 @@ public class WeaponUpgradeManager {
                     plan.GetDescriptionOfLevel(0),
                     plan.WeaponIcon
                 ));
-                usedPlans.Add(plan);
-            } else {
-                int currentLevel = playerInventoryReference.GetPlanLevel(plan);
-                int nextLevel = currentLevel + 1;
-
-                if (nextLevel < plan.UpgradesCount) {
-                    result.Add(new WeaponDisplayContainer(
-                        plan.WeaponName,
-                        nextLevel,
-                        plan.GetDescriptionOfLevel(nextLevel),
-                        plan.WeaponIcon
-                    ));
-                    usedPlans.Add(plan);
-                }
+            } 
+            else if (canUpgrade) {
+                result.Add(new WeaponDisplayContainer(
+                    plan.WeaponName,
+                    nextLevel,
+                    plan.GetDescriptionOfLevel(nextLevel),
+                    plan.WeaponIcon
+                ));
             }
 
-            currentlyAvailablePlans = usedPlans.ToList();
-            if (result.Count >= count) break;
+            usedPlans.Add(plan);
+
+            if (result.Count >= count) {
+                break;
+            }
         }
 
+        currentlyAvailablePlans = usedPlans.ToList();
         return result;
     }
 
+
     private void HandleLevelUpgrades() {
-        List<WeaponDisplayContainer> levelUpWeapons = GetSelectableWeapons(4);
+        List<WeaponDisplayContainer> levelUpWeapons = GetSelectableWeapons(upgradesAvailablePerLevel);
         OnUpgradesReady?.Invoke(levelUpWeapons);
-        /*
-        for (int i = 1; i <= levelUpWeapons.Count; i++) {
-            WeaponDisplayContainer current =  levelUpWeapons[i - 1];
-            Debug.Log($"[{i}] {current.weaponName} (Level {current.level})\n{current.description}.\n");
-        }
-        */
     }
 
     private void HandleConfirmUpgrade(int option) {
@@ -133,9 +147,15 @@ public class WeaponUpgradeManager {
         playerCurrentlyEquippedPlans = playerInventoryReference.GetEquippedPlans();
     }
 
+    public void UnequipAll() {
+        playerInventoryReference.ClearInventory();
+        FetchCurrentlyEquippedPlans();
+    }
+    
     public void Init() {
         if (!playerInventoryReference) return;
         EquipPlanOnPlayer(playerStartingPlan);
+        _inventoryLimit = playerInventoryReference.WeaponInventoryLimit;
     }
     
     public void OnEnable() {

@@ -6,14 +6,16 @@ public class Scanner : MonoBehaviour {
     [Header("Settings")]
     [SerializeField] private float scannerRadius = 5f;
     [SerializeField] private LayerMask scanLayer;
+    [SerializeField] private bool followParent = true;
 
+    [SerializeField, ReadOnly] private int amountOverlaps = 0;
+    
     private readonly HashSet<Collider2D> _currentOverlaps = new HashSet<Collider2D>();
-
+    private Vector3 _fixedWorldPosition =  Vector3.zero;
+    private CircleCollider2D _col;
+    
     public GameObject GetClosest(Vector2 position) {
         GameObject closest = null;
-        int overlapsCount = _currentOverlaps.Count;
-        if (overlapsCount <= 0) return null;
-
         float closestDist = float.MaxValue;
 
         foreach (Collider2D col in _currentOverlaps) {
@@ -21,56 +23,84 @@ public class Scanner : MonoBehaviour {
                 continue;
 
             float dist = ((Vector2)col.transform.position - position).sqrMagnitude;
-            if (!(dist < closestDist)) continue;
-            closestDist = dist;
-            closest = col.gameObject;
+            if (dist < closestDist) {
+                closestDist = dist;
+                closest = col.gameObject;
+            }
         }
 
         return closest;
     }
 
     public GameObject[] GetAll() {
-        int count = 0;
-        GameObject[] result = new GameObject[_currentOverlaps.Count];
-
-        foreach (Collider2D collider in _currentOverlaps) {
-            if (collider && collider.gameObject.activeInHierarchy) {
-                result[count++] = collider.gameObject;
-            }
+        List<GameObject> result = new List<GameObject>();
+        foreach (Collider2D col in _currentOverlaps) {
+            if (col && col.gameObject.activeInHierarchy)
+                result.Add(col.gameObject);
         }
-        if (count < result.Length) {
-            System.Array.Resize(ref result, count);
-        }
-
-        return result;
+        return result.ToArray();
     }
 
+    public void SetRadius(float radius) {
+        scannerRadius = radius;
+        _col.radius = scannerRadius;
+    }
+
+    public void SetPosition(Vector2 position, bool refreshImmediately = false) {
+        _currentOverlaps.Clear();
+        transform.position = position;
+
+        if (refreshImmediately) {
+            InstantRefill();
+        }
+
+        _fixedWorldPosition = transform.position;
+    }
+
+    public void SetFollowParent(bool shouldFollow) {
+        followParent = shouldFollow;
+        if (!shouldFollow) {
+            _fixedWorldPosition = transform.position;
+        }
+    }
+
+    private void InstantRefill() {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, scannerRadius, scanLayer);
+        foreach (Collider2D hit in hits) {
+            _currentOverlaps.Add(hit);
+        }
+    }
+    
+    private void OnTriggerEnter2D(Collider2D collision) => _currentOverlaps.Add(collision);
+    private void OnTriggerExit2D(Collider2D collision) => _currentOverlaps.Remove(collision);
+
     private void SetUpCollider() {
-        if (!TryGetComponent(out CircleCollider2D col)) {
+        if (!TryGetComponent(out _col)) {
             Debug.LogError($"{name}: missing required component {nameof(CircleCollider2D)}");
             return;
         }
-        col.isTrigger = true;
-        col.radius = scannerRadius;
+        _col.isTrigger = true;
+        _col.radius = scannerRadius;
 
         int inverted = ~0 & ~scanLayer;
-        col.includeLayers = 0;
-        col.excludeLayers = inverted;
+        _col.includeLayers = 0;
+        _col.excludeLayers = inverted;
     }
-
-    private void OnTriggerEnter2D(Collider2D collision) {
-        _currentOverlaps.Add(collision);
-    }
-
-    private void OnTriggerExit2D(Collider2D collision) {
-        _currentOverlaps.Remove(collision);
-    }
-
+    
     private void Awake() {
         SetUpCollider();
+        _fixedWorldPosition = transform.position;
+    }
+
+    private void LateUpdate() {
+        amountOverlaps = _currentOverlaps.Count;
+        if (!followParent) {
+            transform.position = _fixedWorldPosition;
+        }
     }
 
     private void OnValidate() {
         SetUpCollider();
     }
 }
+

@@ -1,0 +1,162 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1988629439913407069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4300714416288056149}
+  - component: {fileID: 7256834789784800475}
+  - component: {fileID: 4331098367094722873}
+  m_Layer: 9
+  m_Name: Scanner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4300714416288056149
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988629439913407069}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6282892653777312621}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &7256834789784800475
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988629439913407069}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 4294967167
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 1
+--- !u!114 &4331098367094722873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988629439913407069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61babe2d5ffc0094b9e9246e9b0cccc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scannerRadius: 1
+  scanLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  followParent: 1
+  amountOverlaps: 0
+--- !u!1 &9156999661277644453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6282892653777312621}
+  - component: {fileID: 5192951996356318042}
+  m_Layer: 9
+  m_Name: Flame lv2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6282892653777312621
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9156999661277644453}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4300714416288056149}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5192951996356318042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9156999661277644453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24055f22d60c31e4e8144c3c213f903c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <BaseStats>k__BackingField:
+    attackDamage: 3
+    attackRateInSeconds: 4.5
+    attackSize: 1.5
+  currentStats:
+    attackDamage: 0
+    attackRateInSeconds: 0
+    attackSize: 0
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  aimDirection: {x: 0, y: 0}
+  scannerReference: {fileID: 4331098367094722873}
+  targetAreaSize: {x: 27, y: 13}
+  aoeLifeTime: 6
+  aoeTickRate: 1
+  vfxPlayer:
+    vfxFactory:
+      prefabToCreate: {fileID: 8122611192328483659, guid: 0d36fd112fc0c1b4c87accaf324d5626, type: 3}
+      centralizedFactory: {fileID: 0}
+      autoFindCentralizedFactory: 1
+    vfxPreset:
+      controller: {fileID: 9100000, guid: 1db92a6d80f946b4688cf10555bb9291, type: 2}
+      playbackSpeed: 1
+      animationStartOffset: 0
+      color: {r: 1, g: 0.7826655, b: 0, a: 0.627451}
+    scaleOffset: {x: 3, y: 3, z: 1}
+  targetAreaGizmoColor: {r: 1, g: 0, b: 1, a: 1}

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behaviour:
     rid: 8748630608635756764
-  sprite: {fileID: 21300000, guid: cbb1de69fcfb81b49aee096bfc8e76b2, type: 3}
+  sprite: {fileID: 21300000, guid: 8a49a3e164fa7264186440c49f3ad8d4, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   references:
     version: 2

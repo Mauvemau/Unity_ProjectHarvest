@@ -8,9 +8,13 @@ public class WeaponRanged : Weapon {
     [SerializeField] private BulletPresetSO preset;
     [SerializeField] private BulletStats bulletStats;
     [SerializeField] private float firstShotOffset = 0f;
+    [SerializeField] private bool useParentTransform = false;
+    
+    [Header("Audio Events")]
+    [SerializeField] private AK.Wwise.Event fireAudioEvent;
     
     private void Shoot(IBullet bullet, BulletPresetSO bulletPreset, Vector2 direction, float damage, BulletStats stats) {
-        bullet.Shoot(bulletPreset, direction, targetLayer, damage, stats, gameObject.transform);
+        bullet.Shoot(bulletPreset, direction, targetLayer, damage, stats, useParentTransform ? transform.parent.transform : gameObject.transform);
     }
     
     private void HandleAttack() {

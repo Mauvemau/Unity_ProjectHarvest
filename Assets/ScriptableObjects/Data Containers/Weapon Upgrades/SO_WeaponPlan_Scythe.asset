@@ -27,4 +27,4 @@ MonoBehaviour:
     upgradeDescription: Attack Damage increases by 2
   - weaponPrefab: {fileID: 1268093187915502579, guid: 6b9b6dfe373f6ab4dbd8e0bbf2a0c529, type: 3}
     upgradeDescription: Attack Angle increased to a full circle
-  weaponIcon: {fileID: 21300000, guid: 7b5adb2e4d8a3784c840d198e19705d0, type: 3}
+  weaponIcon: {fileID: 21300000, guid: 12e49e0c215d518449901935dc19036a, type: 3}
