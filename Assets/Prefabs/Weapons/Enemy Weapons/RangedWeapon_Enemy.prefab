@@ -70,6 +70,10 @@ MonoBehaviour:
     pushForce: 0
   firstShotOffset: 0
   useParentTransform: 0
+  fireAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
 --- !u!114 &7039349961994965108
 MonoBehaviour:
   m_ObjectHideFlags: 0

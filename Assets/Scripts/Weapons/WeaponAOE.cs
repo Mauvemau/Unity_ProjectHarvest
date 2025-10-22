@@ -122,7 +122,8 @@ public class WeaponAOE : Weapon {
     private void OnDisable() {
         _targetPoints.Clear();
     }
-
+        
+#if UNITY_EDITOR
     private void OnDrawTargetCircleGizmos(Vector2 center, float radius) {
         Vector3 prevPoint = Vector3.zero;
         for (int i = 0; i <= GizmoCircleSegments; i++) {
@@ -143,13 +144,12 @@ public class WeaponAOE : Weapon {
 
     
     private void OnDrawGizmos() {
-#if UNITY_EDITOR
         Gizmos.color = targetAreaGizmoColor;
         Gizmos.DrawWireCube(transform.position, new Vector3(targetAreaSize.x, targetAreaSize.y, 0));
 
         foreach (AOE targetPoint in _targetPoints) {
             OnDrawTargetCircleGizmos(targetPoint.TargetPoint, targetPoint.AttackRadius);
         }
-#endif
     }
+#endif
 }

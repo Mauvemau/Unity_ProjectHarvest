@@ -456,6 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c46a500ca69bd44680d60463f75d9c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startDisabled: 1
   onRequestEnable: {fileID: 11400000, guid: 949c69b1086c4924292fc7990d8c38e9, type: 2}
 --- !u!1 &185693303
 GameObject:
