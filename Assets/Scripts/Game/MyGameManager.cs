@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour {
 
     [Header("Event Invokers")] 
     [SerializeField] private VoidEventChannelSO onDefeatChannel;
+    [SerializeField] private VoidEventChannelSO onOpenPauseMenuChannel;
     [SerializeField] private BoolEventChannelSO onToggleHudChannel;
 
     [Header("Event Listeners")]
@@ -28,18 +29,11 @@ public class GameManager : MonoBehaviour {
     
     [Header("Debug Controls")]
     [SerializeField] private bool spawnOnStart = true;
-
-    private bool _hudVisible = false;
+    
     private ITimer _currentGameTimer;
     private float _nextTimerPoll = 0f;
     
     public static event Action<float> OnUpdateGameTimer = delegate {};
-    
-    [ContextMenu("Debug - Toggle Hud")]
-    private void DebugToggleHud() {
-        _hudVisible = !_hudVisible;
-        SetHudEnabled(_hudVisible);
-    }
 
     [ContextMenu("Debug - Level Up Player")]
     private void DebugLevelUp() {
@@ -48,15 +42,27 @@ public class GameManager : MonoBehaviour {
         globalVariableManager.DebugLevelUp();
     }
 
+    private void TogglePause() {
+        Debug.Log("Trying to pause game...");
+        if (!timeManager.IsGamePaused()) {
+            Debug.Log("Game isn't paused!");
+            if (onOpenPauseMenuChannel) {
+                Debug.Log("Event is properly set!");
+                onOpenPauseMenuChannel?.RaiseEvent();
+                Debug.Log("Pause menu should be open.");
+            }
+        }
+    }
+    
     private void SetHudEnabled(bool shouldDrawHud) {
         if(onToggleHudChannel) {
-            onToggleHudChannel.RaiseEvent(shouldDrawHud);
+            onToggleHudChannel?.RaiseEvent(shouldDrawHud);
         }
     }
 
     private void HandlePlayerDeath() {
         if (onDefeatChannel) {
-            onDefeatChannel.RaiseEvent();
+            onDefeatChannel?.RaiseEvent();
         }
     }
 
@@ -108,6 +114,7 @@ public class GameManager : MonoBehaviour {
         PlayerCharacter.OnPlayerDeath += HandlePlayerDeath;
         ExperienceCollectible.OnExperienceCollected += globalVariableManager.AddCurrentExperience;
         InputManager.OnDebugLevelUpInputPerformed += DebugLevelUp;
+        InputManager.OnUIPauseInputStarted += TogglePause;
         
         if (onStartGameChannel) {
             onStartGameChannel.OnEventRaised += StartGame;
@@ -124,6 +131,7 @@ public class GameManager : MonoBehaviour {
         PlayerCharacter.OnPlayerDeath -= HandlePlayerDeath;
         ExperienceCollectible.OnExperienceCollected -= globalVariableManager.AddCurrentExperience;
         InputManager.OnDebugLevelUpInputPerformed -= DebugLevelUp;
+        InputManager.OnUIPauseInputStarted -= TogglePause;
         
         if (onStartGameChannel) {
             onStartGameChannel.OnEventRaised -= StartGame;
