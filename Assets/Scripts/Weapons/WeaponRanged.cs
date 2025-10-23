@@ -47,6 +47,7 @@ public class WeaponRanged : Weapon {
     }
 
     private void OnDestroy() {
+        if (!destroyOnWeaponDestroy) return;
         bulletFactory.SoftWipe();
     }
 }
