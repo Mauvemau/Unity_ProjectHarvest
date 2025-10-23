@@ -1,46 +1,43 @@
 fileFormatVersion: 2
-guid: e0fef512e1caef245a3516d43b1907d0
+guid: 46bca259d51e07f43a80718913f92ced
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9034459043491144056
-    second: XP_FIX_Sprite_0
+      213: 8775508330931165357
+    second: xp_swing_Sprite_0
   - first:
-      213: -4249338062596140
-    second: XP_FIX_Sprite_1
+      213: 3021700397775340130
+    second: xp_swing_Sprite_1
   - first:
-      213: 3077929091360854477
-    second: XP_FIX_Sprite_2
+      213: 7022167868580524121
+    second: xp_swing_Sprite_2
   - first:
-      213: 6951926114921905145
-    second: XP_FIX_Sprite_3
+      213: -7429628041664148398
+    second: xp_swing_Sprite_3
   - first:
-      213: 5724782598829688194
-    second: XP_FIX_Sprite_4
+      213: 6664757243265248236
+    second: xp_swing_Sprite_4
   - first:
-      213: -6152178818992868961
-    second: XP_FIX_Sprite_5
+      213: 6064808983087970083
+    second: xp_swing_Sprite_5
   - first:
-      213: -8785595092213175082
-    second: XP_FIX_Sprite_6
+      213: -4804494200070347679
+    second: xp_swing_Sprite_6
   - first:
-      213: 6022065603007144642
-    second: XP_FIX_Sprite_7
+      213: 2627794196445493965
+    second: xp_swing_Sprite_7
   - first:
-      213: -712109042513960279
-    second: XP_FIX_Sprite_8
+      213: 2630416675486338109
+    second: xp_swing_Sprite_8
   - first:
-      213: 5344708754042552580
-    second: XP_FIX_Sprite_9
+      213: -27981072458270646
+    second: xp_swing_Sprite_9
   - first:
-      213: -5196778774551943273
-    second: XP_FIX_Sprite_10
+      213: 2898689470734355371
+    second: xp_swing_Sprite_10
   - first:
-      213: 2307064008001756262
-    second: XP_FIX_Sprite_11
-  - first:
-      213: -7619995862327515878
-    second: XP_FIX_Sprite_12
+      213: -4341954848389669582
+    second: xp_swing_Sprite_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -136,13 +133,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hud_xp_anim_0
+      name: hud_xp_animation_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 400
-        height: 48
+        width: 49
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,20 +148,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba631674fa173ed48ba47f371f32c52d
-      internalID: 762277673
+      spriteID: 8ab64d9e35dd3bc4584c7cdff3efa5c6
+      internalID: -2022584467
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hud_xp_anim_1
+      name: hud_xp_animation_1
       rect:
         serializedVersion: 2
-        x: 400
+        x: 49
         y: 0
-        width: 400
-        height: 48
+        width: 49
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +170,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3f95f76c67538a499989e1f31282034
-      internalID: 1172931077
+      spriteID: f3967b521a7ae084d850c8988d6cb183
+      internalID: -1031848349
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hud_xp_anim_2
+      name: hud_xp_animation_2
       rect:
         serializedVersion: 2
-        x: 800
+        x: 98
         y: 0
-        width: 400
-        height: 48
+        width: 49
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb7f93fb27d5b5146bb2d0d53ab59996
-      internalID: -1813741540
+      spriteID: 06809d0c418d06f4889f092f8432c71f
+      internalID: 1614224308
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hud_xp_anim_3
+      name: hud_xp_animation_3
       rect:
         serializedVersion: 2
-        x: 1200
+        x: 147
         y: 0
-        width: 400
-        height: 48
+        width: 49
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,20 +214,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18ec39cebdc58fc4da01b05abddb9962
-      internalID: -348766580
+      spriteID: d2d51a731b9242d4cb3eab76668eff0b
+      internalID: -183213006
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hud_xp_anim_4
+      name: hud_xp_animation_4
       rect:
         serializedVersion: 2
-        x: 1600
+        x: 196
         y: 0
-        width: 400
-        height: 48
+        width: 49
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,20 +236,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 559a77439914d6a4397f5d1feed2c4cd
-      internalID: -839503983
+      spriteID: b5b238fa64a17db49921f1e811bd257a
+      internalID: -1146713859
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hud_xp_anim_5
+      name: hud_xp_animation_5
       rect:
         serializedVersion: 2
-        x: 2000
+        x: 245
         y: 0
-        width: 400
-        height: 48
+        width: 49
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -261,20 +258,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e9f14b3f39b0d7428709594a7f651d1
-      internalID: 20983118
+      spriteID: a0283dd794516434eb6ba4ec4a1ed614
+      internalID: -684999015
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hud_xp_anim_6
+      name: hud_xp_animation_6
       rect:
         serializedVersion: 2
-        x: 2400
+        x: 294
         y: 0
-        width: 400
-        height: 48
+        width: 49
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -283,20 +280,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59427e378a3ed374c846c3ea4bba357f
-      internalID: 1561151329
+      spriteID: 953ea01e8b553f34d9f799340b3b0559
+      internalID: 723077380
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hud_xp_anim_7
+      name: hud_xp_animation_7
       rect:
         serializedVersion: 2
-        x: 2800
+        x: 343
         y: 0
-        width: 400
-        height: 48
+        width: 49
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,20 +302,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 428b94e16d6449c42a0d775c53f33d80
-      internalID: -805348755
+      spriteID: d0a210755730b9e4cbbc3c6d7c672c77
+      internalID: -741242345
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hud_xp_anim_8
+      name: hud_xp_animation_8
       rect:
         serializedVersion: 2
-        x: 3200
+        x: 392
         y: 0
-        width: 400
-        height: 48
+        width: 49
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -327,20 +324,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de0890cca0261ce40bd5b2ddb2eb17bb
-      internalID: -22888192
+      spriteID: 0e83d71a797ad6148bbc05b56f152723
+      internalID: -403936159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hud_xp_anim_9
+      name: hud_xp_animation_9
       rect:
         serializedVersion: 2
-        x: 3600
+        x: 441
         y: 0
-        width: 400
-        height: 48
+        width: 49
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -349,20 +346,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f7cf3dc02abb4141a1aa95cdb3384e3
-      internalID: 1018194013
+      spriteID: f14a873ad537d1443961509cfc9c2fd1
+      internalID: 813982830
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hud_xp_anim_10
+      name: hud_xp_animation_10
       rect:
         serializedVersion: 2
-        x: 4000
+        x: 490
         y: 0
-        width: 400
-        height: 48
+        width: 49
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -371,20 +368,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5feb24b7df7e93b4992469911d5a3177
-      internalID: 1493148688
+      spriteID: bee230b0c44292645b7603684af46e98
+      internalID: 130077166
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hud_xp_anim_11
+      name: hud_xp_animation_11
       rect:
         serializedVersion: 2
-        x: 4400
+        x: 539
         y: 0
-        width: 400
-        height: 48
+        width: 49
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -393,8 +390,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fbd11a0bc1fe2854d844b03400967887
-      internalID: -931121770
+      spriteID: 865fcdfffadcc7d498b0b28e3b22e9f5
+      internalID: 468860089
       vertices: []
       indices: 
       edges: []
@@ -403,7 +400,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c465813917e02854a8fe7cdaaa94504a
+    spriteID: 9c96b7b25437f7f4c8c362a32796f007
     internalID: 0
     vertices: []
     indices: 
@@ -413,18 +410,18 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      hud_xp_anim_0: 762277673
-      hud_xp_anim_1: 1172931077
-      hud_xp_anim_10: 1493148688
-      hud_xp_anim_11: -931121770
-      hud_xp_anim_2: -1813741540
-      hud_xp_anim_3: -348766580
-      hud_xp_anim_4: -839503983
-      hud_xp_anim_5: 20983118
-      hud_xp_anim_6: 1561151329
-      hud_xp_anim_7: -805348755
-      hud_xp_anim_8: -22888192
-      hud_xp_anim_9: 1018194013
+      hud_xp_animation_0: -2022584467
+      hud_xp_animation_1: -1031848349
+      hud_xp_animation_10: 130077166
+      hud_xp_animation_11: 468860089
+      hud_xp_animation_2: 1614224308
+      hud_xp_animation_3: -183213006
+      hud_xp_animation_4: -1146713859
+      hud_xp_animation_5: -684999015
+      hud_xp_animation_6: 723077380
+      hud_xp_animation_7: -741242345
+      hud_xp_animation_8: -403936159
+      hud_xp_animation_9: 813982830
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
