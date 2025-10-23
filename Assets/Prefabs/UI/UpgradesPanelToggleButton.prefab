@@ -186,7 +186,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a0bf82bea3fc9e644b091431a9c7c0ce, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 12e49e0c215d518449901935dc19036a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1010,4 +1010,3 @@ MonoBehaviour:
   levelProgressBar: {fileID: 7540067039866162015}
   selectorIndicator: {fileID: 4352538397268571960}
   maxLevel: 6
-  fillBorderOffset: 0.02

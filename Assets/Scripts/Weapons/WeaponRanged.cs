@@ -9,6 +9,7 @@ public class WeaponRanged : Weapon {
     [SerializeField] private BulletStats bulletStats;
     [SerializeField] private float firstShotOffset = 0f;
     [SerializeField] private bool useParentTransform = false;
+    [SerializeField] private bool destroyOnWeaponDestroy = false;
     
     [Header("Audio Events")]
     [SerializeField] private AK.Wwise.Event fireAudioEvent;
@@ -43,5 +44,9 @@ public class WeaponRanged : Weapon {
         if (!preset) {
             Debug.LogWarning($"{name}: No {nameof(BulletPresetSO)} set!");
         }
+    }
+
+    private void OnDestroy() {
+        bulletFactory.SoftWipe();
     }
 }
