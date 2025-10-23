@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 248f3e50fa7911e4f83fa8beb69f41b5
+guid: b83ed25258527d5499975e768fe6ae7e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3789351549722094264
-    second: weapon_progressbar_0
+      213: -6047498142747844465
+    second: weapon_progressbar_fill_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: weapon_progressbar_0
+      name: weapon_progressbar_fill_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 89
-        height: 9
+        x: 2
+        y: 2
+        width: 85
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8bae24a582b769430800000000000000
-      internalID: 3789351549722094264
+      spriteID: f802eadea78f21ca0800000000000000
+      internalID: -6047498142747844465
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      weapon_progressbar_0: 3789351549722094264
+      weapon_progressbar_fill_0: -6047498142747844465
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
