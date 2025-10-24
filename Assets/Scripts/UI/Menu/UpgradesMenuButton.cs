@@ -40,7 +40,10 @@ public class UpgradesMenuButton : MonoBehaviour {
     }
     
     public void SetDisplay(WeaponDisplayContainer displayData) {
-        itemIcon.sprite = displayData.icon;
+        if (displayData.icon) {
+            itemIcon.sprite = displayData.icon;
+        }
+
         itemNameAndLevelText.text = displayData.weaponName + (displayData.level > 0 ? " (Level " + (displayData.level + 1) + ")" : "");
         itemDescriptionText.text = displayData.description;
 

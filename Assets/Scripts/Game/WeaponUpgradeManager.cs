@@ -41,7 +41,8 @@ public class WeaponUpgradeManager {
     private int _inventoryLimit = 0;
     
     public static event Action<List<WeaponDisplayContainer>> OnUpgradesReady = delegate {};
-    
+    public static event Action<List<WeaponDisplayContainer>> OnUpdateInventory = delegate {};
+
     public List<WeaponDisplayContainer> GetSelectableWeapons(int count) {
         List<WeaponDisplayContainer> result = new List<WeaponDisplayContainer>();
         HashSet<WeaponUpgradePlanSO> usedPlans = new HashSet<WeaponUpgradePlanSO>();
@@ -142,9 +143,30 @@ public class WeaponUpgradeManager {
         playerInventoryReference.EquipPlan(planToEquip);
         FetchCurrentlyEquippedPlans();
     }
+
+    /// <summary>
+    /// Updates the frontend part of the inventory
+    /// </summary>
+    private void UpdateInventoryDisplay() {
+        if (playerCurrentlyEquippedPlans.Length <= 0) return;
+        List<WeaponDisplayContainer> inventoryDisplay = new List<WeaponDisplayContainer>();
+        
+        foreach (WeaponUpgradePlanSO plan in playerCurrentlyEquippedPlans) {
+            int nextLevel = playerInventoryReference.GetPlanLevel(plan);
+            inventoryDisplay.Add(new WeaponDisplayContainer(
+                plan.WeaponName,
+                nextLevel,
+                plan.GetDescriptionOfLevel(nextLevel),
+                plan.WeaponIcon
+            ));
+        }
+        
+        OnUpdateInventory?.Invoke(inventoryDisplay);
+    }
     
     private void FetchCurrentlyEquippedPlans() {
         playerCurrentlyEquippedPlans = playerInventoryReference.GetEquippedPlans();
+        UpdateInventoryDisplay();
     }
 
     public void UnequipAll() {
