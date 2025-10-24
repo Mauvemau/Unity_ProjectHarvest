@@ -86,7 +86,8 @@ public class UpgradesMenuManager : MonoBehaviour {
         if (confirmButton) {
             confirmButton.interactable = false;
         }
-        
+
+        if (_currentlySelectedOption < 0) return;
         eventSystem.SetSelectedGameObject(optionButtons[_currentlySelectedOption].gameObject);
         _currentlySelectedOption = -1;
     }
