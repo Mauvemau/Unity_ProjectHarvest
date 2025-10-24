@@ -70,6 +70,7 @@ MonoBehaviour:
     pushForce: 0
   firstShotOffset: 0
   useParentTransform: 0
+  destroyOnWeaponDestroy: 0
   fireAudioEvent:
     idInternal: 0
     valueGuidInternal: 

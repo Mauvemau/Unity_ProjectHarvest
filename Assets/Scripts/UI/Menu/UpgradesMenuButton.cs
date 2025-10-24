@@ -10,11 +10,15 @@ public class UpgradesMenuButton : MonoBehaviour {
     [SerializeField] private TMP_Text itemNameAndLevelText;
     [SerializeField] private TMP_Text itemDescriptionText;
     [SerializeField] private Image levelProgressBarFill;
+    [SerializeField] private Image levelProgressBarFillNext;
     [SerializeField] private GameObject levelProgressBar;
+    [SerializeField] private GameObject newIndicator;
     [SerializeField] private GameObject selectorIndicator;
 
     [Header("Settings")] 
     [SerializeField] private int maxLevel = 6;
+    [SerializeField, Range(0f, 1f)] private float minFillOffset = 0.047f;
+    [SerializeField, Range(0f, 1f)] private float maxFillOffset = 0.953f;
     
     public static event Action OnUpgradeMenuOptionSelected = delegate {};
 
@@ -40,12 +44,22 @@ public class UpgradesMenuButton : MonoBehaviour {
         itemNameAndLevelText.text = displayData.weaponName + (displayData.level > 0 ? " (Level " + (displayData.level + 1) + ")" : "");
         itemDescriptionText.text = displayData.description;
 
-
         if (levelProgressBar) {
             levelProgressBar.SetActive(displayData.level > 0);
         }
-        
-        levelProgressBarFill.fillAmount = (displayData.level / (float)maxLevel);
+        if (newIndicator) {
+            newIndicator.SetActive(displayData.level == 0);
+        }
+
+        if (!levelProgressBarFill) return;
+        float usableRange = maxFillOffset - minFillOffset;
+        float normalizedProgress = displayData.level / (float)maxLevel;
+        levelProgressBarFill.fillAmount = minFillOffset + normalizedProgress * usableRange;
+        if (!levelProgressBarFillNext) return;
+        levelProgressBarFillNext.fillAmount = 0f;
+        if (displayData.level > maxLevel - 1) return;
+        normalizedProgress = (displayData.level + 1) / (float)maxLevel;
+        levelProgressBarFillNext.fillAmount = minFillOffset + normalizedProgress * usableRange;
     }
     
     public void SetVisible(bool visible) {
