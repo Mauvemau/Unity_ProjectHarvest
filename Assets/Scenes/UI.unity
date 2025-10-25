@@ -762,6 +762,7 @@ GameObject:
   - component: {fileID: 275709117}
   - component: {fileID: 275709116}
   - component: {fileID: 275709115}
+  - component: {fileID: 275709118}
   m_Layer: 5
   m_Name: Exit button
   m_TagString: Untagged
@@ -907,6 +908,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275709113}
   m_CullTransparentMesh: 1
+--- !u!114 &275709118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275709113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5232c660248aa047823f4f8a0da3808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minimumAlphaThreshHold: 0.5
 --- !u!1 &318754368
 GameObject:
   m_ObjectHideFlags: 0
@@ -5671,6 +5685,7 @@ GameObject:
   - component: {fileID: 1353921535}
   - component: {fileID: 1353921534}
   - component: {fileID: 1353921533}
+  - component: {fileID: 1353921536}
   m_Layer: 5
   m_Name: Revive Button
   m_TagString: Untagged
@@ -5816,6 +5831,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353921531}
   m_CullTransparentMesh: 1
+--- !u!114 &1353921536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353921531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5232c660248aa047823f4f8a0da3808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minimumAlphaThreshHold: 0.5
 --- !u!1 &1370717945
 GameObject:
   m_ObjectHideFlags: 0
@@ -6324,6 +6352,7 @@ GameObject:
   - component: {fileID: 1608919190}
   - component: {fileID: 1608919189}
   - component: {fileID: 1608919188}
+  - component: {fileID: 1608919191}
   m_Layer: 5
   m_Name: Restart Button
   m_TagString: Untagged
@@ -6469,6 +6498,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1608919186}
   m_CullTransparentMesh: 1
+--- !u!114 &1608919191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608919186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5232c660248aa047823f4f8a0da3808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minimumAlphaThreshHold: 0.5
 --- !u!1 &1621852627
 GameObject:
   m_ObjectHideFlags: 0
@@ -7979,6 +8021,7 @@ GameObject:
   - component: {fileID: 1925210381}
   - component: {fileID: 1925210380}
   - component: {fileID: 1925210379}
+  - component: {fileID: 1925210382}
   m_Layer: 5
   m_Name: Example
   m_TagString: Untagged
@@ -8124,6 +8167,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1925210377}
   m_CullTransparentMesh: 1
+--- !u!114 &1925210382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925210377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5232c660248aa047823f4f8a0da3808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minimumAlphaThreshHold: 0.5
 --- !u!1 &1931151393
 GameObject:
   m_ObjectHideFlags: 0
@@ -8483,6 +8539,7 @@ GameObject:
   - component: {fileID: 1988133223}
   - component: {fileID: 1988133222}
   - component: {fileID: 1988133221}
+  - component: {fileID: 1988133225}
   m_Layer: 5
   m_Name: Resume Button
   m_TagString: Untagged
@@ -8604,6 +8661,19 @@ RectTransform:
   m_AnchoredPosition: {x: 361.88724, y: -175.00569}
   m_SizeDelta: {x: 694.47, y: 301.6684}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1988133225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988133220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5232c660248aa047823f4f8a0da3808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minimumAlphaThreshHold: 0.5
 --- !u!1 &2012378756
 GameObject:
   m_ObjectHideFlags: 0
