@@ -129,8 +129,9 @@ GameObject:
   m_Component:
   - component: {fileID: 179329566}
   - component: {fileID: 179329567}
+  - component: {fileID: 179329568}
   m_Layer: 0
-  m_Name: "\U0001F3A7 MusicManager"
+  m_Name: "\U0001F3A7 AudioManager"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -168,6 +169,18 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 0f023fb8f707a164a9f9dab305a8eb54, type: 2}
   autoplayOnStart: 1
+--- !u!114 &179329568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179329565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7086e10f7915ec8498e3ef9144e782e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &633214493
 GameObject:
   m_ObjectHideFlags: 0

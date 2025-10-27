@@ -763,6 +763,7 @@ GameObject:
   - component: {fileID: 275709116}
   - component: {fileID: 275709115}
   - component: {fileID: 275709118}
+  - component: {fileID: 275709119}
   m_Layer: 5
   m_Name: Exit button
   m_TagString: Untagged
@@ -921,6 +922,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimumAlphaThreshHold: 0.5
+--- !u!114 &275709119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275709113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de0d04cc486a4e047b73916b0f799f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9aabd247a7e29ff4c8c5b26072cd9f70, type: 2}
+  clickAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1a6c772f63237c549bc39f783866f9cf, type: 2}
 --- !u!1 &318754368
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,6 +954,7 @@ GameObject:
   - component: {fileID: 318754372}
   - component: {fileID: 318754371}
   - component: {fileID: 318754370}
+  - component: {fileID: 318754373}
   m_Layer: 5
   m_Name: Exit Button
   m_TagString: Untagged
@@ -1054,6 +1076,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318754368}
   m_CullTransparentMesh: 1
+--- !u!114 &318754373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318754368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de0d04cc486a4e047b73916b0f799f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9aabd247a7e29ff4c8c5b26072cd9f70, type: 2}
+  clickAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1a6c772f63237c549bc39f783866f9cf, type: 2}
 --- !u!1 &333730013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1643,6 +1685,7 @@ GameObject:
   - component: {fileID: 436516047}
   - component: {fileID: 436516046}
   - component: {fileID: 436516045}
+  - component: {fileID: 436516049}
   m_Layer: 5
   m_Name: Confirm Button
   m_TagString: Untagged
@@ -1776,6 +1819,26 @@ RectTransform:
   m_AnchoredPosition: {x: 562, y: 415.88}
   m_SizeDelta: {x: 301.04333, y: 71.84479}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &436516049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436516044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de0d04cc486a4e047b73916b0f799f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  clickAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1a6c772f63237c549bc39f783866f9cf, type: 2}
 --- !u!1 &464576540
 GameObject:
   m_ObjectHideFlags: 0
@@ -2124,6 +2187,7 @@ GameObject:
   - component: {fileID: 527162149}
   - component: {fileID: 527162148}
   - component: {fileID: 527162147}
+  - component: {fileID: 527162150}
   m_Layer: 5
   m_Name: Credits Button
   m_TagString: Untagged
@@ -2257,6 +2321,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527162145}
   m_CullTransparentMesh: 1
+--- !u!114 &527162150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527162145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de0d04cc486a4e047b73916b0f799f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9aabd247a7e29ff4c8c5b26072cd9f70, type: 2}
+  clickAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1a6c772f63237c549bc39f783866f9cf, type: 2}
 --- !u!1 &554867268
 GameObject:
   m_ObjectHideFlags: 0
@@ -3116,6 +3200,7 @@ GameObject:
   - component: {fileID: 880762726}
   - component: {fileID: 880762725}
   - component: {fileID: 880762724}
+  - component: {fileID: 880762728}
   m_Layer: 5
   m_Name: Return Button
   m_TagString: Untagged
@@ -3249,6 +3334,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 117}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &880762728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880762723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de0d04cc486a4e047b73916b0f799f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  clickAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1a6c772f63237c549bc39f783866f9cf, type: 2}
 --- !u!1 &901993739
 GameObject:
   m_ObjectHideFlags: 0
@@ -5689,6 +5794,7 @@ GameObject:
   - component: {fileID: 1353921534}
   - component: {fileID: 1353921533}
   - component: {fileID: 1353921536}
+  - component: {fileID: 1353921537}
   m_Layer: 5
   m_Name: Revive Button
   m_TagString: Untagged
@@ -5847,6 +5953,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimumAlphaThreshHold: 0.5
+--- !u!114 &1353921537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353921531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de0d04cc486a4e047b73916b0f799f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9aabd247a7e29ff4c8c5b26072cd9f70, type: 2}
+  clickAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1a6c772f63237c549bc39f783866f9cf, type: 2}
 --- !u!1 &1370717945
 GameObject:
   m_ObjectHideFlags: 0
@@ -6356,6 +6482,7 @@ GameObject:
   - component: {fileID: 1608919189}
   - component: {fileID: 1608919188}
   - component: {fileID: 1608919191}
+  - component: {fileID: 1608919192}
   m_Layer: 5
   m_Name: Restart Button
   m_TagString: Untagged
@@ -6514,6 +6641,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimumAlphaThreshHold: 0.5
+--- !u!114 &1608919192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608919186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de0d04cc486a4e047b73916b0f799f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9aabd247a7e29ff4c8c5b26072cd9f70, type: 2}
+  clickAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1a6c772f63237c549bc39f783866f9cf, type: 2}
 --- !u!1 &1621852627
 GameObject:
   m_ObjectHideFlags: 0
@@ -6890,6 +7037,7 @@ GameObject:
   - component: {fileID: 1703756663}
   - component: {fileID: 1703756662}
   - component: {fileID: 1703756661}
+  - component: {fileID: 1703756665}
   m_Layer: 5
   m_Name: Play Button
   m_TagString: Untagged
@@ -7023,6 +7171,26 @@ RectTransform:
   m_AnchoredPosition: {x: 303.46646, y: -95.764725}
   m_SizeDelta: {x: 606.9329, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1703756665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703756660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de0d04cc486a4e047b73916b0f799f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9aabd247a7e29ff4c8c5b26072cd9f70, type: 2}
+  clickAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1a6c772f63237c549bc39f783866f9cf, type: 2}
 --- !u!1 &1729690982
 GameObject:
   m_ObjectHideFlags: 0
@@ -8025,6 +8193,7 @@ GameObject:
   - component: {fileID: 1925210380}
   - component: {fileID: 1925210379}
   - component: {fileID: 1925210382}
+  - component: {fileID: 1925210383}
   m_Layer: 5
   m_Name: Example
   m_TagString: Untagged
@@ -8183,6 +8352,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimumAlphaThreshHold: 0.5
+--- !u!114 &1925210383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925210377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de0d04cc486a4e047b73916b0f799f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9aabd247a7e29ff4c8c5b26072cd9f70, type: 2}
+  clickAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1a6c772f63237c549bc39f783866f9cf, type: 2}
 --- !u!1 &1931151393
 GameObject:
   m_ObjectHideFlags: 0
@@ -8543,6 +8732,7 @@ GameObject:
   - component: {fileID: 1988133222}
   - component: {fileID: 1988133221}
   - component: {fileID: 1988133225}
+  - component: {fileID: 1988133226}
   m_Layer: 5
   m_Name: Resume Button
   m_TagString: Untagged
@@ -8677,6 +8867,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimumAlphaThreshHold: 0.5
+--- !u!114 &1988133226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988133220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de0d04cc486a4e047b73916b0f799f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9aabd247a7e29ff4c8c5b26072cd9f70, type: 2}
+  clickAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1a6c772f63237c549bc39f783866f9cf, type: 2}
 --- !u!1 &2012378756
 GameObject:
   m_ObjectHideFlags: 0
