@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -22,7 +21,7 @@ public class CentralizedFactory : MonoBehaviour {
            }
         }
         
-        Debug.LogWarning($"{name}: object not pooled, instantiating it instead");
+        Debug.LogWarning($"{name}: \"{prefabToCreate.name}\" not pooled, instantiating it instead");
         GameObject obj = Object.Instantiate(prefabToCreate, transform);
         obj.transform.position = position;
         obj.transform.rotation = rotation;

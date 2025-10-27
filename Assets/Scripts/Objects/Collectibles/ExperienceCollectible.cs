@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 public class ExperienceCollectible : Collectible {
-    [Header("Collectable Specific Settings")]
+    [Header("Collectible Specific Settings")]
     [Tooltip("Amount of experience given by this collectible when it's collected")]
     [SerializeField, Min(0)] private float experienceAmount = 1f;
 

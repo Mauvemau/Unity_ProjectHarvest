@@ -17,6 +17,9 @@ public class CollectibleDrop {
 [System.Serializable]
 public class DropManager {
     [SerializeField] private List<CollectibleDrop> drops;
+    
+    [Header("Settings")]
+    [SerializeField] private float multipleDropOffsetDistance = 1f;
 
     private CentralizedFactory _centralizedFactory;
 
@@ -33,12 +36,21 @@ public class DropManager {
 
         float roll = Random.value;
         float cumulative = 0f;
+        
+        int droppedCount = 0;
 
         foreach (var drop in drops) {
             cumulative += drop.DropChance;
             if (!(roll <= cumulative)) continue;
-            drop.RequestDrop(_centralizedFactory, position);
-            return;
+            Vector2 finalPosition = position;
+                
+            if (droppedCount > 0) {
+                Vector2 offset = Random.insideUnitCircle * multipleDropOffsetDistance;
+                finalPosition += offset;
+            }
+
+            drop.RequestDrop(_centralizedFactory, finalPosition);
+            droppedCount++;
         }
     }
     
@@ -55,14 +67,13 @@ public class DropManager {
 
             total += drops[i].DropChance;
 
-            if (total > 1f) {
-                float excess = total - 1f;
-                drops[i].DropChance -= excess;
-                total = 1f;
+            if (!(total > 1f)) continue;
+            float excess = total - 1f;
+            drops[i].DropChance -= excess;
+            total = 1f;
 
-                Debug.LogWarning($"[CollectibleDropManager] Total drop chance exceeded 100%. " +
-                                 $"Clamped element at index {i} to keep total at 100%.");
-            }
+            Debug.LogWarning($"[CollectibleDropManager] Total drop chance exceeded 100%. " +
+                             $"Clamped element at index {i} to keep total at 100%.");
         }
     }
 }
