@@ -76,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: a0bf82bea3fc9e644b091431a9c7c0ce, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 19cb66d6309d1af448ca6d6d4b10db0e, type: 3}
+  m_Color: {r: 0.764151, g: 0.19075277, b: 0.11894804, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -97,9 +97,9 @@ GameObject:
   m_Component:
   - component: {fileID: 772525917498412310}
   - component: {fileID: 8827442315519686120}
-  - component: {fileID: 5345255142770352981}
+  - component: {fileID: 3891852098722679228}
   m_Layer: 8
-  m_Name: ExperienceCollectible
+  m_Name: HealingCollectible
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,7 +157,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.3
---- !u!114 &5345255142770352981
+--- !u!114 &3891852098722679228
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8325983632572383665}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28dce85f0da940f4b8b1bdcea3004336, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ea3cc61e747e524f836a2ef48d52589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   collectAnimationDuration: 0.1
@@ -194,4 +194,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  experienceAmount: 2
+  healAmount: 5

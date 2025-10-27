@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
@@ -8,7 +7,13 @@ public class PlayerController : MonoBehaviour {
     [Header("Event Listeners")] 
     [SerializeField] private VoidEventChannelSO onRequestReviveCharacter;
 
+    private void HealCharacter(float amount) {
+        if (!playerCharacterReference) return;
+        playerCharacterReference.Heal(amount);
+    }
+    
     private void MoveCharacter(Vector2 direction) {
+        if (!playerCharacterReference) return;
         playerCharacterReference?.RequestMovement(direction);
     }
 
@@ -18,7 +23,7 @@ public class PlayerController : MonoBehaviour {
 
     private void Awake() {
         if (!playerCharacterReference) {
-            Debug.LogWarning($"{name}: missing reference \"{nameof(playerCharacterReference)}\"");
+            Debug.LogError($"{name}: missing required reference \"{nameof(playerCharacterReference)}\"");
         }
         
         MyGameManager.OnGameEnd += playerCharacterReference.Revive;
@@ -31,6 +36,7 @@ public class PlayerController : MonoBehaviour {
     private void OnEnable() {
         InputManager.OnPlayerMoveInputPerformed += MoveCharacter;
         InputManager.OnPlayerInteractInputPerformed += PerformCharacterInteraction;
+        HealingCollectible.OnHealthPickup += HealCharacter;
         
         if (onRequestReviveCharacter) {
             onRequestReviveCharacter.OnEventRaised += playerCharacterReference.Revive;
@@ -40,6 +46,7 @@ public class PlayerController : MonoBehaviour {
     private void OnDisable() {
         InputManager.OnPlayerMoveInputPerformed -= MoveCharacter;
         InputManager.OnPlayerInteractInputPerformed -= PerformCharacterInteraction;
+        HealingCollectible.OnHealthPickup -= HealCharacter;
         
         if (onRequestReviveCharacter) {
             onRequestReviveCharacter.OnEventRaised -= playerCharacterReference.Revive;

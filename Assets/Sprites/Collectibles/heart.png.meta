@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2eee678b1a3a8014aaf85d9e228c8e41
+guid: 19cb66d6309d1af448ca6d6d4b10db0e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4378986218655011218
-    second: Boton no iluminado_0
+      213: -2718233699871885872
+    second: tile016_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -24,7 +24,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 1
+  isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,12 +100,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boton no iluminado_0
+      name: tile016_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 84
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2915347d3c845cc30800000000000000
-      internalID: 4378986218655011218
+      spriteID: 0d5f3ae0ad4e64ad0800000000000000
+      internalID: -2718233699871885872
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Boton no iluminado_0: 4378986218655011218
+      tile016_0: -2718233699871885872
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
