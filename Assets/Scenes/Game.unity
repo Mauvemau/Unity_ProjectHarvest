@@ -1757,6 +1757,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da040a27a762b094b9a9477c432b949a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameplayEventManager:
+    gameplayEvents:
+    - timestampInSeconds: 30
+      eventCallbacks:
+        unityEvent:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1632652940}
+              m_TargetAssemblyTypeName: MyGameManager, Assembly-CSharp
+              m_MethodName: DebugTimestampMessage
+              m_Mode: 5
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 30 seconds, woo!
+                m_BoolArgument: 0
+              m_CallState: 2
+      timestampFormatted: 00:30
+    - timestampInSeconds: 60
+      eventCallbacks:
+        unityEvent:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1632652940}
+              m_TargetAssemblyTypeName: MyGameManager, Assembly-CSharp
+              m_MethodName: DebugTimestampMessage
+              m_Mode: 5
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 1 minute! >:)
+                m_BoolArgument: 0
+              m_CallState: 2
+      timestampFormatted: 01:00
   weaponUpgradeManager:
     weaponDatabase:
     - {fileID: 11400000, guid: 5a389d344323a0940a88548151be01a0, type: 2}
