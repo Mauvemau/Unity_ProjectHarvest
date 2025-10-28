@@ -955,28 +955,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7763fbbf22095bd44bdd51ef2d74dffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentSpawnDensity: 0
   factories:
   - factory:
       prefabToCreate: {fileID: 4210210132979722889, guid: 637b9d4b9c5081247a9c11aff171998e, type: 3}
       centralizedFactory: {fileID: 2054613208}
       autoFindCentralizedFactory: 0
-    weight: 10
-  - factory:
-      prefabToCreate: {fileID: 4579851862573548496, guid: beb980beae75b9a42ae40223a26b09eb, type: 3}
-      centralizedFactory: {fileID: 2054613208}
-      autoFindCentralizedFactory: 0
-    weight: 0.25
-  - factory:
-      prefabToCreate: {fileID: 2717563465280112146, guid: 45ac2d3e72879db41bf9ee1bd5ce9501, type: 3}
-      centralizedFactory: {fileID: 2054613208}
-      autoFindCentralizedFactory: 0
-    weight: 0.15
-  spawn: 0
-  spawnDelay: 2
+    weight: 1
+  shouldSpawn: 0
+  initialSpawnDelay: 3
   mainCameraReference: {fileID: 1069011098}
-  spawnOffset: 1
+  spawnPositionOffset: 1
   maxSpawnDistance: 20
-  spawnInterval: 1
+  currentSpawnRate: 1
 --- !u!4 &1414712855
 Transform:
   m_ObjectHideFlags: 0
@@ -1771,43 +1762,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameplayEventManager:
-    gameplayEvents:
+    changeSpawnRateEvents:
     - timestampInSeconds: 30
       eventCallbacks:
         unityEvent:
           m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 1632652940}
-              m_TargetAssemblyTypeName: MyGameManager, Assembly-CSharp
-              m_MethodName: DebugTimestampMessage
-              m_Mode: 5
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 30 seconds, woo!
-                m_BoolArgument: 0
-              m_CallState: 2
+            m_Calls: []
       timestampFormatted: 00:30
-    - timestampInSeconds: 60
+      newSpawnRate: 0.75
+    spawnEnemyEvents:
+    - timestampInSeconds: 45
       eventCallbacks:
         unityEvent:
           m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 1632652940}
-              m_TargetAssemblyTypeName: MyGameManager, Assembly-CSharp
-              m_MethodName: DebugTimestampMessage
-              m_Mode: 5
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 1 minute! >:)
-                m_BoolArgument: 0
-              m_CallState: 2
-      timestampFormatted: 01:00
+            m_Calls: []
+      timestampFormatted: 00:45
+      enemyBatch:
+      - {fileID: 4579851862573548496, guid: beb980beae75b9a42ae40223a26b09eb, type: 3}
   weaponUpgradeManager:
     weaponDatabase:
     - {fileID: 11400000, guid: 5a389d344323a0940a88548151be01a0, type: 2}
