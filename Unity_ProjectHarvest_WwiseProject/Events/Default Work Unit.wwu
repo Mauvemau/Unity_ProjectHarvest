@@ -79,6 +79,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_MandragoraShooterDeath" ID="{BE794837-563A-4954-B0C5-9AE0CA0571A8}">
+					<ChildrenList>
+						<Action Name="" ID="{08618778-0A05-409D-B857-02295691FC72}" ShortID="618601040">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="MandragoraShooterDeath" ID="{E1B2F549-A6CC-48B3-AEF3-81B4DCCE8C12}" WorkUnitID="{2A900AED-FB27-46FF-9350-EB1B5CFF717C}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

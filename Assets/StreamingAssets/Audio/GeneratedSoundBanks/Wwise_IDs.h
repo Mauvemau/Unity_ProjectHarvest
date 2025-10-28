@@ -18,6 +18,7 @@ namespace AK
         static const AkUniqueID PLAY_BUTTONHOVER = 479606568U;
         static const AkUniqueID PLAY_BUTTONPRESS = 2652178615U;
         static const AkUniqueID PLAY_MANDRAGORASHOOTER = 3211203716U;
+        static const AkUniqueID PLAY_MANDRAGORASHOOTERDEATH = 3898840282U;
         static const AkUniqueID START = 1281810935U;
     } // namespace EVENTS
 
