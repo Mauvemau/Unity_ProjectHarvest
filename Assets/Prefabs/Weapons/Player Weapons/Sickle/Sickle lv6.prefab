@@ -70,6 +70,11 @@ MonoBehaviour:
     pushForce: 0
   firstShotOffset: 0
   useParentTransform: 1
+  destroyOnWeaponDestroy: 1
+  fireAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
 --- !u!114 &6780377421844000543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,7 +138,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4129608843993675128, guid: da9c3f017eed2234d9a92029b235a35f, type: 3}
       propertyPath: useParentTransform
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4129608843993675128, guid: da9c3f017eed2234d9a92029b235a35f, type: 3}
+      propertyPath: destroyOnWeaponDestroy
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4129608843993675128, guid: da9c3f017eed2234d9a92029b235a35f, type: 3}
       propertyPath: bulletStats.penetrationCount

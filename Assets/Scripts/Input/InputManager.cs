@@ -80,9 +80,9 @@ public class InputManager : MonoBehaviour {
     }
     
     private void HandlePlayerAimInput(InputAction.CallbackContext ctx) {
-        if (IsGamePaused()) return;
         if (!ShouldReadPlayerInput()) return;
         _shouldReadMouseInput = !ctx.action.inProgress;
+        if (IsGamePaused()) return;
         
         Vector2 direction = ApplyDeadZone(ctx.ReadValue<Vector2>());
         

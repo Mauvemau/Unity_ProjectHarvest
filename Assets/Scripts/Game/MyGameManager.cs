@@ -3,6 +3,9 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class MyGameManager : MonoBehaviour {
+    [Header("Gameplay Events")]
+    [SerializeField] GameplayEventManager gameplayEventManager;
+    
     [Header("Weapon Upgrades Manager")] 
     [SerializeField] private WeaponUpgradeManager weaponUpgradeManager;
     
@@ -36,6 +39,7 @@ public class MyGameManager : MonoBehaviour {
     private float _nextTimerPoll = 0f;
 
     public static event Action OnGameEnd = delegate {};
+    public static event Action OnGameStart = delegate {};
     public static event Action<float> OnUpdateGameTimer = delegate {};
 
     [ContextMenu("Debug - Level Up Player")]
@@ -43,6 +47,13 @@ public class MyGameManager : MonoBehaviour {
         if (!Debug.isDebugBuild) return;
         if (timeManager.IsGamePaused()) return;
         globalVariableManager.DebugLevelUp();
+    }
+    
+    /// <summary>
+    /// Used for debugging gameplay events
+    /// </summary>
+    public void DebugTimestampMessage(string message) {
+        Debug.Log($"{name}: " + message);
     }
 
     private void TogglePause() {
@@ -53,7 +64,7 @@ public class MyGameManager : MonoBehaviour {
             }
         }
         else {
-            // close all menus
+            // Allow player to close the pause menu by hitting the pause key again
         }
     }
     
@@ -93,6 +104,7 @@ public class MyGameManager : MonoBehaviour {
     
     [ContextMenu("Debug - Start Game")]
     private void StartGame() {
+        gameplayEventManager.Reset();
         weaponUpgradeManager.Init();
         playerCharacter.SetActive(true);
         inputManager.SetPlayerInputEnabled(true);
@@ -103,14 +115,16 @@ public class MyGameManager : MonoBehaviour {
         _currentGameTimer.Start();
         _nextTimerPoll = 0;
         _gameStarted = true;
+        OnGameStart?.Invoke();
     }
 
     private void Update() {
         timeManager.Update();
-
-        if (timeManager.IsGamePaused()) return;
-        if (Time.time < _nextTimerPoll) return;
         
+        if (timeManager.IsGamePaused()) return;
+        gameplayEventManager.Update(_currentGameTimer.CurrentTime);
+        
+        if (Time.time < _nextTimerPoll) return;
         _nextTimerPoll = Time.time + timerPollingInterval;
         OnUpdateGameTimer?.Invoke(_currentGameTimer.CurrentTime);
     }
@@ -123,6 +137,7 @@ public class MyGameManager : MonoBehaviour {
     
     private void OnValidate() {
         globalVariableManager.ResetPlayerVariables();
+        gameplayEventManager.OnValidate();
     }
 
     private void OnEnable() {

@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behaviour:
     rid: 8748630608635756764
-  sprite: {fileID: 21300000, guid: cbb1de69fcfb81b49aee096bfc8e76b2, type: 3}
+  hitAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 58ee1ccc90426bc4684cc20d9ccbc8e0, type: 3}
   tint: {r: 1, g: 1, b: 1, a: 1}
   references:
     version: 2
@@ -25,4 +29,5 @@ MonoBehaviour:
         initialOrbitRadius: 3
         orbitExpansionSpeed: 3.5
         bulletSpinSpeed: 2000
+        clockWise: 0
         stickToMass: 0

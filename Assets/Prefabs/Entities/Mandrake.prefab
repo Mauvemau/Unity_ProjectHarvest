@@ -251,6 +251,7 @@ MonoBehaviour:
     drops:
     - collectiblePrefab: {fileID: 8325983632572383665, guid: fd3b8b79613a36847b4ae453d3ed5234, type: 3}
       <DropChance>k__BackingField: 1
+    multipleDropOffsetDistance: 1
   findPlayer: 1
   disableOnDeath: 1
   drawAIGizmo: 0
@@ -275,6 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rendererReference: {fileID: 4513896641768806966}
+  animatorReference: {fileID: 0}
 --- !u!1 &5547501926751949969
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,6 +476,7 @@ GameObject:
   m_Component:
   - component: {fileID: 855422946179556485}
   - component: {fileID: 4513896641768806966}
+  - component: {fileID: 8022943263380765565}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -540,7 +543,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 1fdd5261d71f1604390853d83800afa2, type: 3}
+  m_Sprite: {fileID: 960599175, guid: 8ebd562a70bc70547b83c9ce08dcb540, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -551,6 +554,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8022943263380765565
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8934086274936154684}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1591849813b3ca740b88a9828ba060c2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &4000928986588377394
 PrefabInstance:
   m_ObjectHideFlags: 0

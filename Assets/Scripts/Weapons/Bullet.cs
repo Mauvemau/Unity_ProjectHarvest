@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour, IBullet {
     [Header("Preset")]
     [SerializeField] private BulletPresetSO preset;
-
+    
     [Header("Current Behaviour")]
     [SerializeReference, SubclassSelector] private IBulletStrategy currentBehaviour = new LinearShotStrategy();
 
@@ -14,6 +14,7 @@ public class Bullet : MonoBehaviour, IBullet {
     private Rigidbody2D _rb;
     private Vector2 _aimDirection;
     private float _damage = 0f;
+    private AK.Wwise.Event _hitSoundEffect;
 
     private BulletStats _currentBulletStats;
 
@@ -34,6 +35,8 @@ public class Bullet : MonoBehaviour, IBullet {
         _damage = damage;
 
         _currentBulletStats = stats;
+
+        _hitSoundEffect = preset.HitAudioEvent;
 
         _timeOfDeath = Time.time + _currentBulletStats.lifeTime;
         currentBehaviour.Init(transform, _rb, _aimDirection, _currentBulletStats.speed, weaponTransform);
@@ -67,6 +70,8 @@ public class Bullet : MonoBehaviour, IBullet {
             damageable.TakeDamage(_damage);
         }
 
+        _hitSoundEffect?.Post(gameObject);
+        
         _targetsPenetratedCount++;
         if (_targetsPenetratedCount > _currentBulletStats.penetrationCount) {
             gameObject.SetActive(false); // If layered correctly it will disappear upon hitting walls
@@ -122,6 +127,7 @@ public class Bullet : MonoBehaviour, IBullet {
         _shot = false;
         _targetsPenetratedCount = 0;
         _currentOverlaps.Clear();
+        _hitSoundEffect = null;
         if (_collider) {
             _collider.isTrigger = true;
         }
