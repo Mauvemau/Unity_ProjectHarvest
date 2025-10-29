@@ -1000,6 +1000,7 @@ GameObject:
   - component: {fileID: 8849651198247039215}
   - component: {fileID: 3537884525352340435}
   - component: {fileID: 7516152720405064036}
+  - component: {fileID: 9112719415211244798}
   m_Layer: 5
   m_Name: UpgradesPanelToggleButton
   m_TagString: Untagged
@@ -1153,3 +1154,23 @@ MonoBehaviour:
   maxLevel: 6
   minFillOffset: 0.047
   maxFillOffset: 0.953
+--- !u!114 &9112719415211244798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8496742442410462159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de0d04cc486a4e047b73916b0f799f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9aabd247a7e29ff4c8c5b26072cd9f70, type: 2}
+  clickAudioEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1a6c772f63237c549bc39f783866f9cf, type: 2}

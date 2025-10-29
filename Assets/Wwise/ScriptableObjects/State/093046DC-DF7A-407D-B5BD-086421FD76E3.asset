@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcf2645b11eb59345a76c1aa47343d89, type: 3}
+  m_Name: 093046DC-DF7A-407D-B5BD-086421FD76E3
+  m_EditorClassIdentifier: 
+  objectName: Harvest_Combat
+  id: 4182149263
+  guid: 093046DC-DF7A-407D-B5BD-086421FD76E3
+  WwiseStateGroupReference: {fileID: 11400000, guid: 631aa9c4c94b8454989d881ed6268e61, type: 2}

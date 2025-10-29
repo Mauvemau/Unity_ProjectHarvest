@@ -1,29 +1,36 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SpawnerPH : MonoBehaviour {
+    [Header("Current Multipliers")] 
+    [SerializeField] private float currentSpawnDensity;
+    
     [Header("Factory Settings")]
     [SerializeField] private List<FactoryWeightPair> factories;
 
     [Header("Spawning Settings")]
-    [SerializeField] private bool spawn = false;
-    [SerializeField] private float spawnDelay = 3f;
+    [SerializeField] private bool shouldSpawn = false;
+    [SerializeField] private float initialSpawnDelay = 3f;
 
     [Header("Camera-Based Spawn Logic Settings")]
     [SerializeField] private Camera mainCameraReference; 
-    [SerializeField, Min(0.1f)] private float spawnOffset = 1f; 
+    [SerializeField, Min(0.1f)] private float spawnPositionOffset = 1f; 
     
     [Header("Random Spawn Logic Settings")]
     [SerializeField, Min(0.1f)] private float maxSpawnDistance = 5f;
-    [SerializeField, Min(0)] private float spawnInterval = 1f;
+    [SerializeField, Min(0)] private float currentSpawnRate = 1f;
 
+    private Factory _specificEnemyFactory = new Factory();
+    
     private float _nextSpawn = 0f;
 
     // Public
 
-    public void SetSpawning(bool shouldSpawn) {
-        _nextSpawn = Time.time + spawnDelay;
-        spawn = shouldSpawn;
+    public void SetSpawning(bool spawn) {
+        _nextSpawn = Time.time + initialSpawnDelay;
+        shouldSpawn = spawn;
     }
 
     public void Wipe() {
@@ -33,6 +40,30 @@ public class SpawnerPH : MonoBehaviour {
         }
     }
 
+    // Private
+
+    private void SpawnEnemyBatch(List<GameObject> prefabs) {
+        if (!shouldSpawn) return;
+        if (prefabs.Count <= 0) return;
+        _specificEnemyFactory?.SetFindCentralizedFactory(true);
+        
+        foreach (GameObject prefab in prefabs) {
+            if (!prefab) return;
+            Debug.Log($"{name}: Spawning \"{prefab.name}\"!");
+            _specificEnemyFactory?.SetPrefabToCreate(prefab);
+            
+            Vector3 spawnPos = GetSpawnPositionFromCamera();
+
+            _specificEnemyFactory?.Create(spawnPos, Quaternion.identity, Vector3.one);
+        }
+    }
+
+    private void ChangeSpawnRate(float newSpawnRate) {
+        Debug.Log($"{name}: Changing spawn rate to {newSpawnRate}!");
+        SetSpawning(newSpawnRate > 0);
+        currentSpawnRate = newSpawnRate;
+    }
+    
     /// <summary>
     /// Spawns within a square range around the gameObject position
     /// </summary>
@@ -62,19 +93,19 @@ public class SpawnerPH : MonoBehaviour {
 
         switch (side) {
             case 0: // left
-                x = camCenter.x - halfWidth - spawnOffset;
+                x = camCenter.x - halfWidth - spawnPositionOffset;
                 y = Random.Range(camCenter.y - halfHeight, camCenter.y + halfHeight);
                 break;
             case 1: // right
-                x = camCenter.x + halfWidth + spawnOffset;
+                x = camCenter.x + halfWidth + spawnPositionOffset;
                 y = Random.Range(camCenter.y - halfHeight, camCenter.y + halfHeight);
                 break;
             case 2: // top
-                y = camCenter.y + halfHeight + spawnOffset;
+                y = camCenter.y + halfHeight + spawnPositionOffset;
                 x = Random.Range(camCenter.x - halfWidth, camCenter.x + halfWidth);
                 break;
             case 3: // bottom
-                y = camCenter.y - halfHeight - spawnOffset;
+                y = camCenter.y - halfHeight - spawnPositionOffset;
                 x = Random.Range(camCenter.x - halfWidth, camCenter.x + halfWidth);
                 break;
         }
@@ -96,20 +127,28 @@ public class SpawnerPH : MonoBehaviour {
             if (randomValue <= cumulative) return pair.Factory;
         }
 
-        return factories[factories.Count - 1].Factory;
+        return factories[^1].Factory;
     }
 
     private void Update() {
-        if (!spawn) return;
+        if (!shouldSpawn) return;
         if (_nextSpawn > Time.time) return;
-        _nextSpawn = Time.time + spawnInterval;
+        _nextSpawn = Time.time + currentSpawnRate;
 
         Vector3 spawnPos = GetSpawnPositionFromCamera();
 
         Factory chosenFactory = GetWeightedRandomFactory();
-        if (chosenFactory != null) {
-            chosenFactory.Create(spawnPos, Quaternion.identity, Vector3.one);
-        }
+        chosenFactory?.Create(spawnPos, Quaternion.identity, Vector3.one);
+    }
+
+    private void OnEnable() {
+        ChangeSpawnRateEvent.OnChangeContinuousSpawnRate += ChangeSpawnRate;
+        SpawnEnemyEvent.OnSpawnEnemyBatch += SpawnEnemyBatch;
+    }
+
+    private void OnDisable() {
+        ChangeSpawnRateEvent.OnChangeContinuousSpawnRate -= ChangeSpawnRate;
+        SpawnEnemyEvent.OnSpawnEnemyBatch += SpawnEnemyBatch;
     }
 }
 
