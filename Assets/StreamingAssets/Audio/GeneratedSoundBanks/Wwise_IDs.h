@@ -16,7 +16,9 @@ namespace AK
         static const AkUniqueID PLAY_BLACKBERRYHIT = 2538688676U;
         static const AkUniqueID PLAY_BOOMERANGTHROW = 2116017054U;
         static const AkUniqueID PLAY_BUTTONHOVER = 479606568U;
+        static const AkUniqueID PLAY_BUTTONPAUSE = 2750761056U;
         static const AkUniqueID PLAY_BUTTONPRESS = 2652178615U;
+        static const AkUniqueID PLAY_MANDRAGORAHEALERSPAWN = 255250776U;
         static const AkUniqueID PLAY_MANDRAGORASHOOTER = 3211203716U;
         static const AkUniqueID PLAY_MANDRAGORASHOOTERDEATH = 3898840282U;
         static const AkUniqueID START = 1281810935U;
@@ -91,7 +93,6 @@ namespace AK
 
     namespace BUSSES
     {
-        static const AkUniqueID DISTANCIA = 2914972013U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
         static const AkUniqueID MUSICBUS = 2886307548U;
     } // namespace BUSSES

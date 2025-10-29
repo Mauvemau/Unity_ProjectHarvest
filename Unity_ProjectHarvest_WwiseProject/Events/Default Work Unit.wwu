@@ -90,6 +90,28 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_ButtonPause" ID="{3A171551-E012-4E36-A7B4-D20D28696E6C}">
+					<ChildrenList>
+						<Action Name="" ID="{B68B475A-AC09-4D3B-9C27-4EE5A506A792}" ShortID="179679672">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="hvst_sfx_pauseButton_v1" ID="{FD0FC02F-9EFC-4C13-B5D0-672DCB121408}" WorkUnitID="{2A900AED-FB27-46FF-9350-EB1B5CFF717C}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_MandragoraHealerSpawn" ID="{BC6B44ED-4444-4CE6-9D20-55826DF39179}">
+					<ChildrenList>
+						<Action Name="" ID="{D304A61E-BC7C-4EC7-AFFA-E3FE2B043FF3}" ShortID="595317474">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="MandragoraHealerSpawn" ID="{DF497F25-3F32-4468-B964-322CB0DF943E}" WorkUnitID="{2A900AED-FB27-46FF-9350-EB1B5CFF717C}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
