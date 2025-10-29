@@ -104,6 +104,7 @@ public class MyGameManager : MonoBehaviour {
     
     [ContextMenu("Debug - Start Game")]
     private void StartGame() {
+        gameplayEventManager.Reset();
         weaponUpgradeManager.Init();
         playerCharacter.SetActive(true);
         inputManager.SetPlayerInputEnabled(true);
