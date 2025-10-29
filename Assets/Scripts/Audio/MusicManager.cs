@@ -18,7 +18,6 @@ public class MusicManager : MonoBehaviour {
     private System.Action _onGameStartHandler;
     private System.Action _onGameEndHandler;
     private void ChangeState(AK.Wwise.State newState) {
-        Debug.Log($"Changing music state to {newState}!");
         newState?.SetValue();
     }
     
