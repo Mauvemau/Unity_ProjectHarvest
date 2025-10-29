@@ -90,7 +90,6 @@ namespace AK
 
     namespace BUSSES
     {
-        static const AkUniqueID DISTANCIA = 2914972013U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
         static const AkUniqueID MUSICBUS = 2886307548U;
     } // namespace BUSSES
