@@ -22,6 +22,8 @@ public class SpawnerPH : MonoBehaviour {
     [SerializeField, Min(0.1f)] private float maxSpawnDistance = 5f;
     [SerializeField, Min(0)] private float currentSpawnRate = 1f;
 
+    private Factory _specificEnemyFactory = new Factory();
+    
     private float _nextSpawn = 0f;
 
     // Public
@@ -41,13 +43,25 @@ public class SpawnerPH : MonoBehaviour {
     // Private
 
     private void SpawnEnemyBatch(List<GameObject> prefabs) {
+        if (!shouldSpawn) return;
+        if (prefabs.Count <= 0) return;
+        _specificEnemyFactory?.SetFindCentralizedFactory(true);
+        
         foreach (GameObject prefab in prefabs) {
+            if (!prefab) return;
             Debug.Log($"{name}: Spawning \"{prefab.name}\"!");
+            _specificEnemyFactory?.SetPrefabToCreate(prefab);
+            
+            Vector3 spawnPos = GetSpawnPositionFromCamera();
+
+            _specificEnemyFactory?.Create(spawnPos, Quaternion.identity, Vector3.one);
         }
     }
 
     private void ChangeSpawnRate(float newSpawnRate) {
         Debug.Log($"{name}: Changing spawn rate to {newSpawnRate}!");
+        SetSpawning(newSpawnRate > 0);
+        currentSpawnRate = newSpawnRate;
     }
     
     /// <summary>
@@ -124,9 +138,7 @@ public class SpawnerPH : MonoBehaviour {
         Vector3 spawnPos = GetSpawnPositionFromCamera();
 
         Factory chosenFactory = GetWeightedRandomFactory();
-        if (chosenFactory != null) {
-            chosenFactory.Create(spawnPos, Quaternion.identity, Vector3.one);
-        }
+        chosenFactory?.Create(spawnPos, Quaternion.identity, Vector3.one);
     }
 
     private void OnEnable() {

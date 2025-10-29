@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: cbb1de69fcfb81b49aee096bfc8e76b2
+guid: 58ee1ccc90426bc4684cc20d9ccbc8e0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 569259480739821250
-    second: Boomerang32_0
+      213: 5718304784226621280
+    second: boomerang_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
-    sRGBTexture: 0
+    sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boomerang32_0
+      name: boomerang_0
       rect:
         serializedVersion: 2
         x: 7
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2c6358e4b7a66e700800000000000000
-      internalID: 569259480739821250
+      spriteID: 0679e3587ef7b5f40800000000000000
+      internalID: 5718304784226621280
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Boomerang32_0: 569259480739821250
+      boomerang_0: 5718304784226621280
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

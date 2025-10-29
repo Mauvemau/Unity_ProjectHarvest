@@ -5,12 +5,10 @@ using UnityEngine;
 public abstract class GameplayEvent {
     [Header("Timing Settings")]
     [SerializeField] private float timestampInSeconds = 0f;
+    [SerializeField, ReadOnly] private string timestampFormatted;
     
     [Header("Bonus Events")]
     [SerializeField] private CustomCallback eventCallbacks;
-
-    [Header("Debug")] 
-    [SerializeField, ReadOnly] private string timestampFormatted;
 
     private bool _triggered = false;
     

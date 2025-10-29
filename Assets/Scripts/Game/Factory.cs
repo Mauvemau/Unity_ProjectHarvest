@@ -72,4 +72,8 @@ public class Factory {
         }
         _creations.Clear();
     }
+
+    public void SetFindCentralizedFactory(bool findCentralizedFactory) {
+        autoFindCentralizedFactory = findCentralizedFactory;
+    }
 }

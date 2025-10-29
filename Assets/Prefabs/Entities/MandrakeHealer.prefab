@@ -360,7 +360,7 @@ MonoBehaviour:
       type: {class: KeepDistanceStrategy, ns: , asm: Assembly-CSharp}
       data:
         comfortRadius: 0
-        awarenessRadius: 15
+        awarenessRadius: 10
         gripCurve:
           serializedVersion: 2
           m_Curve:
