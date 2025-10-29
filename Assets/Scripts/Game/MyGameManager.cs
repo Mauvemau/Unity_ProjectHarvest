@@ -39,6 +39,7 @@ public class MyGameManager : MonoBehaviour {
     private float _nextTimerPoll = 0f;
 
     public static event Action OnGameEnd = delegate {};
+    public static event Action OnGameStart = delegate {};
     public static event Action<float> OnUpdateGameTimer = delegate {};
 
     [ContextMenu("Debug - Level Up Player")]
@@ -113,6 +114,7 @@ public class MyGameManager : MonoBehaviour {
         _currentGameTimer.Start();
         _nextTimerPoll = 0;
         _gameStarted = true;
+        OnGameStart?.Invoke();
     }
 
     private void Update() {

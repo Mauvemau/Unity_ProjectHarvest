@@ -16,12 +16,11 @@ public class UpgradesMenuManager : MonoBehaviour {
     [Header("Debug")]
     [SerializeField, ReadOnly] private List<UpgradesMenuButton> optionButtons;
     [SerializeField, ReadOnly] private GameObject currentlySelectedButton;
-
     public static event Action<int> OnUpgradeOptionConfirmed = delegate {};
     
     private GameObject _lastSelected;
     private int _currentlySelectedOption = -1;
-
+    
     public void ConfirmSelection() {
         if (_currentlySelectedOption >= 0) {
             OnUpgradeOptionConfirmed?.Invoke(_currentlySelectedOption);
